@@ -1,0 +1,42 @@
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/bundle/lightline"]
+	path = vim/bundle/lightline
+	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/bundle/haskell"]
+	path = vim/bundle/haskell
+	url = https://github.com/neovimhaskell/haskell-vim
+[submodule "vim/bundle/colorschemes"]
+	path = vim/bundle/colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "vim/bundle/indentLine"]
+	path = vim/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/bundle/nerdtree-direnter"]
+	path = vim/bundle/nerdtree-direnter
+	url = https://github.com/Nopik/vim-nerdtree-direnter
+[submodule "vim/bundle/nerdtree-tabs"]
+	path = vim/bundle/nerdtree-tabs
+	url = https://github.com/jistr/vim-nerdtree-tabs
+[submodule "vim/bundle/nerdtree-git"]
+	path = vim/bundle/nerdtree-git
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "vim/bundle/vim-eunuch"]
+	path = vim/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
+[submodule "vim/bundle/vim-cpp-enhanced-highlight"]
+	path = vim/bundle/vim-cpp-enhanced-highlight
+	url = https://github.com/octol/vim-cpp-enhanced-highlight
+[submodule "vim/bundle/vim-code-dark"]
+	path = vim/bundle/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark
+[submodule "vim/bundle/tender.vim"]
+	path = vim/bundle/tender.vim
+	url = https://github.com/jacoborus/tender.vim
