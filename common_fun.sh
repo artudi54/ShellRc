@@ -129,9 +129,6 @@ cdc() {
     fi
     cd "$@"
 }
-ycm-cmake() {
-    echo "TODO" 1>&2
-}
 
 # screen functions
 source "$SHELLRC_DIR/screen/screen_profiles.sh"
