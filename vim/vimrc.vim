@@ -39,4 +39,4 @@ map <C-o> :NERDTreeTabsToggle<CR>
 
 let g:ycm_global_ycm_extra_conf = '$SHELLRC_DIR/vim/ycm_extra_conf.py'
 set completeopt-=preview
-
+let g:ycm_semantic_triggers = {'haskell' : ['.']}

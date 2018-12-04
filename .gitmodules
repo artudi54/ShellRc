@@ -40,3 +40,6 @@
 [submodule "vim/bundle/tender.vim"]
 	path = vim/bundle/tender.vim
 	url = https://github.com/jacoborus/tender.vim
+[submodule "vim/bundle/neco-ghc"]
+	path = vim/bundle/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc
