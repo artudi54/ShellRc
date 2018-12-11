@@ -25,6 +25,5 @@ export VIMINIT="let \$MYVIMRC='\$SHELLRC_DIR/vim/vimrc.vim' | source \$MYVIMRC"
 export SCREENRC="$SHELLRC_DIR/screen/rc/screenrc.sh"
 
 # path additions
-export PATH="$PATH:$HOME/Scripts"
-export PATH="$PATH:$HOME/Screen"
+export PATH="$PATH:$HOME/.local/bin"
 

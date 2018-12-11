@@ -11,8 +11,8 @@ alias explorer=pcmanfm
 alias cls=clear
 
 # ls aliases
-alias ll='ls -l'
-alias lla='ls -al'
+alias ll='ls -lh'
+alias lla='ls -alh'
 alias la='ls -a'
 alias l='ls'
 # TODO: ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\// /g' -e 's/^/ /'
@@ -119,7 +119,7 @@ alias cmake-debug='cmake -DCMAKE_BUILD_TYPE=Debug'
 
 # Add an 'alert' aliast for long running commands. Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # fix alias autocompletion
 
@@ -182,6 +182,24 @@ ${wrapper_name}() {
   new_completion="${new_completion% *} $alias_name"
 
   eval "$new_completion"
+}
+
+# alias_elements get alias name, command and first argument.
+# If command starts with sudo, then the next argument is used
+#TODO
+alias_elements() {
+    local IFS=" ="
+    if [[ $# -eq 0 ]]; then
+        echo "alias_elements: no arguments provided" 1>&2
+        return 1
+    fi
+    echo "$@" | read name a1 a2 a3
+
+    if [[ "a1" = "sudo" ]]; then
+        echo "$name $a2 $a3"
+    else
+        echo "$name $a1 $a2"
+    fi
 }
 
 # For each defined alias, extract the necessary elements and use them

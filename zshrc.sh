@@ -8,17 +8,17 @@ current_dir=$(dirname "${(%):-%N}")
 
 # fancy prompt
 if [ -f "$current_dir/zshrc_prompt.sh" ]; then
-        source "$current_dir/zshrc_prompt.sh"
+    source "$current_dir/zshrc_prompt.sh"
 fi
 
 # environmental variables
 if [ -f "$current_dir/common_env.sh" ]; then
-        source "$current_dir/common_env.sh"
+    source "$current_dir/common_env.sh"
 fi
 
 # output colouring
 if [ -f "$current_dir/common_colours.sh" ]; then
-        source "$current_dir/common_colours.sh"
+    source "$current_dir/common_colours.sh"
 fi
 
 # aliases
