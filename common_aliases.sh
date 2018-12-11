@@ -81,12 +81,12 @@ alias srepremove='audo add-apt-repository -r'
 alias slist='sudo apt list --installed'
 
 # systemctl deamon service aliases
-alias sdaamon='systemctl'
-alias sdaemon-status='systemctl status'
-alias sdaemon-stop='systemctl stop'
-alias sdaemon-restart='systemctl restart'
-alias sdaemon-enable='systemctl enable'
-alias sdaemon-disable='systemctl disable'
+alias sctl='sudo systemctl'
+alias sctl-status='sudo systemctl status'
+alias sctl-stop='sudo systemctl stop'
+alias sctl-restart='sudo systemctl restart'
+alias sctl-enable='sudo systemctl enable'
+alias sctl-disable='sudo systemctl disable'
 
 # ps aliases
 alias psgrep='ps aux | grep'
