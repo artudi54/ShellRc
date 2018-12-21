@@ -43,3 +43,6 @@
 [submodule "vim/bundle/neco-ghc"]
 	path = vim/bundle/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc
+[submodule "vim/bundle/YCM-Generator"]
+	path = vim/bundle/YCM-Generator
+	url = https://github.com/rdnetto/YCM-Generator
