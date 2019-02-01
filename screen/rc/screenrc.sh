@@ -10,3 +10,6 @@ bindkey "^[^[[C" next
 
 bindkey "^[[1;6D" focus prev
 bindkey "^[[1;6C" focus next
+
+bindkey SS! eval "split -v" "focus right" "split" "focus left"
+bindkey SS@ only

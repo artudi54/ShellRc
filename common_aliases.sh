@@ -77,16 +77,25 @@ alias sremove-all='sudo apt remove --purge'
 alias sremove-auto='sudo apt autoremove'
 
 alias srepadd='sudo add-apt-repository'
-alias srepremove='audo add-apt-repository -r'
+alias srepremove='sudo add-apt-repository -r'
 alias slist='sudo apt list --installed'
 
 # systemctl deamon service aliases
 alias sctl='sudo systemctl'
+alias sctl-start='sudo systemctl start'
 alias sctl-status='sudo systemctl status'
 alias sctl-stop='sudo systemctl stop'
 alias sctl-restart='sudo systemctl restart'
 alias sctl-enable='sudo systemctl enable'
 alias sctl-disable='sudo systemctl disable'
+
+alias uctl='systemctl --user'
+alias uctl-start='systemctl --user start'
+alias uctl-status='systemctl --user status'
+alias uctl-stop='systemctl --user stop'
+alias uctl-restart='systemctl --user restart'
+alias uctl-enable='systemctl --user enable'
+alias uctl-disable='systemctl --user disable'
 
 # ps aliases
 alias psgrep='ps aux | grep'
@@ -106,7 +115,7 @@ alias :q='exit'
 alias quit='exit'
 
 # change ownership/permissions
-alias chown-root='chown root:root'
+alias chown-root='sudo chown root:root'
 alias chown-me='sudo chown $USER:$USER'
 alias chmod-exe='chmod a+x'
 
@@ -116,6 +125,12 @@ alias javar='java -jar'
 # cmake aliases
 alias cmake-release='cmake -DCMAKE_BUILD_TYPE=Release'
 alias cmake-debug='cmake -DCMAKE_BUILD_TYPE=Debug'
+
+# exe and wine utils
+alias exe-extract-ico='wrestool -x -t 14'
+
+# screen daemon
+alias termscreen='screen -r termscreen'
 
 # Add an 'alert' aliast for long running commands. Use like so:
 #   sleep 10; alert
