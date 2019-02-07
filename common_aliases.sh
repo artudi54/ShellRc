@@ -1,3 +1,5 @@
+source "$SHELLRC_DIR/common_aliases_package_manager.sh"
+
 # makes aliases work with sudo
 alias sudo='sudo '
 
@@ -61,24 +63,6 @@ alias .........='cd ../../../../../../../..'
 alias cd9='cd ../../../../../../../../..'
 alias .9='cd ../../../../../../../../..'
 alias ..........='cd ../../../../../../../../..'
-
-# package tool aliases ('s' stands for system - running with sudo)
-alias supdate='sudo apt update && sudo apt upgrade'
-alias supdate-dist='sudo apt dist-upgrade'
-alias supdate-get='sudo apt update'
-alias supdate-list='sudo apt list --upgradable'
-
-alias sinstall='sudo apt install'
-alias sinstall-snap='sudo snap install'
-alias sinstall-snap-cl='sudo snap install --classic'
-
-alias sremove='sudo apt remove'
-alias sremove-all='sudo apt remove --purge'
-alias sremove-auto='sudo apt autoremove'
-
-alias srepadd='sudo add-apt-repository'
-alias srepremove='sudo add-apt-repository -r'
-alias slist='sudo apt list --installed'
 
 # systemctl deamon service aliases
 alias sctl='sudo systemctl'
