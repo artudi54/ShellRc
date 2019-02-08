@@ -29,9 +29,9 @@ aliases_apt() {
 # dnf
 aliases_dnf() {
     alias supdate='sudo dnf upgrade'
-    alias supdate-dist='#todo'
+    alias supdate-dist='sudo dnf system-upgrade download'
     alias supdate-get='sudo dnf check-update'
-    alias supdate-list='sudo dnf check-update'
+    alias supdate-list='sudo dnf list --upgrades'
 
     alias sinstall='sudo dnf install'
     alias sremove='sudo dnf remove'
@@ -39,9 +39,9 @@ aliases_dnf() {
     alias sremove-auto='sudo dnf autoremove'
 }
 
-if which apt >/dev/null; then
+if which apt >/dev/null 2>&1; then
     aliases_apt
-elif which dnf >/dev/null; then
+elif which dnf >/dev/null 2>&1; then
     aliases_dnf
 fi
 
