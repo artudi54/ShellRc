@@ -1,10 +1,3 @@
-# basic repository variables
-if [ -n "$ZSH_VERSION" ]; then
-    export SHELLRC_DIR=$(dirname "${(%):-%N}")
-elif [ -n "$BASH_VERSION" ]; then
-    export SHELLRC_DIR=$(dirname "$BASH_SOURCE")
-fi
-
 export SHELLHISTORY_DIR="$HOME/.config/ShellRc"
 if [[ ! -d "$SHELLHISTORY_DIR" ]]; then
     mkdir "$SHELLHISTORY_DIR"

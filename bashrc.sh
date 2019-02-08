@@ -5,15 +5,16 @@ case $- in
 esac
 
 current_dir=$(dirname "$BASH_SOURCE")
-
-# fancy prompt
-if [ -f "$current_dir/bashrc_prompt.sh" ]; then
-	source "$current_dir/bashrc_prompt.sh"
-fi
+source "$current_dir/shell/shellrc.sh"
 
 # environmental variables
 if [ -f "$current_dir/common_env.sh" ]; then
 	source "$current_dir/common_env.sh"
+fi
+
+# fancy prompt
+if [ -f "$current_dir/shell/prompt/prompt.sh" ]; then
+	source "$current_dir/shell/prompt/prompt.sh"
 fi
 
 # output colouring
@@ -35,5 +36,6 @@ fi
 if [ -f "$current_dir/bashrc_completion.sh" ]; then
     source "$current_dir/bashrc_completion.sh"
 fi
+
 
 unset current_dir

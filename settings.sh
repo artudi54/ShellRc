@@ -1,0 +1,1 @@
+SHELLRC_PROMPT="default"
