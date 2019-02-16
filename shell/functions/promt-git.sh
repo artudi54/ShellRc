@@ -1,4 +1,3 @@
-
 # git information for fancy prompt
 prompt-git-status() {
 	MODIFIED="${C_LIGHTYELLOW}✎${C_NC}"

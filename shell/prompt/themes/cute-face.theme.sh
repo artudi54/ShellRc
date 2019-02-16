@@ -34,8 +34,10 @@ else
     }
 fi
 
+
+
 if [ -n "$BASH_VERSION" ]; then
     PS1='$(_return-face)\[\033[00m\]\[\033[01;33m\][\t]\[\033[00m\] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;31m\]$(_git-branch)\[\033[00m\]\$ '
 elif [ -n "$ZSH_VERSION" ]; then
-    PS1=$'$(_return-face){$fg_bold[yellow]%}[%*]%{$reset_color%} %{$fg_bold[green]%}%n@%M%{$reset_color%}:%{$fg_bold[blue]%}%1~%{$reset_color%}%{$fg_bold[red]%}$(_git-branch)%{$reset_color%}$ '
+    PS1=$'$(_return-face){$fg_bold[yellow]%}[%D{%H:%m:%S}]%{$reset_color%} %{$fg_bold[green]%}%n@%M%{$reset_color%}:%{$fg_bold[blue]%}%1~%{$reset_color%}%{$fg_bold[red]%}$(_git-branch)%{$reset_color%}$ '
 fi

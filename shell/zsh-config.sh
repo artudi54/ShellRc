@@ -3,19 +3,21 @@ setopt histignorealldups
 setopt sharehistory
 setopt appendhistory
 
-# Set zsh history file
-HISTFILE=~/.config/ShellHistory/zsh_history.log
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # Use modern completion system
-autoload -Uz compinit
-compinit
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+# help
+autoload -Uz run-help
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s

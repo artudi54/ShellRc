@@ -1,0 +1,6 @@
+bash
+git
+python3.7
+screen
+vim
+zsh
