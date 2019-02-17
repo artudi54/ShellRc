@@ -1,4 +1,5 @@
 unset PS1
+unset PS2
 unset PROMPT
 
 _file-info() {
@@ -83,4 +84,4 @@ _make-prompt() {
     fi
 }
 
-PROMPT_COMMAND="_make-prompt; $PROMPT_COMMAND"
+precmd_functions+=(_make-prompt)

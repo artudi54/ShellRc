@@ -46,3 +46,6 @@
 [submodule "vim/bundle/YCM-Generator"]
 	path = vim/bundle/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator
+[submodule "shell/plugins/autoload/bash-preexec"]
+	path = shell/plugins/autoload/bash-preexec
+	url = https://github.com/rcaloras/bash-preexec

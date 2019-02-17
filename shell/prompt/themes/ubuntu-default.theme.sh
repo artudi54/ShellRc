@@ -1,4 +1,5 @@
 unset PS1
+unset PS2
 unset PROMPT
 
 if [ -n "$BASH_VERSION" ]; then

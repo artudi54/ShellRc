@@ -17,6 +17,9 @@ fi
 # shellrc configuration
 source "$SHELLRC_DIR/settings.conf"
 
+# plugins
+source "$SHELLRC_DIR/shell/plugins/plugins.sh"
+
 # environmental variables
 source "$SHELLRC_DIR/shell/environment/environment.sh"
 
