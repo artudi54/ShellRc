@@ -24,7 +24,7 @@ _file-size() {
 }
 
 
-# fancy return code face
+# branch name
 if [ -n "$BASH_VERSION" ]; then
     _git-branch-arrow() {
         local branch="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
@@ -53,8 +53,34 @@ _tty() {
     echo ${tty:5}
 }
 
+# return code formatting
 if [ -n "$BASH_VERSION" ]; then
-    PS1='\n\[\033[36m\]$(date)\[\033[0m\]\n\[\033[01;32m\]$PWD\[\033[0m\]$(_git-branch-arrow) -> \[\033[1;36m\]$(_file-info)\[\033[0m\] -> \[\033[1;35m\]$(_file-size)\[\033[0m\]\n\[\033[1;34m\]\u@\h\[\033[0m\] -> \[\033[1;35m\]$(_tty)\[\033[0m\] -> '
+    _return-code-format() {
+        if [ "$1" -ne 0 ]; then
+            printf " -> \001\033[31m$1\001\033[0m";
+        fi
+    }
 elif [ -n "$ZSH_VERSION" ]; then
-    PS1=$'\n%{$fg[cyan]%}$(date)%{$reset_color%}\n%{$fg_bold[green]%}$PWD%{$reset_color%}$(_git-branch-arrow) -> %{$fg_bold[cyan]%}$(_file-info)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_file-size)%{$reset_color%}\n%{$fg_bold[blue]%}%n@%M%{$reset_color%} -> %{$fg_bold[magenta]%}$(_tty)%{$reset_color%} -> '
+    _return-code-format() {
+        if [ "$1" -ne 0 ]; then
+            echo " -> %{$fg[red]%}$1%{$reset_color%}"
+        fi
+    }
+else
+    _return-code-format() {
+        if [ "$1" -ne 0 ]; then
+            echo " -> $1"
+        fi
+    }
 fi
+
+_make-prompt() {
+    local code=$?
+    if [ -n "$BASH_VERSION" ]; then
+        PS1='\n\[\033[36m\]$(date)\[\033[0m\]\n\[\033[01;32m\]$PWD\[\033[0m\]$(_git-branch-arrow) -> \[\033[1;36m\]$(_file-info)\[\033[0m\] -> \[\033[1;35m\]$(_file-size)\[\033[0m\]\n\[\033[1;34m\]\u@\h\[\033[0m\] -> \[\033[1;35m\]$(_tty)\[\033[0m\]$(_return-code-format '$code') -> '
+    elif [ -n "$ZSH_VERSION" ]; then
+        PS1=$'\n%{$fg[cyan]%}$(date)%{$reset_color%}\n%{$fg_bold[green]%}$PWD%{$reset_color%}$(_git-branch-arrow) -> %{$fg_bold[cyan]%}$(_file-info)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_file-size)%{$reset_color%}\n%{$fg_bold[blue]%}%n@%M%{$reset_color%} -> %{$fg_bold[magenta]%}$(_tty)%{$reset_color%}$(_return-code-format '$code') -> '
+    fi
+}
+
+PROMPT_COMMAND="_make-prompt; $PROMPT_COMMAND"

@@ -2,10 +2,9 @@
 
 # Setup for zsh
 if [ -n "$ZSH_VERSION" ]; then
-    autoload -U colors && colors
-    autoload -Uz promptinit
-    promptinit
-    setopt PROMPT_SUBST
+    autoload -Uz colors && colors
+    autoload -Uz promptinit && promptinit
+    setopt promptsubst
 fi
 
 # Set variable identifying the chroot you work in (used in the prompt below)

@@ -21,9 +21,6 @@ autoload -Uz compinit && compinit
 autoload -Uz compaudit && compaudit
 autoload -Uz bashcompinit && bashcompinit
 
-# colors
-autoload colors && colors
-
 # completion from bash
 if [ -f /usr/share/bash-completion/bash_completion ]; then 
     source /usr/share/bash-completion/bash_completion 2>/dev/null
