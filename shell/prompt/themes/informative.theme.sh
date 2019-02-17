@@ -85,3 +85,5 @@ _make-prompt() {
 }
 
 precmd_functions+=(_make-prompt)
+
+#TODO JOBS
