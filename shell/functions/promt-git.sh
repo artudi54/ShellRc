@@ -1,3 +1,8 @@
+# git branch name
+prompt-git-branch() {
+	git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 # git information for fancy prompt
 prompt-git-status() {
 	MODIFIED="${C_LIGHTYELLOW}✎${C_NC}"

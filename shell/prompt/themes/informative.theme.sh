@@ -1,0 +1,60 @@
+unset PS1
+unset PROMPT
+
+_file-info() {
+    local files=$(ls -A1 | wc -l)
+    local hidden=$(($files-$(ls -1 | wc -l)))
+
+    local form
+    if [ "$files" -eq 1 ]; then
+        form="file"
+    else
+        form="files"
+    fi
+
+    if [ "$hidden" -ne "0" ]; then
+        echo "$files $form ($hidden hidden)"
+    else
+        echo "$files $form"
+    fi
+}
+
+_file-size() {
+    ls -lah | head -n 1 | awk '{ print $2 }'
+}
+
+
+# fancy return code face
+if [ -n "$BASH_VERSION" ]; then
+    _git-branch-arrow() {
+        local branch="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+        if [ -n "$branch" ]; then
+            printf " -> \001\033[1;93m${branch}\001\033[0m"
+        fi
+    }
+elif [ -n "$ZSH_VERSION" ]; then
+    _git-branch-arrow() {
+        local branch="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+        if [ -n "$branch" ]; then
+            echo " -> %{$fg_bold[yellow]%}${branch}%{$reset_color%}"
+        fi
+    }
+else
+    _git-branch-arrow() {
+        local branch="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+        if [ -n "$branch" ]; then
+            printf " -> ${branch}"
+        fi
+    }
+fi
+
+_tty() {
+    local tty=$(tty);
+    echo ${tty:5}
+}
+
+if [ -n "$BASH_VERSION" ]; then
+    PS1='\n\[\033[36m\]$(date)\[\033[0m\]\n\[\033[01;32m\]$PWD\[\033[0m\]$(_git-branch-arrow) -> \[\033[1;36m\]$(_file-info)\[\033[0m\] -> \[\033[1;35m\]$(_file-size)\[\033[0m\]\n\[\033[1;34m\]\u@\h\[\033[0m\] -> \[\033[1;35m\]$(_tty)\[\033[0m\] -> '
+elif [ -n "$ZSH_VERSION" ]; then
+    PS1=$'\n%{$fg[cyan]%}$(date)%{$reset_color%}\n%{$fg_bold[green]%}$PWD%{$reset_color%}$(_git-branch-arrow) -> %{$fg_bold[cyan]%}$(_file-info)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_file-size)%{$reset_color%}\n%{$fg_bold[blue]%}%n@%M%{$reset_color%} -> %{$fg_bold[magenta]%}$(_tty)%{$reset_color%} -> '
+fi

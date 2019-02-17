@@ -4,4 +4,4 @@ source "$SHELLRC_DIR/screen/scripts/basic/directories.sh"
 eval cdc "\$$1"
 export-start
 clear
-bash
+$SHELL

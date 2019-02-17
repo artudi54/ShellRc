@@ -1,6 +1,5 @@
 unset PS1
 unset PROMPT
-unset PROMPT_COMMAND
 
 # git branch name
 _git-branch() {

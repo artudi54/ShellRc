@@ -7,8 +7,7 @@ shopt -s cmdhist
 # check the window size after each command and, if necessary
 shopt -s checkwinsize
 
-# if set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
+# extended globbing
 shopt -s globstar
 
 # case-insensitive globbing (used in pathname expansion)

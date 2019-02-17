@@ -1,6 +1,5 @@
 unset PS1
 unset PROMPT
-unset PROMPT_COMMAND
 
 if [ -n "$BASH_VERSION" ]; then
     PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ '

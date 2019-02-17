@@ -11,3 +11,6 @@ SAVEHIST=5000
 
 # history file
 HISTFILE=~/.config/ShellHistory/shell_history.log
+
+# append history every command
+PROMPT_COMMAND="append-history"
