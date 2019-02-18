@@ -9,14 +9,13 @@ prompt-git-status() {
 	MODIFIEDADDED="${C_GREEN}✎${C_NC}"
 	DELETED="${C_RED}-${C_NC}"
 	UNTRACKED="${C_LIGHTGRAY}?${C_NC}"
-	status=$(git status -s 2>/dev/null | awk '{ print $1 }')
-	printf "%s\nl${status}l"
+	_status=$(git status -s 2>/dev/null | awk '{ print $1 }')
 	modified=false
 	untracked=false
 	deleted=false
 	output=""
 	if [[ $? == 0 ]]; then
-		for entry in $status; do
+		for entry in $_status; do
 			if [[ $entry == "M" ]]; then
 				modified=true
 			elif [[ $entry == "D" ]]; then

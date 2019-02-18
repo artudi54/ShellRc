@@ -29,5 +29,6 @@ shellrc-prompt-set() {
         echo "SHELLRC_PROMPT=\"$theme\"" >>"$SHELLRC_DIR/settings.conf"
     fi
     SHELLRC_PROMPT="$theme"
+    unset -f make-prompt 2>/dev/null
     shellrc-reload
 }
