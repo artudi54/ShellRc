@@ -21,18 +21,12 @@ autoload -Uz compinit && compinit
 autoload -Uz compaudit && compaudit
 autoload -Uz bashcompinit && bashcompinit
 
-# completion from bash
-if [ -f /usr/share/bash-completion/bash_completion ]; then 
-    source /usr/share/bash-completion/bash_completion 2>/dev/null
-elif [ -f /etc/bash_completion ]; then 
-    source /etc/bash_completion 2>/dev/null
-fi 
-
 # help
 autoload -Uz run-help
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3)) numeric)'
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2

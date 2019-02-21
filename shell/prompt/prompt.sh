@@ -14,8 +14,7 @@ else
     source "$SHELLRC_DIR/shell/prompt/themes/default.theme.sh"
 fi
 
-if [ -f "$SHELLRC_DIR/shell/prompt/prompt-utils.sh" ]; then
-    source "$SHELLRC_DIR/shell/prompt/prompt-utils.sh"
-fi
+# utility functions
+source "$SHELLRC_DIR/shell/prompt/prompt-utils.sh"
 
 precmd_functions+=(make-prompt)

@@ -17,8 +17,8 @@ fi
 # shellrc configuration
 source "$SHELLRC_DIR/settings.conf"
 
-# plugins
-source "$SHELLRC_DIR/shell/plugins/plugins.sh"
+# required plugins
+source "$SHELLRC_DIR/shell/plugins/required.sh"
 
 # environmental variables
 source "$SHELLRC_DIR/shell/environment/environment.sh"
@@ -41,6 +41,11 @@ fi
 # screen functions
 source "$SHELLRC_DIR/screen/screen_profiles.sh"
 
+# plugins
+source "$SHELLRC_DIR/shell/plugins/plugins.sh"
 
 # make less more friendly for non-text input files
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+#TODO FIX MODULES

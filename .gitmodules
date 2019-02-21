@@ -1,3 +1,15 @@
+[submodule "shell/plugins/files/bash-preexec"]
+	path = shell/plugins/files/bash-preexec
+	url = https://github.com/rcaloras/bash-preexec
+[submodule "shell/plugins/files/bash-completion"]
+	path = shell/plugins/files/bash-completion
+	url = https://github.com/scop/bash-completion
+[submodule "shell/plugins/files/zsh-completions"]
+	path = shell/plugins/files/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+[submodule "shell/plugins/files/zsh-syntax-highlighting"]
+	path = shell/plugins/files/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
@@ -9,7 +21,7 @@
 	url = https://github.com/neovimhaskell/haskell-vim
 [submodule "vim/bundle/colorschemes"]
 	path = vim/bundle/colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
+	url = https://github.com/flazz/vim-colorschemes
 [submodule "vim/bundle/indentLine"]
 	path = vim/bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine
@@ -46,6 +58,3 @@
 [submodule "vim/bundle/YCM-Generator"]
 	path = vim/bundle/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator
-[submodule "shell/plugins/autoload/bash-preexec"]
-	path = shell/plugins/autoload/bash-preexec
-	url = https://github.com/rcaloras/bash-preexec

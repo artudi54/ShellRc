@@ -1,0 +1,1 @@
+source "$SHELLRC_DIR/shell/plugins/files/cdpath/cdpath.sh"
