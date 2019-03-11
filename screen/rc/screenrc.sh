@@ -13,3 +13,6 @@ bindkey "^[[1;6C" focus next
 
 bindkey SS! eval "split -v" "focus right" "split" "focus left"
 bindkey SS@ only
+
+term xterm-256color
+

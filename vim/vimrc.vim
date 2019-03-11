@@ -1,5 +1,5 @@
 source $SHELLRC_DIR/vim/autoload/pathogen.vim
-set viminfo+=n~/.config/vim/viminfo
+set viminfo+=n~/.config/ShellHistory/viminfo.log
 
 set encoding=utf-8
 set number

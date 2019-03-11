@@ -17,7 +17,7 @@ alias sremove-pip='sudo -H pip3 uninstall'
 
 #apt
 aliases_apt() {
-    alias supdate='sudo apt update && sudo apt upgrade -y && sudo snap refresh && sudo flatpak update'
+    alias supdate='sudo apt update && sudo apt upgrade -y && sudo snap refresh && sudo flatpak update -y'
     alias supdate-dist='sudo apt dist-upgrade'
     alias supdate-get='sudo apt update'
     alias supdate-list='sudo apt list --upgradable'
