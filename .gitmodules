@@ -61,3 +61,6 @@
 [submodule "vim/bundle/bracketed-paste"]
 	path = vim/bundle/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste
+[submodule "vim/bundle/quickmenu"]
+	path = vim/bundle/quickmenu
+	url = https://github.com/skywind3000/quickmenu.vim

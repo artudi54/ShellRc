@@ -11,3 +11,15 @@ nnoremap <C-y> :redo<CR>
 " Duplicate line
 inoremap <C-d> <Esc>Ypi
 nnoremap <C-d> Yp
+
+" Quick menu
+call g:quickmenu#reset()
+
+nnoremap <silent><F2> :call quickmenu#toggle(0)<cr>
+inoremap <silent><F2> <C-O>:call quickmenu#toggle(0)<cr>
+
+call g:quickmenu#header('Menu')
+
+call g:quickmenu#append('# Navigation', '')
+call g:quickmenu#append('Go to definition', 'YcmCompleter GoToDefinition')
+call g:quickmenu#append('Go to declaration', 'YcmCompleter GoToDeclaration')
