@@ -18,9 +18,6 @@ set autoindent
 set wildmode=longest,list,full
 set wildmenu
 
-map <S-Right> :tabnext<CR>
-map <S-Left> :tabprev<CR>
-
 execute pathogen#infect("$SHELLRC_DIR/vim/bundle/{}")
 syntax on
 filetype plugin indent on
@@ -42,8 +39,12 @@ let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_confirm_extra_conf = 0
 set completeopt-=preview
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:ycm_key_list_stop_completion = []
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
+
+" key mappings
+source $SHELLRC_DIR/vim/keymappings.vim
 
