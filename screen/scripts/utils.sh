@@ -7,6 +7,3 @@ cdc() {
     cd "$@"
 }
 
-export-start() {
-    export START="$PWD"
-}

@@ -1,16 +1,14 @@
 source "$SHELLRC_DIR/screen/rc/screenrc.sh"
 
-bindkey LLS stuff 'cd "$START"'^M
-
-screen -t "Home" 0 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W0"
-screen -t "Downloads" 1 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W1"
-screen -t "Documents" 2 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W2"
-screen -t "Desktop" 3 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W3"
-screen -t "FilesystemRoot" 4 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W4"
-screen -t "Usr" 5 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W5"
-screen -t "Share" 6 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W6"
-screen -t "Local" 7 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W7"
-screen -t "Opt" 8 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W8"
-screen -t "Temp" 9 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' W9"
+screen -t "Home" 0 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '$HOME'"
+screen -t "Downloads" 1 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '$HOME/Downloads'"
+screen -t "Documents" 2 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '$HOME/Documents'"
+screen -t "Desktop" 3 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '$HOME/Desktop'"
+screen -t "FilesystemRoot" 4 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '/'"
+screen -t "Usr" 5 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '/usr'"
+screen -t "Share" 6 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '/usr/share'"
+screen -t "Local" 7 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '/usr/local'"
+screen -t "Opt" 8 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '/usr/local'"
+screen -t "Temp" 9 $SHELL -c ". '$SHELLRC_DIR/screen/scripts/basic/start.sh' '/tmp'"
 
 select 0

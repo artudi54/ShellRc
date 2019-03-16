@@ -39,7 +39,7 @@ elif [ -n "$ZSH_VERSION" ]; then
 fi
 
 # screen functions
-source "$SHELLRC_DIR/screen/screen_profiles.sh"
+source "$SHELLRC_DIR/screen/screen.sh"
 
 # plugins
 source "$SHELLRC_DIR/shell/plugins/plugins.sh"
