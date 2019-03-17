@@ -58,6 +58,7 @@
 [submodule "vim/bundle/YCM-Generator"]
 	path = vim/bundle/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator
+    branch = stable
 [submodule "vim/bundle/bracketed-paste"]
 	path = vim/bundle/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste
