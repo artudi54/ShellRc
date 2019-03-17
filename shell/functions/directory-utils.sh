@@ -16,7 +16,7 @@ alias ldl='ld -l'
 # change directory with create when specified does not exist exist
 cdc() {
     if [[ ! -d "$@" ]]; then
-        mkdir "$@"
+        mkdir -p "$@"
     fi
     cd "$@"
 }
