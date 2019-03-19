@@ -16,6 +16,7 @@ rar
 screen
 sudo
 tar
+tmux
 unzip
 vim
 wget
