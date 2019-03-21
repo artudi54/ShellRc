@@ -17,9 +17,9 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # Use modern completion system
-autoload -Uz compinit && compinit
-autoload -Uz compaudit && compaudit
-autoload -Uz bashcompinit && bashcompinit
+autoload -Uz compinit && compinit -d "$shellhistory_dir/zcompdump.log"
+autoload -Uz compaudit && compaudit -d "$shellhistory_dir/zcompdump.log"
+autoload -Uz bashcompinit && bashcompinit -d "$shellhistory_dir/zcompdump.log"
 
 # help
 autoload -Uz run-help

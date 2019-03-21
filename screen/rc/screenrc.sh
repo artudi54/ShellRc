@@ -1,7 +1,7 @@
 startup_message off
 defscrollback 20000
 
-caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+caption always "%{= bw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
 
 bindkey "^[[1;3D" prev
 bindkey "^[^[[D" prev

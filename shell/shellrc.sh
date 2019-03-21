@@ -1,12 +1,6 @@
 # Main entry for shells
 # Currently supports bash and zsh
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
 # basic repository variables
 if [ -n "$BASH_VERSION" ]; then
     export SHELLRC_DIR="$(dirname "$(dirname "$BASH_SOURCE")")"
