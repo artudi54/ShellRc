@@ -94,18 +94,21 @@ write-dotfiles() {
 }
 
 
-#install-deps
+install-deps
 if [ $? != 0 ]; then
     exit 1
 fi
+echo "Installation done"
 
 make-backups
 if [ $? != 0 ]; then
     exit 1
 fi
+echo "Backups done"
 
 write-dotfiles
 if [ $? != 0 ]; then
     exit 1
 fi
+echo "Writing dotfiles done"
 
