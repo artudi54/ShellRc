@@ -3,7 +3,7 @@ SHELLRC_DIR="$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")"
 BAK_DIR="$HOME/.shellrc-backups"
 
 exists() {
-    if which "$1" 2>&1 1>/dev/null; then
+    if which "$1" >/dev/null 2>&1; then
         return 0
     else
         return 1
@@ -12,17 +12,20 @@ exists() {
 
 install-deps() {
     if exists apt; then
-        sudo apt install -y $(cat "$SHELLRC_DIR/configure/install.txt")
+        sudo apt install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
     elif exists aptitude; then
-        sudo aptitude install -y $(cat i"$SHELLRC_DIR/configure/install.txt")
+        sudo aptitude install -y $(cat i"$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
     elif exists apt-get; then
-        sudo apt-get install -y $(cat "$SHELLRC_DIR/configure/install.txt")
+        sudo apt-get install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
     elif exists dnf; then
-        sudo dnf install -y $(cat "$SHELLRC_DIR/configure/install.txt")
+        sudo dnf install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
     elif exists yum; then
-        sudo yum install -y $(cat "$SHELLRC_DIR/configure/install.txt")
-    elif exists pacman; then
-        sudo pacman -Sy $(cat "$SHELLRC_DIR/configure/install.txt")
+        sudo yum install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
+    elif exists yay; then
+        yay --noconfirm -Sy $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python.txt")
+    else
+        echo "$0: no suitable package manager for installing dependencies found" 1>&2
+        return 1
     fi
 }
 

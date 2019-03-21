@@ -8,14 +8,10 @@ gzip
 icoutils
 ncompress
 net-tools
-p7zip-full
-p7zip-rar
+p7zip
 python3
-python3-dev
 rar
 screen
-ssh
-sudo
 tar
 tmux
 unzip
