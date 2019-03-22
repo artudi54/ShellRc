@@ -39,7 +39,9 @@ source "$SHELLRC_DIR/screen/screen.sh"
 source "$SHELLRC_DIR/shell/plugins/plugins.sh"
 
 # make less more friendly for non-text input files
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+if [ -x /usr/bin/lesspipe ]; then
+    eval "$(SHELL=/bin/sh lesspipe)"
+fi
 
 
 #TODO FIX MODULES
