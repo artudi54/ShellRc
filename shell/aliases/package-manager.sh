@@ -46,10 +46,33 @@ aliases_dnf() {
     alias sremove-auto='sudo dnf autoremove'
 }
 
+# arch package manager
+aliases_arch() {
+    pkg="$1"
+    alias supdate="$pkg -Syu && sudo snap refresh && sudo flatpak update -y"
+    #alias supdate-dist='sudo apt dist-upgrade'
+    #alias supdate-get='sudo apt update'
+    #alias supdate-list='sudo apt list --upgradable'
+
+    alias sinstall="$pkg -Sy"
+    alias sinstall-system='sinstall'
+    alias sremove="$pkg -R"
+    alias sremove-all="$pkg -Rs"
+    #alias sremove-auto='sudo apt autoremove'
+
+    #alias srepadd='sudo add-apt-repository'
+    #alias srepremove='sudo add-apt-repository -r'
+    #alias slist='(sudo apt list --installed 2>/dev/null && sudo snap list && sudo flatpak list && sudo -H pip3 list -v)'
+}
+
 if which apt >/dev/null 2>&1; then
     aliases_apt
 elif which dnf >/dev/null 2>&1; then
     aliases_dnf
+elif which yay >/dev/null 2>&1; then
+    aliases_arch yay
+elif which pacman >/dev/null 2>&1; then
+    aliases_arch "sudo pacman"
 fi
 
 unset -f aliases_apt
