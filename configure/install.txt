@@ -4,8 +4,11 @@ bzip2
 cmake
 emacs
 git
+grep
 gzip
 icoutils
+less
+make
 ncompress
 net-tools
 p7zip
@@ -18,4 +21,3 @@ unzip
 vim
 wget
 zsh
-
