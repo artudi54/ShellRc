@@ -115,3 +115,8 @@ if [ $? != 0 ]; then
 fi
 echo "Writing dotfiles done"
 
+python3 $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py
+if [ $? != 0 ]; then
+    exit 1
+fi
+echo "Configuring vim completion done"

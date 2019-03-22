@@ -1,2 +1,3 @@
 python-pip
 python-future
+python-certifi

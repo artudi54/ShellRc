@@ -27,3 +27,4 @@ smbclient
 tcpdump
 tldr
 tree
+xdg-utils
