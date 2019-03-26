@@ -1,0 +1,14 @@
+atop
+bash
+cmake
+emacs
+git
+less
+make
+p7zip
+screen
+tar
+tmux
+vim
+wget
+zsh

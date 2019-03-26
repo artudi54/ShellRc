@@ -2,6 +2,18 @@
 SHELLRC_DIR="$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")"
 BAK_DIR="$HOME/.shellrc-backups"
 
+debian-init() {
+    if [ -f /etc/debian_version ]; then
+        "$SHELLRC_DIR/configure/install/debian/init.sh"
+    fi
+}
+
+fedora-init() {
+    if [ -f /etc/fedora-release ]; then
+        "$SHELLRC_DIR/configure/install/fedora/init.sh"
+    fi
+}
+
 exists() {
     if which "$1" >/dev/null 2>&1; then
         return 0
@@ -12,11 +24,11 @@ exists() {
 
 install-deps() {
     if exists apt; then
-        sudo apt install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
+        sudo apt install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/debian/install.txt")
     elif exists aptitude; then
-        sudo aptitude install -y $(cat i"$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
+        sudo aptitude install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/debian/install.txt")
     elif exists apt-get; then
-        sudo apt-get install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
+        sudo apt-get install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/debian/install.txt")
     elif exists dnf; then
         sudo dnf install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
     elif exists yum; then
@@ -95,6 +107,16 @@ write-dotfiles() {
 
     echo "source "\"$SHELLRC_DIR/tmux/tmux.conf\""" > "$HOME/.tmux.conf"
 }
+
+echo "Preconfiguring distribution"
+debian-init
+if [ $? != 0 ]; then
+    exit 1
+fi
+fedora-init
+if [ $? != 0 ]; then
+    exit 1
+fi
 
 
 install-deps
