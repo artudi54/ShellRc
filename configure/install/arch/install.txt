@@ -1,3 +1,6 @@
+python
+python-dev
 python-pip
 python-future
 python-certifi
+wireless_tools

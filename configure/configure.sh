@@ -2,13 +2,7 @@
 SHELLRC_DIR="$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")"
 BAK_DIR="$HOME/.shellrc-backups"
 
-debian-init() {
-    if [ -f /etc/debian_version ]; then
-        "$SHELLRC_DIR/configure/install/debian/init.sh"
-    fi
-}
-
-fedora-init() {
+fedora-init-install() {
     if [ -f /etc/fedora-release ]; then
         "$SHELLRC_DIR/configure/install/fedora/init.sh"
     fi
@@ -34,7 +28,7 @@ install-deps() {
     elif exists yum; then
         sudo yum install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
     elif exists yay; then
-        yay --noconfirm -Sy $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python.txt")
+        yay --noconfirm -Sy $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/arch/install.txt")
     else
         echo "$0: no suitable package manager for installing dependencies found" 1>&2
         return 1
@@ -109,10 +103,6 @@ write-dotfiles() {
 }
 
 echo "Preconfiguring distribution"
-debian-init
-if [ $? != 0 ]; then
-    exit 1
-fi
 fedora-init
 if [ $? != 0 ]; then
     exit 1
