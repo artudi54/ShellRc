@@ -1,8 +1,8 @@
 gcc-c++
 gcc
-python36
-python36-devel
-python36-pip
-python36-future
-python36-certifi
+python36u
+python36u-devel
+python36u-pip
+python36u-future
+python36u-certifi
 wireless-tools
