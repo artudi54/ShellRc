@@ -1,0 +1,5 @@
+python36
+python36-pip
+python36-future
+python36-certifi
+wireless-tools

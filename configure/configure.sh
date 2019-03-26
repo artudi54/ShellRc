@@ -31,7 +31,7 @@ install-deps() {
     elif exists dnf; then
         sudo dnf install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/fedora/install.txt")
     elif exists yum; then
-        sudo yum install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
+        sudo yum install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/centos/install.txt")
     elif exists yay; then
         yay --noconfirm -Sy $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/arch/install.txt")
     else
