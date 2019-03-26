@@ -30,7 +30,7 @@ install-deps() {
     elif exists apt-get; then
         sudo apt-get install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/debian/install.txt")
     elif exists dnf; then
-        sudo dnf install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
+        sudo dnf install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/fedora/install.txt")
     elif exists yum; then
         sudo yum install -y $(cat "$SHELLRC_DIR/configure/install.txt" "$SHELLRC_DIR/configure/install-python3.txt")
     elif exists yay; then

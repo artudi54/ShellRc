@@ -5,7 +5,6 @@ icoutils
 less
 ncompress
 net-tools
-p7zip
 python3
 rar
 unzip
