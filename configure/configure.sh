@@ -103,11 +103,10 @@ write-dotfiles() {
 }
 
 echo "Preconfiguring distribution"
-fedora-init
+fedora-init-install
 if [ $? != 0 ]; then
     exit 1
 fi
-
 
 install-deps
 if [ $? != 0 ]; then
