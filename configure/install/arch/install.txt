@@ -1,3 +1,4 @@
+gcc
 python
 python-pip
 python-future
