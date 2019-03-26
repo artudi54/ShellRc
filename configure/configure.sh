@@ -112,6 +112,10 @@ fedora-init-install
 if [ $? != 0 ]; then
     exit 1
 fi
+centos-init-install
+if [ $? != 0 ]; then
+    exit 1
+fi
 
 install-deps
 if [ $? != 0 ]; then
