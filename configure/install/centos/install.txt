@@ -3,6 +3,4 @@ gcc
 python36u
 python36u-devel
 python36u-pip
-python36u-future
-python36u-certifi
 wireless-tools

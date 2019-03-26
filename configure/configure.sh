@@ -21,6 +21,18 @@ exists() {
     fi
 }
 
+get-python() {
+    local python
+    python="$(which python3 2>/dev/null)"
+    if [ "$python" = "" ]; then
+        python="$(which python3.7 2>/dev/null)"
+    fi
+    if [ "$python" = "" ]; then
+        python="$(which python3.6 2>/dev/null)"
+    fi
+    echo "$python"
+}
+
 install-deps() {
     if exists apt; then
         sudo apt install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/debian/install.txt")
@@ -135,7 +147,13 @@ if [ $? != 0 ]; then
 fi
 echo "Writing dotfiles done"
 
-python3 $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py
+python="$(get-python)"
+if [ "$python" = "" ]; then
+    echo "No python binary found" 1>&2
+    exit 1
+fi
+
+"$python" $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py
 if [ $? != 0 ]; then
     exit 1
 fi
