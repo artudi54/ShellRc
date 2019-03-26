@@ -7,6 +7,11 @@ fedora-init-install() {
         "$SHELLRC_DIR/configure/install/fedora/init.sh"
     fi
 }
+centos-init-install() {
+    if [ -f /etc/centos-release ]; then
+        "$SHELLRC_DIR/configure/install/centos/init.sh"
+    fi
+}
 
 exists() {
     if which "$1" >/dev/null 2>&1; then
