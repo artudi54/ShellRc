@@ -1,4 +1,7 @@
+gcc-c++
+gcc
 python36
+python36-devel
 python36-pip
 python36-future
 python36-certifi
