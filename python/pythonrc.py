@@ -2,7 +2,7 @@ import os
 import readline
 import atexit
 
-HISTORY_FILE = os.path.join(os.getenv("HOME", "."), ".config/ShellHistory/python_history.log")
+HISTORY_FILE = os.path.join(os.getenv("SHELLHISTORY_DIR", "."), "python_history.log")
 
 
 def load_history():

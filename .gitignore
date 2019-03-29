@@ -2,3 +2,5 @@ tmp
 *.swo
 *.swp
 .vscode/
+history/
+settings.conf

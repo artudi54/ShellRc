@@ -19,9 +19,9 @@ bindkey "^[[1;5D" backward-word
 
 # Use modern completion system
 export skip_global_compinit=1
-autoload -Uz compinit && compinit -d "$shellhistory_dir/zcompdump.log"
-autoload -Uz compaudit && compaudit -d "$shellhistory_dir/zcompdump.log"
-autoload -Uz bashcompinit && bashcompinit -d "$shellhistory_dir/zcompdump.log"
+autoload -Uz compinit && compinit -d "$SHELLHISTORY_DIR/zcompdump.log"
+autoload -Uz compaudit && compaudit -d "$SHELLHISTORY_DIR/zcompdump.log"
+autoload -Uz bashcompinit && bashcompinit -d "$SHELLHISTORY_DIR/zcompdump.log"
 
 # help
 autoload -Uz run-help
