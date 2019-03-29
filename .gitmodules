@@ -65,3 +65,6 @@
 [submodule "vim/bundle/quickmenu"]
 	path = vim/bundle/quickmenu
 	url = https://github.com/skywind3000/quickmenu.vim
+[submodule "shell/plugins/files/paki/paki"]
+	path = shell/plugins/files/paki/paki
+	url = https://github.com/artudi54/paki
