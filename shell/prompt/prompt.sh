@@ -18,3 +18,4 @@ fi
 source "$SHELLRC_DIR/shell/prompt/prompt-utils.sh"
 
 precmd_functions+=(make-prompt)
+
