@@ -16,3 +16,5 @@ bindkey SS@ only
 
 term xterm-256color
 
+mousetrack on
+
