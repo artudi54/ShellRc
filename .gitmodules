@@ -1,11 +1,11 @@
 [submodule "shell/plugins/files/bash-completion"]
-	path = shell/plugins/files/bash-completion
+	path = shell/plugins/completions/bash-completion
 	url = https://github.com/scop/bash-completion
 [submodule "shell/plugins/files/zsh-completions"]
-	path = shell/plugins/files/zsh-completions
+	path = shell/plugins/completions/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
 [submodule "shell/plugins/files/zsh-syntax-highlighting"]
-	path = shell/plugins/files/zsh-syntax-highlighting
+	path = shell/plugins/syntax-highlighting/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
@@ -63,5 +63,8 @@
 	path = vim/bundle/quickmenu
 	url = https://github.com/skywind3000/quickmenu.vim
 [submodule "shell/plugins/files/paki/paki"]
-	path = shell/plugins/files/paki/paki
+	path = shell/plugins/paki/paki
 	url = https://github.com/artudi54/paki
+[submodule "vim/bundle/ps1"]
+	path = vim/bundle/ps1
+	url = https://github.com/PProvost/vim-ps1

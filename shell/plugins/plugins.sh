@@ -1,8 +1,8 @@
 # main plugins file
 
 # load autoloading plugins
-for file in $SHELLRC_DIR/shell/plugins/entries/*.plugin.sh; do
-    source "$file"
+for dir in $SHELLRC_DIR/shell/plugins/*; do
+    [ -d "$dir" ] && source "$dir/$(basename $dir).plugin.sh"
 done
 
 source "$SHELLRC_DIR/shell/plugins/plugins-utils.sh"
