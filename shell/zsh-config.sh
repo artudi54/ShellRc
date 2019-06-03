@@ -1,3 +1,14 @@
+# Use modern completion system
+export skip_global_compinit=1
+autoload -Uz compinit && compinit -d "$SHELLHISTORY_DIR/zcompdump.log"
+autoload -Uz compaudit && compaudit -d "$SHELLHISTORY_DIR/zcompdump.log"
+autoload -Uz bashcompinit && bashcompinit -d "$SHELLHISTORY_DIR/zcompdump.log"
+
+# check if running interactively
+if [[ -o login ]]; then
+  return
+fi
+
 # History
 setopt histignorealldups
 setopt histignorespace
@@ -17,11 +28,6 @@ setopt nolistambiguous
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Use modern completion system
-export skip_global_compinit=1
-autoload -Uz compinit && compinit -d "$SHELLHISTORY_DIR/zcompdump.log"
-autoload -Uz compaudit && compaudit -d "$SHELLHISTORY_DIR/zcompdump.log"
-autoload -Uz bashcompinit && bashcompinit -d "$SHELLHISTORY_DIR/zcompdump.log"
 
 # help
 autoload -Uz run-help
