@@ -143,10 +143,15 @@ inoremap <C-w> <Esc>lviw
 nnoremap <C-w> viw
 
 " Move line up or down
-:inoremap <A-Up> <C-O>:move -2<CR>
-:inoremap <A-Down> <C-O>:move +1<CR>
-:nnoremap <A-Up> :move -2<CR>
-:nnoremap <A-Down> :move +1<CR>
+inoremap <A-Up> <C-O>:move -2<CR>
+inoremap <A-Down> <C-O>:move +1<CR>
+nnoremap <A-Up> :move -2<CR>
+nnoremap <A-Down> :move +1<CR>
+
+" Jump to line (start entering command)
+nnoremap <C-G> :
+inoremap <C-G> <C-O>:
+vnoremap <C-G> <Esc>:
 
 " Directory view
 let NERDTreeMapOpenInTab='<ENTER>'
