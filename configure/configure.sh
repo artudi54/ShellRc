@@ -153,7 +153,7 @@ if [ "$python" = "" ]; then
     exit 1
 fi
 
-"$python" $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py
+"$python" $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py --clang-completer
 if [ $? != 0 ]; then
     exit 1
 fi

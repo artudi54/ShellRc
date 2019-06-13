@@ -1,6 +1,7 @@
 atop
 bash
 bzip2
+clang
 cmake
 emacs
 git
