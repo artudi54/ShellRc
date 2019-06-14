@@ -1,3 +1,5 @@
+g++
+gcc
 g++-8
 gcc-8
 python3

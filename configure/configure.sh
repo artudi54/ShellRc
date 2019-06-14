@@ -2,11 +2,6 @@
 SHELLRC_DIR="$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")"
 BAK_DIR="$HOME/.shellrc-backups"
 
-
-preinstall() {
-    "$SHELLRC_DIR/configure/preinstall/preinstall.sh" "$SHELLRC_DIR"
-}
-
 exists() {
     if which "$1" >/dev/null 2>&1; then
         return 0
@@ -27,6 +22,10 @@ get-python() {
     echo "$python"
 }
 
+preinstall() {
+    "$SHELLRC_DIR/configure/preinstall/preinstall.sh" "$SHELLRC_DIR"
+}
+
 install() {
     if exists apt; then
         sudo apt install -y $(cat "$SHELLRC_DIR/configure/install/install-common.txt" "$SHELLRC_DIR/configure/install/debian/install.txt")
@@ -44,6 +43,10 @@ install() {
         echo "$0: no suitable package manager for installing dependencies found" 1>&2
         return 1
     fi
+}
+
+postinstall() {
+    "$SHELLRC_DIR/configure/postinstall/postinstall.sh" "$SHELLRC_DIR"
 }
 
 
@@ -125,6 +128,12 @@ if [ $? != 0 ]; then
     exit 1
 fi
 echo "Installation done"
+
+echo "Postconfiguring installation"
+postinstall
+if [ $? != 0 ]; then
+    exit 1
+fi
 
 echo "Creating dotfiles backup"
 create-backups
