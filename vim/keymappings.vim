@@ -153,13 +153,6 @@ nnoremap <C-G> :
 inoremap <C-G> <C-O>:
 vnoremap <C-G> <Esc>:
 
-" Directory view
-let NERDTreeMapOpenInTab='<ENTER>'
-let NERDTreeMapOpenSplit="s"
-let NERDTreeMapOpenVSplit="v"
-inoremap <C-o> <C-O>:NERDTreeTabsToggle<CR>
-nnoremap <C-o> :NERDTreeTabsToggle<CR>
-
 " Quick menu
 call g:quickmenu#reset()
 
@@ -169,6 +162,14 @@ inoremap <silent><F2> <C-O>:call quickmenu#toggle(0)<cr>
 call g:quickmenu#header('Menu')
 
 call g:quickmenu#append('# Navigation', '')
+call g:quickmenu#append('Go back', 'execute "normal \<C-O>"')
+call g:quickmenu#append('Go forward', 'execute "normal \<C-I>"')
 call g:quickmenu#append('Go to definition', 'YcmCompleter GoToDefinition')
 call g:quickmenu#append('Go to declaration', 'YcmCompleter GoToDeclaration')
 
+" Directory view
+let NERDTreeMapOpenInTab='<ENTER>'
+let NERDTreeMapOpenSplit="s"
+let NERDTreeMapOpenVSplit="v"
+inoremap <C-O> <C-O>:NERDTreeTabsToggle<CR>
+nnoremap <C-O> :NERDTreeTabsToggle<CR>
