@@ -1,11 +1,12 @@
 " Alt keymappings
 let c='a'
 while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
+  exec "set <a-".c.">=\e".c
+  exec "imap \e".c." <a-".c.">"
   let c = nr2char(1+char2nr(c))
 endw
 set ttimeout ttimeoutlen=50
+
 " Alt + lowercase
 inoremap ð <C-c>p
 inoremap ù <C-c>y
@@ -153,19 +154,26 @@ nnoremap <C-G> :
 inoremap <C-G> <C-O>:
 vnoremap <C-G> <Esc>:
 
+" Go back and forward remap
+nnoremap go <C-O>
+nnoremap gi <C-I>
+
 " Quick menu
 call g:quickmenu#reset()
-
 nnoremap <silent><F2> :call quickmenu#toggle(0)<cr>
 inoremap <silent><F2> <C-O>:call quickmenu#toggle(0)<cr>
-
 call g:quickmenu#header('Menu')
-
-call g:quickmenu#append('# Navigation', '')
-call g:quickmenu#append('Go back', 'execute "normal \<C-O>"')
-call g:quickmenu#append('Go forward', 'execute "normal \<C-I>"')
+call g:quickmenu#append('# navigation', '')
+call g:quickmenu#append('Go back', 'execute "normal go"')
+call g:quickmenu#append('Go forward', 'execute "normal gi"')
 call g:quickmenu#append('Go to definition', 'YcmCompleter GoToDefinition')
 call g:quickmenu#append('Go to declaration', 'YcmCompleter GoToDeclaration')
+call g:quickmenu#append('# edition', '')
+call g:quickmenu#append('Undo', 'undo')
+call g:quickmenu#append('Redo', 'redo')
+call g:quickmenu#append('# environment', '')
+call g:quickmenu#append('Refresh Completions', 'YcmGenerateConfig -f | YcmRestartServer')
+call g:quickmenu#append('Refresh Completions', 'echo "ok" | echo "gej"')
 
 " Directory view
 let NERDTreeMapOpenInTab='<ENTER>'
@@ -173,3 +181,4 @@ let NERDTreeMapOpenSplit="s"
 let NERDTreeMapOpenVSplit="v"
 inoremap <C-O> <C-O>:NERDTreeTabsToggle<CR>
 nnoremap <C-O> :NERDTreeTabsToggle<CR>
+

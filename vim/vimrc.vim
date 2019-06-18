@@ -59,3 +59,14 @@ let g:cpp_experimental_template_highlight = 1
 " key mappings
 source $SHELLRC_DIR/vim/keymappings.vim
 
+" clear jumplist
+let i = 0 | while i < 100 | mark ' | let i = i + 1 | endwhile
+
+" Synthax higlighting
+let g:color_coded_enabled = 1
+let g:color_coded_filetypes = ['c', 'cc', 'cpp', 'objc', 'h', 'hpp']
+let java_highlight_functions = 1
+let java_highlight_all = 1
+highlight link javaScopeDecl Statement
+highlight link javaType Type
+highlight link javaDocTags PreProc
