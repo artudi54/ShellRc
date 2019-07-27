@@ -118,10 +118,10 @@ vnoremap <S-Right> l
 " Scrolling
 " <Up> cursor line up 
 " <Down> cursor line down
-inoremap <C-Up> <C-O><C-E>
-inoremap <C-Down> <C-O><C-Y>
-nnoremap <C-Up> <C-E>
-nnoremap <C-Down> <C-Y>
+inoremap <C-Up> <C-O><C-Y>
+inoremap <C-Down> <C-O><C-E>
+nnoremap <C-Up> <C-Y>
+nnoremap <C-Down> <C-E>
 
 " Undo and redo
 nnoremap u <NOP>

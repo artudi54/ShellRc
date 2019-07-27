@@ -11,8 +11,11 @@ bindkey "^[^[[C" next
 bindkey "^[[1;6D" focus prev
 bindkey "^[[1;6C" focus next
 
-bindkey SS! eval "split -v" "focus right" "split" "focus left"
-bindkey SS@ only
+# Splits
+bindkey SS! eval "only"
+bindkey SS@ eval "only" "split -v" "focus left"
+bindkey SS# eval "only" "split -v" "focus right" "split" "focus left"
+bindkey SS$ eval "only" "split" "split -v"  "focus down" "split -v" "focus up" "focus left"
 
 term xterm-256color
 
