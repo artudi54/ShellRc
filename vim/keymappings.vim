@@ -115,6 +115,12 @@ inoremap <S-Right> <C-O>vl
 nnoremap <S-Right> vl
 vnoremap <S-Right> l
 
+
+" Shifting
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <C-D>
+
+
 " Scrolling
 " <Up> cursor line up 
 " <Down> cursor line down

@@ -32,6 +32,9 @@ elif [ -n "$ZSH_VERSION" ]; then
     source "$SHELLRC_DIR/shell/zsh-config.sh"
 fi
 
+# input codes
+source "$SHELLRC_DIR/input/input.sh"
+
 # screen functions
 source "$SHELLRC_DIR/screen/screen.sh"
 
