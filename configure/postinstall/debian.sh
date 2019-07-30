@@ -2,7 +2,7 @@
 set -e
 
 gcc_version=$(gcc -dumpversion)
-if [ "$gcc_version" -lt 8 ]; then
+if [ "${gcc_version:0:1}" -lt 8 ]; then
     # Clean g++ and gcc alternatives
     if update-alternatives --query gcc 2>/dev/null 1>&2; then
         sudo update-alternatives --remove-all gcc 

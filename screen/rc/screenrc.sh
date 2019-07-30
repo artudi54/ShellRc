@@ -1,7 +1,7 @@
 startup_message off
 defscrollback 20000
-
-caption always "%{= bw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+caption always "%{= bw}%-w%{= BW}%n %t%{-}%+w %-="
+hardstatus alwayslastline "%{= yk} [%S | $SHELL] %{= gW} $USER@%H | %n windows  %-= %{= yk} %LD %d %LM %Y - %c"
 
 bindkey "^[[1;3D" prev
 bindkey "^[^[[D" prev
