@@ -20,4 +20,5 @@ bindkey SS$ eval "only" "split" "split -v"  "focus down" "split -v" "focus up" "
 term xterm-256color
 
 mousetrack on
+layout save default
 
