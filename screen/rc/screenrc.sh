@@ -3,11 +3,17 @@ defscrollback 20000
 caption always "%{= bw}%-w%{= BW}%n %t%{-}%+w %-="
 hardstatus alwayslastline "%{= yk} [%S | $SHELL] %{= gW} $USER@%H  %-= %{= yk} %LD %d %LM %Y - %c"
 
+# Navigate windows
 bindkey "^[[1;3D" prev
 bindkey "^[^[[D" prev
 bindkey "^[[1;3C" next
 bindkey "^[^[[C" next
 
+# Move windows
+bindkey "^[[1;8D" number -1
+bindkey "^[[1;8C" number +1
+
+# Navigate regions
 bindkey "^[[1;6D" focus prev
 bindkey "^[[1;6C" focus next
 
