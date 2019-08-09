@@ -1,0 +1,4 @@
+bleopt complete_auto_complete=0
+bleopt complete_menu_complete=0
+bleopt complete_menu_filter=0
+bleopt complete_auto_history=0
