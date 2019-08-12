@@ -1,4 +1,11 @@
-bleopt complete_auto_complete=0
-bleopt complete_menu_complete=0
-bleopt complete_menu_filter=0
-bleopt complete_auto_history=0
+bleopt complete_auto_complete=
+bleopt complete_auto_history=
+ble-color-setface syntax_default           fg=red,bold
+ble-color-setface command_builtin          fg=green
+ble-color-setface command_alias            fg=green
+ble-color-setface command_function         fg=green
+ble-color-setface command_keyword          fg=green
+ble-color-setface command_jobs             fg=green
+ble-color-setface command_function         fg=green
+ble-color-setface command_function         fg=green
+ble-color-setface syntax_error             fg=red,bold
