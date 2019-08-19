@@ -9,7 +9,7 @@ fi
 SHELLRC_DIR=$1
 
 # Update system
-$SHELLRC_DIR/shell/plugins/paki/paki/bin/paki update -y
+$SHELLRC_DIR/shell/plugins/paki/paki/bin/paki update -sy
 
 # Platform switch
 if [ -f /etc/arch-release ]; then

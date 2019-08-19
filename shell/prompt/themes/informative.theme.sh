@@ -30,7 +30,7 @@ if [ -n "$BASH_VERSION" ]; then
     _git-branch-arrow() {
         local branch="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
         if [ -n "$branch" ]; then
-            printf " -> \001\033[1;93m${branch}\001\033[0m"
+            printf " -> \001\033[1;93m\002${branch}\001\033[0m\002"
         fi
     }
 elif [ -n "$ZSH_VERSION" ]; then
@@ -63,7 +63,7 @@ if [ -n "$BASH_VERSION" ]; then
         else
             form="jobs"
         fi
-        printf " -> \001\033[33m$jobcount $form\001\033[0m"
+        printf " -> \001\033[33m\002$jobcount $form\001\033[0m\002"
     }
 elif [ -n "$ZSH_VERSION" ]; then
     _jobs-arrow() {
@@ -102,7 +102,7 @@ fi
 if [ -n "$BASH_VERSION" ]; then
     _return-code-format() {
         if [ "$1" -ne 0 ]; then
-            printf " -> \001\033[31m$1\001\033[0m";
+            printf " -> \001\033[31m\002$1\001\033[0m\002";
         fi
     }
 elif [ -n "$ZSH_VERSION" ]; then
