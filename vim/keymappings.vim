@@ -165,6 +165,18 @@ nnoremap go <C-O>
 nnoremap gi <C-I>
 
 " Quick menu
+" Functions
+function _GenerateCompileCommands()
+    !bash -c 'WD="$PWD" && CC=clang && CXX=clang++ && BD="$(mktemp -d)" && cd "$BD" && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON "$WD" && cp compile_commands.json "$WD" && cd "$WD"; rm -rf "$BD"'
+endfunction
+
+function _RefreshCompletions()
+    call _GenerateCompileCommands()
+    YCMGenerateConfig -f
+    CCGenerateConfig -f
+    YcmRestartServer
+endfunction
+" List
 call g:quickmenu#reset()
 nnoremap <silent><F2> :call quickmenu#toggle(0)<cr>
 inoremap <silent><F2> <C-O>:call quickmenu#toggle(0)<cr>
@@ -178,8 +190,8 @@ call g:quickmenu#append('# edition', '')
 call g:quickmenu#append('Undo', 'undo')
 call g:quickmenu#append('Redo', 'redo')
 call g:quickmenu#append('# environment', '')
-call g:quickmenu#append('Refresh Completions', 'YcmGenerateConfig -f | YcmRestartServer')
-call g:quickmenu#append('Refresh Completions', 'echo "ok" | echo "gej"')
+call g:quickmenu#append('Refresh Completions', 'call _RefreshCompletions()')
+call g:quickmenu#append('Restart Completions Server', 'YcmRestartServer')
 
 " Directory view
 let NERDTreeMapOpenInTab='<ENTER>'

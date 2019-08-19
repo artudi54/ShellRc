@@ -158,7 +158,7 @@ fi
 echo "Found python '$python'"
 
 echo "Configuring vim"
-"$python" $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py --clang-completer
+"$python" $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py --clang-completer --clangd-completer
 if [ $? != 0 ]; then
     exit 1
 fi

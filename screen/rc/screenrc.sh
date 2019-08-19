@@ -27,4 +27,4 @@ term xterm-256color
 
 mousetrack on
 layout save default
-
+altscreen
