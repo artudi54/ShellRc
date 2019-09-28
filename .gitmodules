@@ -74,3 +74,6 @@
 [submodule "shell/plugins/completions/git-flow-completion"]
 	path = shell/plugins/completions/git-flow-completion
 	url = https://github.com/bobthecow/git-flow-completion
+[submodule "vim/bundle/delimiters"]
+	path = vim/bundle/delimiters
+	url = https://github.com/Raimondi/delimitMate
