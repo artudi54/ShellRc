@@ -77,3 +77,9 @@
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule "vim/bundle/delimiters"]
+	path = vim/bundle/delimiters
+	url = https://github.com/Raimondi/delimitMate
+[submodule "vim/bundle/qml"]
+	path = vim/bundle/qml
+	url = https://github.com/peterhoeg/vim-qml

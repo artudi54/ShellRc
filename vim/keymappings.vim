@@ -200,7 +200,6 @@ call g:quickmenu#append('Refresh Completions', 'call _RefreshCompletions()')
 call g:quickmenu#append('Restart Completions Server', 'YcmRestartServer')
 
 " Directory view
-let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeMapOpenSplit="s"
 let NERDTreeMapOpenVSplit="v"
 inoremap <C-O> <C-O>:NERDTreeTabsToggle<CR>
