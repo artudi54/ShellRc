@@ -164,6 +164,12 @@ vnoremap <C-G> <Esc>:
 nnoremap go <C-O>
 nnoremap gi <C-I>
 
+" Comment line
+inoremap <C-_> <C-O><Plug>CommentaryLine
+nnoremap <C-_> <Plug>CommentaryLine
+vnoremap <C-_> gc
+
+
 " Quick menu
 " Functions
 function _GenerateCompileCommands()
