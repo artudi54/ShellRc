@@ -165,8 +165,8 @@ nnoremap go <C-O>
 nnoremap gi <C-I>
 
 " Comment line
-inoremap <C-_> <C-O><Plug>CommentaryLine
-nnoremap <C-_> <Plug>CommentaryLine
+inoremap <C-_> <C-O>:Commentary<CR>
+nnoremap <C-_> :Commentary<CR>
 vnoremap <C-_> gc
 
 
