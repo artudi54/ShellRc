@@ -1,3 +1,6 @@
+# for less
+export LESSHISTFILE="$SHELLRC_DIR/history/lesshst.log"
+
 # for python
 export PYTHONSTARTUP="$SHELLRC_DIR/python/pythonrc.py"
 
