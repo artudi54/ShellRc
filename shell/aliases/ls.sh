@@ -1,7 +1,9 @@
 # ls aliases
-alias ll='ls -lh'
-alias lla='ls -alh'
-alias la='ls -a'
+alias ls='ls --color=auto -vh'
+
 alias l='ls'
-# TODO: ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\// /g' -e 's/^/ /'
-# TODO: tree
+alias la='ls -a'
+
+alias ll='ls -l'
+alias lla='ls -alias'
+
