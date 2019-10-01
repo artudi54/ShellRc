@@ -83,3 +83,6 @@
 [submodule "vim/bundle/qml"]
 	path = vim/bundle/qml
 	url = https://github.com/peterhoeg/vim-qml
+[submodule "shell/plugins/less/lesspipe"]
+	path = shell/plugins/less/lesspipe
+	url = https://github.com/wofr06/lesspipe

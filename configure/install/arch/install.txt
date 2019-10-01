@@ -1,4 +1,5 @@
 gcc
+python-pdftotext
 python
 python-pip
 python-future
