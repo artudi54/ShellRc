@@ -71,9 +71,6 @@
 [submodule "vim/bundle/color_coded"]
 	path = vim/bundle/color_coded
 	url = https://github.com/jeaye/color_coded
-[submodule "shell/plugins/completions/git-flow-completion"]
-	path = shell/plugins/completions/git-flow-completion
-	url = https://github.com/bobthecow/git-flow-completion
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary
@@ -86,3 +83,12 @@
 [submodule "shell/plugins/less/lesspipe"]
 	path = shell/plugins/less/lesspipe
 	url = https://github.com/wofr06/lesspipe
+[submodule "shell/plugins/git/lib/git-flow-completion"]
+	path = shell/plugins/git/lib/git-flow-completion
+	url = https://github.com/bobthecow/git-flow-completion
+[submodule "shell/plugins/git/lib/git-flow"]
+	path = shell/plugins/git/lib/git-flow
+	url = https://github.com/nvie/gitflow
+[submodule "shell/plugins/git/lib/git-extras"]
+	path = shell/plugins/git/lib/git-extras
+	url = https://github.com/tj/git-extras
