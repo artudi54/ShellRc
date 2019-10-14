@@ -10,18 +10,6 @@ exists() {
     fi
 }
 
-get-python() {
-    local python
-    python="$(which python3 2>/dev/null)"
-    if [ "$python" = "" ]; then
-        python="$(which python3.7 2>/dev/null)"
-    fi
-    if [ "$python" = "" ]; then
-        python="$(which python3.6 2>/dev/null)"
-    fi
-    echo "$python"
-}
-
 preinstall() {
     "$SHELLRC_DIR/configure/preinstall/preinstall.sh" "$SHELLRC_DIR"
 }
@@ -102,7 +90,6 @@ create-backups() {
     check-mv ".python-history"
 }
 
-
 write-dotfiles() {
     echo "source "\"$SHELLRC_DIR/shell/shellrc.sh\""" > "$HOME/.bashrc"
     ln -s ".bashrc" "$HOME/.zshrc"
@@ -114,6 +101,22 @@ write-dotfiles() {
     echo "    path = "\"$SHELLRC_DIR/git/gitconfig.ini\""" >> "$HOME/.gitconfig"
 
     echo "source "\"$SHELLRC_DIR/tmux/tmux.conf\""" > "$HOME/.tmux.conf"
+}
+
+configure-vim-ycm() {
+    python3 $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py --clang-completer --clangd-completer
+}
+
+
+configure-vim-color-coded() {
+    rm -f "$SHELLRC_DIR/vim/bundle/color_coded/CMakeCache.txt"
+    rm -rf "$SHELLRC_DIR/vim/bundle/color_coded/build"
+    mkdir "$SHELLRC_DIR/vim/bundle/color_coded/build"
+    (cd "$SHELLRC_DIR/vim/bundle/color_coded/build" && cmake .. && make install && make clean && make clean_clang)
+}
+
+configure-vim() {
+    configure-vim-ycm && configure-vim-color-coded
 }
 
 echo "Preconfiguring installation"
@@ -149,16 +152,8 @@ if [ $? != 0 ]; then
 fi
 echo "Writing dotfiles done"
 
-echo "Searching for python binary"
-python="$(get-python)"
-if [ "$python" = "" ]; then
-    echo "No python binary found" 1>&2
-    exit 1
-fi
-echo "Found python '$python'"
-
 echo "Configuring vim"
-"$python" $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py --clang-completer --clangd-completer
+configure-vim
 if [ $? != 0 ]; then
     exit 1
 fi

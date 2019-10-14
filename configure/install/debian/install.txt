@@ -2,7 +2,10 @@ g++
 gcc
 g++-8
 gcc-8
+liblua5.2-dev
 libncurses-dev
+libtinfo5
+lua5.2
 poppler-utils
 python3
 python3-dev
@@ -11,3 +14,4 @@ python3-future
 python3-certifi
 vim-gtk
 wireless-tools
+zlib1g-dev

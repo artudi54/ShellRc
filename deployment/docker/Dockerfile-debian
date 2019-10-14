@@ -1,0 +1,7 @@
+ARG SYSTEM=ubuntu:18.04
+FROM $SYSTEM
+RUN apt update && apt install sudo -y
+COPY . /root/.config/ShellRc
+
+ENTRYPOINT /root/.config/ShellRc/deployment/test/configure-test.sh
+
