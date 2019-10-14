@@ -9,7 +9,11 @@ fi
 SHELLRC_DIR=$1
 
 # Update system
-$SHELLRC_DIR/shell/plugins/paki/paki/bin/paki update -sy
+if grep -qE "(Microsoft|WSL)" /proc/version &>/dev/null; then
+    $SHELLRC_DIR/shell/plugins/paki/paki/bin/paki update -s
+else
+    $SHELLRC_DIR/shell/plugins/paki/paki/bin/paki update
+fi
 
 # Platform switch
 if [ -f /etc/arch-release ]; then
