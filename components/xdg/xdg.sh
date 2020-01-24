@@ -1,7 +1,7 @@
 # Environmental variable fixes for XDG Base Directories for programs 
 
 # TODO
-# npm, wget
+# npm, wget, xorg-auth
 
 # CCache
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
@@ -28,7 +28,4 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 # python-pylint
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
-
-# xorg-xauth
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 

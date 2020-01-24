@@ -1,4 +1,4 @@
-source "$SHELLRC_DIR/screen/rc/basicrc.sh"
+source "$SHELLRC_DIR/components/screen/profiles/basicrc.sh"
 
 split -v
 focus right
@@ -12,3 +12,4 @@ select 1
 focus down
 select 2
 focus left
+

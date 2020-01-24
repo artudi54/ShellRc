@@ -1,13 +1,11 @@
 # Set all XDG variables so that they are not empty
 
 if [[ ! -v XDG_CONFIG_DIRS ]]; then
-    readonly XDG_CONFIG_DIRS="/etc/xdg"
-    export XDG_CONFIG_DIRS
+    export XDG_CONFIG_DIRS="/etc/xdg"
 fi
 
 if [[ ! -v XDG_DATA_DIRS ]]; then
-    readonly XDG_DATA_DIRS="/usr/local/share:/usr/share"
-    export XDG_DATA_DIRS
+    export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 fi
 
 if [[ ! -v XDG_CONFIG_HOME ]]; then

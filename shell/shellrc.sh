@@ -19,8 +19,8 @@ fi
 # basic libraries
 source "$SHELLRC_DIR/lib/lib.sh"
 
-# TODO
-#source "$SHELLRC_DIR/components/xdg/xdg.sh"
+# components
+source "$SHELLRC_DIR/components/components.sh"
 
 # dependencies
 source "$SHELLRC_DIR/shell/depends/depends.sh"
@@ -39,9 +39,6 @@ source "$SHELLRC_DIR/shell/prompt/prompt.sh"
 
 # input codes
 source "$SHELLRC_DIR/input/input.sh"
-
-# screen functions
-source "$SHELLRC_DIR/screen/screen.sh"
 
 # plugins
 source "$SHELLRC_DIR/shell/plugins/plugins.sh"

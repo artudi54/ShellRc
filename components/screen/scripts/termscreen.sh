@@ -4,6 +4,6 @@ termscreen() {
     if screen -ls | grep 'termscreen' 2>&1 >/dev/null; then
         screen -r termscreen
     else
-        screen-basic -S termscreen
+        screenprofile basic -S termscreen
     fi
 }
