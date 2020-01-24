@@ -169,6 +169,10 @@ inoremap <C-_> <C-O>:Commentary<CR>
 nnoremap <C-_> :Commentary<CR>
 vnoremap <C-_> gc
 
+" Switch header and source
+inoremap <F4> <C-O>:A<CR>
+nnoremap <F4> :A<CR>
+vnoremap <F4> <C-O>:A<CR>
 
 " Quick menu
 " Functions

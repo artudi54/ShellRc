@@ -92,3 +92,9 @@
 [submodule "shell/plugins/git/lib/git-extras"]
 	path = shell/plugins/git/lib/git-extras
 	url = https://github.com/tj/git-extras
+[submodule "vim/bundle/alternate-lite"]
+	path = vim/bundle/alternate-lite
+	url = https://github.com/LucHermitte/alternate-lite
+[submodule "vim/bundle/lh-vim-lib"]
+	path = vim/bundle/lh-vim-lib
+	url = https://github.com/LucHermitte/lh-vim-lib

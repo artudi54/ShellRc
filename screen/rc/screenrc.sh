@@ -3,6 +3,9 @@ defscrollback 20000
 caption always "%{= bw}%-w%{= BW}%n %t%{-}%+w %-="
 hardstatus alwayslastline "%{= yk} [%S | $SHELL] %{= gW} $USER@%H  %-= %{= yk} %LD %d %LM %Y - %c"
 
+# Remove annoying binds
+bindkey -k k4
+
 # Navigate windows
 bindkey "^[[1;3D" prev
 bindkey "^[^[[D" prev

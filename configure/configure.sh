@@ -84,6 +84,7 @@ create-backups() {
     
     # git
     check-mv ".gitconfig"
+    check-mv ".config/git"
     
     # python
     check-mv ".pythonrc"
@@ -97,8 +98,8 @@ write-dotfiles() {
     echo "source "\"$SHELLRC_DIR/shell/shellrc.sh\""" > "$HOME/.profile"
     ln -s ".profile" "$HOME/.zprofile"
 
-    echo "[include]" > "$HOME/.gitconfig"
-    echo "    path = "\"$SHELLRC_DIR/git/gitconfig.ini\""" >> "$HOME/.gitconfig"
+    echo "[include]" > "$HOME/.config/git/config"
+    echo "    path = "\"$SHELLRC_DIR/git/gitconfig.ini\""" >> "$HOME/.config/git/config"
 
     echo "source "\"$SHELLRC_DIR/tmux/tmux.conf\""" > "$HOME/.tmux.conf"
 }

@@ -23,12 +23,7 @@ shellrc-prompt-set() {
         return 2
     fi
     
-    if grep "SHELLRC_PROMPT" "$SHELLRC_DIR/settings.conf" >/dev/null 2>&1; then
-        sed -i "s/SHELLRC_PROMPT=.*/SHELLRC_PROMPT=\"$theme\"/" "$SHELLRC_DIR/settings.conf" >/dev/null 2>&1
-    else
-        echo "SHELLRC_PROMPT=\"$theme\"" >>"$SHELLRC_DIR/settings.conf"
-    fi
-    SHELLRC_PROMPT="$theme"
+    shellenv set SHELLRC_PROMPT "$theme"
     unset -f make-prompt 2>/dev/null
     shellrc-reload
 }

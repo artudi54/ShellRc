@@ -8,8 +8,19 @@ elif [ -n "$ZSH_VERSION" ]; then
     export SHELLRC_DIR="$(dirname "$(dirname "${(%):-%N}")")"
 fi
 
-# shellrc configuration
-source "$SHELLRC_DIR/settings.conf"
+# shell config
+if [ -n "$BASH_VERSION" ]; then
+    source "$SHELLRC_DIR/shell/bash-config.sh"
+elif [ -n "$ZSH_VERSION" ]; then
+    source "$SHELLRC_DIR/shell/zsh-config.sh"
+fi
+
+
+# basic libraries
+source "$SHELLRC_DIR/lib/lib.sh"
+
+# TODO
+#source "$SHELLRC_DIR/components/xdg/xdg.sh"
 
 # dependencies
 source "$SHELLRC_DIR/shell/depends/depends.sh"
@@ -25,12 +36,6 @@ source "$SHELLRC_DIR/shell/aliases/aliases.sh"
 
 # promt settings
 source "$SHELLRC_DIR/shell/prompt/prompt.sh"
-
-if [ -n "$BASH_VERSION" ]; then
-    source "$SHELLRC_DIR/shell/bash-config.sh"
-elif [ -n "$ZSH_VERSION" ]; then
-    source "$SHELLRC_DIR/shell/zsh-config.sh"
-fi
 
 # input codes
 source "$SHELLRC_DIR/input/input.sh"
