@@ -21,3 +21,4 @@ def save_history():
 
 load_history()
 atexit.register(save_history)
+
