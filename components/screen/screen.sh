@@ -4,8 +4,7 @@
 if which screen 2>&1 1>/dev/null; then
     # Default screenrc
     if [[ ! -v SCREENRC ]]; then
-        readonly SCREENRC="$SHELLRC_DIR/components/screen/screenrc.sh"
-        export SCREENRC
+        export SCREENRC="$SHELLRC_DIR/components/screen/screenrc.sh"
     fi
 
     # Scripts

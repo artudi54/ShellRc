@@ -37,9 +37,6 @@ source "$SHELLRC_DIR/shell/aliases/aliases.sh"
 # promt settings
 source "$SHELLRC_DIR/shell/prompt/prompt.sh"
 
-# input codes
-source "$SHELLRC_DIR/input/input.sh"
-
 # plugins
 source "$SHELLRC_DIR/shell/plugins/plugins.sh"
 

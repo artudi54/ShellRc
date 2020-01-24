@@ -1,8 +1,7 @@
 # Shell configuration setup for ShellRc
 
 if [[ ! -v SHELLRC_ENVIRONMENT ]]; then
-    readonly SHELLRC_ENVIRONMENT="$SHELLRC_DIR/environment.conf"
-    export SHELLRC_ENVIRONMENT
+    export SHELLRC_ENVIRONMENT="$SHELLRC_DIR/environment.conf"
 fi
 
 if [[ ! -f "$SHELLRC_ENVIRONMENT" ]]; then
