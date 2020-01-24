@@ -1,0 +1,2 @@
+command autocompletion for lib/
+XDG_CACHE_HOME before sourcing lib
