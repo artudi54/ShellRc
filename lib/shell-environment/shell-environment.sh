@@ -8,7 +8,7 @@ if [[ ! -f "$SHELLRC_ENVIRONMENT" ]]; then
     touch "$SHELLRC_ENVIRONMENT"
 fi
 
-source "$SHELLRC_DIR/lib/shell-environment/shellenv.sh"
-source "$SHELLRC_DIR/lib/shell-environment/shellenv-completion.sh"
+include "shellenv.sh"
+include "shellenv-completion.sh"
 shellenv reload
 

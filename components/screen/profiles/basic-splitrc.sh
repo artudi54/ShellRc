@@ -1,4 +1,4 @@
-source "$SHELLRC_DIR/components/screen/profiles/basicrc.sh"
+source "$SCREEN_PROFILES/basicrc.sh"
 
 split -v
 focus right

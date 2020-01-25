@@ -9,6 +9,6 @@ screenprofile() {
     local profile="$1"
     shift
 
-    screen -c "$SHELLRC_DIR/components/screen/profiles/${profile}rc.sh" "$@"
+    screen -c "$SCREEN_PROFILES/${profile}rc.sh" "$@"
 }
 

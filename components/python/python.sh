@@ -1,4 +1,4 @@
 # Python interactive interpreter configuration 
 
-export PYTHONSTARTUP="$SHELLRC_DIR/components/python/pythonrc.py"
+export PYTHONSTARTUP="$(script-directory)/pythonrc.py"
 
