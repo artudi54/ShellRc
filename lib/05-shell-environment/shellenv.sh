@@ -91,7 +91,7 @@ _shellenv-set() {
     fi
     export "$key"
 
-    if grep "$key" "$SHELLRC_DIR/settings.conf" >/dev/null 2>&1; then
+    if grep "$key" "$SHELLRC_ENVIRONMENT" >/dev/null 2>&1; then
         sed -i "s#$key=.*#$key=\"$value\"#" "$SHELLRC_ENVIRONMENT" >/dev/null 2>&1
     else
         echo "$key=\"$value\"" >>"$SHELLRC_ENVIRONMENT" 2>/dev/null
