@@ -1,10 +1,4 @@
-# Use modern completion system
-export skip_global_compinit=1
-autoload -Uz compinit && compinit -d "$SHELLHISTORY_DIR/zcompdump.log"
-autoload -Uz compaudit && compaudit -d "$SHELLHISTORY_DIR/zcompdump.log"
-autoload -Uz bashcompinit && bashcompinit -d "$SHELLHISTORY_DIR/zcompdump.log"
-
-# check if running interactively
+# Check if running interactively
 if [[ -o login ]]; then
   return
 fi

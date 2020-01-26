@@ -1,4 +1,4 @@
-# Set all XDG variables so that they are not empty
+# Set all XDG variables so that they are can be assumed to always exist
 
 if [[ ! -v XDG_CONFIG_DIRS ]]; then
     export XDG_CONFIG_DIRS="/etc/xdg"
