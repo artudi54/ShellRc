@@ -92,10 +92,10 @@ create-backups() {
 }
 
 write-dotfiles() {
-    echo "source "\"$SHELLRC_DIR/shell/shellrc.sh\""" > "$HOME/.bashrc"
+    echo "source "\"$SHELLRC_DIR/shellrc.sh\""" > "$HOME/.bashrc"
     ln -s ".bashrc" "$HOME/.zshrc"
     
-    echo "source "\"$SHELLRC_DIR/shell/shellrc.sh\""" > "$HOME/.profile"
+    echo "source "\"$SHELLRC_DIR/shellrc.sh\""" > "$HOME/.profile"
     ln -s ".profile" "$HOME/.zprofile"
 
     echo "[include]" > "$HOME/.config/git/config"
