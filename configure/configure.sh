@@ -98,6 +98,7 @@ write-dotfiles() {
     echo "source "\"$SHELLRC_DIR/shellrc.sh\""" > "$HOME/.profile"
     ln -s ".profile" "$HOME/.zprofile"
 
+    mkdir -p "$HOME/.config/git"
     echo "[include]" > "$HOME/.config/git/config"
     echo "    path = "\"$SHELLRC_DIR/git/gitconfig.ini\""" >> "$HOME/.config/git/config"
 
@@ -105,15 +106,15 @@ write-dotfiles() {
 }
 
 configure-vim-ycm() {
-    python3 $SHELLRC_DIR/vim/bundle/YouCompleteMe/install.py --clang-completer --clangd-completer
+    python3 $SHELLRC_DIR/components/vim/plugins/YouCompleteMe/install.py --clang-completer --clangd-completer
 }
 
 
 configure-vim-color-coded() {
-    rm -f "$SHELLRC_DIR/vim/bundle/color_coded/CMakeCache.txt"
-    rm -rf "$SHELLRC_DIR/vim/bundle/color_coded/build"
-    mkdir "$SHELLRC_DIR/vim/bundle/color_coded/build"
-    (cd "$SHELLRC_DIR/vim/bundle/color_coded/build" && cmake .. && make install && make clean && make clean_clang)
+    rm -f "$SHELLRC_DIR/components/vim/plugins/color_coded/CMakeCache.txt"
+    rm -rf "$SHELLRC_DIR/components/vim/plugins/color_coded/build"
+    mkdir "$SHELLRC_DIR/components/vim/plugins/color_coded/build"
+    (cd "$SHELLRC_DIR/components/vim/plugins/color_coded/build" && cmake .. && make install && make clean && make clean_clang)
 }
 
 configure-vim() {
