@@ -36,10 +36,3 @@ source "$SHELLRC_DIR/shell/prompt/prompt.sh"
 # plugins
 source "$SHELLRC_DIR/shell/plugins/plugins.sh"
 
-# make less more friendly for non-text input files
-if [ -x /usr/bin/lesspipe ]; then
-    eval "$(SHELL=/bin/sh lesspipe)"
-fi
-
-
-#TODO FIX MODULES

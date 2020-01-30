@@ -81,7 +81,7 @@
 	path = components/vim/plugins/qml
 	url = https://github.com/peterhoeg/vim-qml
 [submodule "shell/plugins/less/lesspipe"]
-	path = shell/plugins/less/lesspipe
+	path = components/less/lesspipe
 	url = https://github.com/wofr06/lesspipe
 [submodule "shell/plugins/git/lib/git-flow-completion"]
 	path = shell/plugins/git/lib/git-flow-completion
