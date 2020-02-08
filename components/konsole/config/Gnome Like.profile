@@ -2,17 +2,20 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=Tango
-Font=Anonymous Pro,13,-1,5,50,0,0,0,0,0,Regular
-UseFontLineChararacters=false
+Font=Anonymous Pro,14,-1,5,50,0,0,0,0,0,Regular
+UseFontLineChararacters=true
 
 [General]
-LocalTabTitleFormat=
+LocalTabTitleFormat=Terminal
 Name=Gnome Like
 Parent=FALLBACK/
 RemoteTabTitleFormat=
-SilenceSeconds=10
-TerminalColumns=100
-TerminalRows=30
+SilenceSeconds=1
+TerminalColumns=99
+TerminalRows=28
+
+[Keyboard]
+KeyBindings=default
 
 [Scrolling]
 HistorySize=30000

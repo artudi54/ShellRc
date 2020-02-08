@@ -1,11 +1,11 @@
 [Background]
-Color=29,29,29
+Color=46,52,54
 
 [BackgroundFaint]
-Color=0,0,0
+Color=46,52,54
 
 [BackgroundIntense]
-Color=8,8,8
+Color=46,52,54
 
 [Color0]
 Color=46,52,54
@@ -90,6 +90,7 @@ Color=186,189,182
 
 [General]
 Blur=false
-Description=Tango
-Opacity=0.75
+ColorRandomization=false
+Description=Tango Modified
+Opacity=0.85
 Wallpaper=
