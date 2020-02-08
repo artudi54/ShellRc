@@ -1,0 +1,397 @@
+{
+	"name": "vscode-gradle",
+	"displayName": "Gradle Tasks",
+	"description": "Run Gradle tasks in VS Code",
+	"version": "2.4.7",
+	"private": true,
+	"publisher": "richardwillis",
+	"icon": "icon.png",
+	"readme": "README.md",
+	"author": "Richard Willis <willis.rh@gmail.com>",
+	"maintainers": [
+		"Richard Willis <willis.rh@gmail.com>"
+	],
+	"bugs": {
+		"url": "https://github.com/badsyntax/vscode-gradle/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/badsyntax/vscode-gradle/"
+	},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Other",
+		"Snippets"
+	],
+	"keywords": [
+		"java",
+		"gradle",
+		"compile",
+		"build",
+		"tasks"
+	],
+	"activationEvents": [
+		"onCommand:workbench.action.tasks.runTask",
+		"onCommand:gradle.refresh",
+		"onCommand:gradle.runTask",
+		"workspaceContains:**/gradlew",
+		"workspaceContains:**/gradlew.bat",
+		"onView:gradleTreeView"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "kotlinscript",
+				"extensions": [
+					".kt",
+					".kts"
+				],
+				"aliases": [
+					"Kotlin",
+					"kotlin"
+				]
+			}
+		],
+		"snippets": [
+			{
+				"language": "groovy",
+				"path": "./snippets/build.gradle.json"
+			},
+			{
+				"language": "kotlinscript",
+				"path": "./snippets/build.gradle.kts.json"
+			}
+		],
+		"problemMatchers": [
+			{
+				"owner": "gradle",
+				"name": "gradle",
+				"fileLocation": [
+					"relative",
+					"${workspaceFolder}"
+				],
+				"pattern": {
+					"regexp": "^.*(FAILURE):\\s*(.*)$",
+					"severity": 1,
+					"message": 2
+				}
+			}
+		],
+		"views": {
+			"explorer": [
+				{
+					"id": "gradleTreeView",
+					"name": "Gradle Tasks",
+					"when": "gradle:showTasksExplorer"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "gradle.runTask",
+				"title": "Run Task",
+				"icon": {
+					"light": "resources/light/run.svg",
+					"dark": "resources/dark/run.svg"
+				}
+			},
+			{
+				"command": "gradle.runTaskWithArgs",
+				"title": "Run Task With Args"
+			},
+			{
+				"command": "gradle.openBuildFile",
+				"title": "Open Task Build File"
+			},
+			{
+				"command": "gradle.stopTask",
+				"title": "Stop Task"
+			},
+			{
+				"command": "gradle.stopTreeItemTask",
+				"title": "Stop Task",
+				"icon": {
+					"light": "resources/light/stop.svg",
+					"dark": "resources/dark/stop.svg"
+				}
+			},
+			{
+				"command": "gradle.explorerFlat",
+				"title": "Show Flat List",
+				"icon": {
+					"light": "resources/light/list-flat.svg",
+					"dark": "resources/dark/list-flat.svg"
+				}
+			},
+			{
+				"command": "gradle.explorerRender",
+				"title": "Render explorer"
+			},
+			{
+				"command": "gradle.explorerTree",
+				"title": "Show Tree",
+				"icon": {
+					"light": "resources/light/list-tree.svg",
+					"dark": "resources/dark/list-tree.svg"
+				}
+			},
+			{
+				"command": "gradle.killGradleProcess",
+				"title": "Gradle: Kill Gradle process"
+			},
+			{
+				"command": "gradle.showProcessMessage",
+				"title": "Show Gradle process information message box"
+			},
+			{
+				"command": "gradle.refresh",
+				"title": "Gradle: Refresh Tasks",
+				"icon": {
+					"light": "resources/light/refresh.svg",
+					"dark": "resources/dark/refresh.svg"
+				}
+			},
+			{
+				"command": "gradle.openSettings",
+				"title": "Open Settings",
+				"icon": {
+					"light": "resources/light/gear.svg",
+					"dark": "resources/dark/gear.svg"
+				}
+			},
+			{
+				"command": "gradle.stoppingTreeItemTask",
+				"title": "Show Stopping Task Message",
+				"icon": {
+					"light": "resources/light/loading.svg",
+					"dark": "resources/dark/loading.svg"
+				}
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "gradle.runTask",
+					"when": "false"
+				},
+				{
+					"command": "gradle.openBuildFile",
+					"when": "false"
+				},
+				{
+					"command": "gradle.runTaskWithArgs",
+					"when": "false"
+				},
+				{
+					"command": "gradle.stopTask",
+					"when": "false"
+				},
+				{
+					"command": "gradle.stopTreeItemTask",
+					"when": "false"
+				},
+				{
+					"command": "gradle.explorerFlat",
+					"when": "false"
+				},
+				{
+					"command": "gradle.explorerTree",
+					"when": "false"
+				},
+				{
+					"command": "gradle.explorerRender",
+					"when": "false"
+				},
+				{
+					"command": "gradle.showProcessMessage",
+					"when": "false"
+				},
+				{
+					"command": "gradle.openSettings",
+					"when": "false"
+				},
+				{
+					"command": "gradle.stoppingTreeItemTask",
+					"when": "false"
+				}
+			],
+			"view/title": [
+				{
+					"command": "gradle.openSettings",
+					"when": "view == gradleTreeView",
+					"group": "navigation@0"
+				},
+				{
+					"command": "gradle.explorerFlat",
+					"when": "view == gradleTreeView && !gradle:explorerCollapsed",
+					"group": "navigation@1"
+				},
+				{
+					"command": "gradle.explorerTree",
+					"when": "view == gradleTreeView && gradle:explorerCollapsed",
+					"group": "navigation@2"
+				},
+				{
+					"command": "gradle.refresh",
+					"when": "view == gradleTreeView",
+					"group": "navigation@3"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "gradle.runTask",
+					"when": "view == gradleTreeView && viewItem == task"
+				},
+				{
+					"command": "gradle.runTaskWithArgs",
+					"when": "view == gradleTreeView && viewItem == task"
+				},
+				{
+					"command": "gradle.runTask",
+					"when": "view == gradleTreeView && viewItem == task",
+					"group": "inline"
+				},
+				{
+					"command": "gradle.stopTreeItemTask",
+					"when": "view == gradleTreeView && viewItem == runningTask",
+					"group": "inline"
+				},
+				{
+					"command": "gradle.stoppingTreeItemTask",
+					"when": "view == gradleTreeView && viewItem == stoppingTask",
+					"group": "inline"
+				}
+			]
+		},
+		"configuration": {
+			"id": "gradle",
+			"type": "object",
+			"title": "Gradle",
+			"properties": {
+				"gradle.autoDetect": {
+					"type": "string",
+					"enum": [
+						"off",
+						"on"
+					],
+					"default": "on",
+					"scope": "resource",
+					"description": "Controls whether gradle tasks should be automatically detected"
+				},
+				"gradle.enableTasksExplorer": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable an explorer view for gradle tasks"
+				},
+				"gradle.debug": {
+					"type": "boolean",
+					"default": false,
+					"description": "Shows extra debug info in the output panel"
+				}
+			}
+		},
+		"jsonValidation": [
+			{
+				"fileMatch": "package.json",
+				"url": "https://schemastore.azurewebsites.net/schemas/json/package.json"
+			}
+		],
+		"taskDefinitions": [
+			{
+				"type": "gradle",
+				"required": [
+					"script"
+				],
+				"properties": {
+					"script": {
+						"type": "string",
+						"description": "The task script name"
+					},
+					"description": {
+						"type": "string",
+						"description": "Description of the task"
+					},
+					"group": {
+						"type": "string",
+						"description": "Task group"
+					},
+					"project": {
+						"type": "string",
+						"description": "The project this task belongs to"
+					},
+					"buildFile": {
+						"type": "string",
+						"description": "The full path to task project build file"
+					},
+					"rootProject": {
+						"type": "string",
+						"description": "The root project this task belongs to"
+					},
+					"path": {
+						"type": "string",
+						"description": "The full task path"
+					},
+					"projectFolder": {
+						"type": "string",
+						"description": "The gradle project folder path"
+					},
+					"workspaceFolder": {
+						"type": "string",
+						"description": "The workspace folder path"
+					},
+					"args": {
+						"type": "string",
+						"description": "Task args"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"test": "node ./out/test/runTest.js",
+		"pretest": "npm run compile",
+		"lint": "npm run lint:prettier && npm run lint:eslint",
+		"lint:prettier": "prettier --check \"**/*.{ts,js,json,svg,md,yml}\"",
+		"lint:eslint": "eslint . --ext .js,.ts",
+		"lint:fix": "npm run lint:fix:prettier && npm run lint:eslint -- --fix",
+		"lint:fix:prettier": "prettier --write '**/*.{json,svg,md,yml}'",
+		"compile:java": "cd java-gradle-tasks && ./gradlew generateLib"
+	},
+	"dependencies": {
+		"get-port": "^5.1.1",
+		"strip-ansi": "^6.0.0",
+		"ws": "^7.2.1"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.1",
+		"@types/node": "^13.5.3",
+		"@types/sinon": "^7.5.1",
+		"@types/vscode": "^1.39.0",
+		"@types/ws": "^7.2.1",
+		"@typescript-eslint/eslint-plugin": "^2.18.0",
+		"@typescript-eslint/parser": "^2.18.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-sonarjs": "^0.5.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.0.1",
+		"prettier": "^1.19.1",
+		"sinon": "^8.1.1",
+		"typescript": "^3.7.5",
+		"vscode-test": "^1.3.0"
+	},
+	"__metadata": {
+		"id": "a226f06e-9b5e-493b-b92a-553d3572f969",
+		"publisherId": "2a12cf3c-f6cd-4fa3-a6fa-7ce5ad8b3d03",
+		"publisherDisplayName": "Richard Willis"
+	}
+}
