@@ -102,7 +102,7 @@ write-dotfiles() {
     echo "[include]" > "$HOME/.config/git/config"
     echo "    path = "\"$SHELLRC_DIR/git/gitconfig.ini\""" >> "$HOME/.config/git/config"
 
-    echo "source "\"$SHELLRC_DIR/tmux/tmux.conf\""" > "$HOME/.tmux.conf"
+    echo "source "\"$SHELLRC_DIR/components/tmux/tmux.conf\""" > "$HOME/.tmux.conf"
 }
 
 configure-vim-ycm() {
