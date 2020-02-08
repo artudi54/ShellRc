@@ -8,5 +8,6 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "explorer.confirmDelete": false
 }
