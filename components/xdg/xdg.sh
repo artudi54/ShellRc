@@ -1,7 +1,7 @@
 # Environmental variable fixes for XDG Base Directories for programs 
 
 # TODO
-# npm, wget, xorg-auth
+# wget, xorg-auth
 
 # CCache
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
@@ -26,6 +26,9 @@ export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss
 
 # libice
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+
+# nuget
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
 # NVIDIA/CUDA
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
