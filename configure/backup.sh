@@ -1,8 +1,20 @@
 #!/bin/bash
 
+check-mv() {
+    if [ -h "$1" ] || [ -e "$1" ]; then
+        mv "$1" "$2"
+    fi
+}
 
 backup-from-file() {
-    local backuplist="$1"
+    local backupList="$1"
+    local component="$2"
+    mkdir -p "$BACKUP_DIR/$component"
+    local file
+    while read file; do
+        file="$(eval echo $file)"
+        check-mv "$file" "$BACKUP_DIR/$component"
+    done < "$backupList"
 }
 
 if [[ $# -ne 1 ]]; then
@@ -24,4 +36,7 @@ for componentDirectory in "$SCAN_DIR"/*; do
     fi
     componentName=$(basename "$componentDirectory")
     echo "backing up $componentName"
+    backup-from-file "$componentDirectory/backuplist.txt" "$componentName"
+    echo "backed up $componentName"
 done
+
