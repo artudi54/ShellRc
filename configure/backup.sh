@@ -37,6 +37,5 @@ for componentDirectory in "$SCAN_DIR"/*; do
     componentName=$(basename "$componentDirectory")
     echo "backing up $componentName"
     backup-from-file "$componentDirectory/backuplist.txt" "$componentName"
-    echo "backed up $componentName"
 done
 

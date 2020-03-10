@@ -14,5 +14,4 @@ for componentDirectory in "$SCAN_DIR"/*; do
     componentName=$(basename "$componentDirectory")
     echo "installing config for $componentName"
     source "$componentDirectory/install.sh"
-    echo "installed config for  $componentName"
 done
