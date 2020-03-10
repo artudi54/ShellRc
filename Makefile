@@ -1,5 +1,5 @@
 setup:
-	bash configure.sh
+	bash deployment/configure/configure.sh
 
 images:
 	docker image build . -f deployment/docker/Dockerfile-debian --build-arg SYSTEM=ubuntu:16.04 -t artudi54/shellrc:ubuntu-16.04
