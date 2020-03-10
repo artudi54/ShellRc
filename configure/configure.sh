@@ -1,6 +1,5 @@
 #!/bin/bash
 SHELLRC_DIR="$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")"
-BAK_DIR="$HOME/.shellrc-backups"
 
 exists() {
     if which "$1" >/dev/null 2>&1; then
@@ -37,59 +36,6 @@ postinstall() {
     "$SHELLRC_DIR/configure/postinstall/postinstall.sh" "$SHELLRC_DIR"
 }
 
-
-check-mv() {
-    if [ -h "$HOME/$1" ] || [ -e "$HOME/$1" ]; then
-        mv "$HOME/$1" "$BAK_DIR"
-    fi
-}
-
-create-backups() {
-    if [ -d "$BAK_DIR" ]; then
-        echo "$0: backups already created in '$BAK_DIR' - won't overwrite" 1>&2
-        return 1
-    fi
-    mkdir "$HOME/.shellrc-backups"
-    
-    # bash
-    check-mv ".bashrc"
-    check-mv ".bash_history"
-    check-mv ".bash_login"
-    check-mv ".bash_logout"
-    check-mv ".bash_profile"
-    check-mv ".profile"
-    
-    # zsh
-    check-mv ".zlogin"
-    check-mv ".zlogout"
-    check-mv ".zprofile"
-    check-mv ".zshenv"
-    check-mv ".zshrc"
-    check-mv ".zsh_history"
-    
-    # vim
-    check-mv ".vim"
-    check-mv ".vimrc"
-    check-mv ".viminfo"
-    
-    # screen
-    check-mv ".screenrc"
-    
-    # tmux
-    check-mv ".tmux.conf"
-    
-    # emacs
-    check-mv ".emacs"
-    check-mv ".emacs.d"
-    
-    # git
-    check-mv ".gitconfig"
-    check-mv ".config/git"
-    
-    # python
-    check-mv ".pythonrc"
-    check-mv ".python-history"
-}
 
 write-dotfiles() {
     echo "source "\"$SHELLRC_DIR/shellrc.sh\""" > "$HOME/.bashrc"
@@ -140,12 +86,11 @@ if [ $? != 0 ]; then
     exit 1
 fi
 
-echo "Creating dotfiles backup"
-create-backups
-if [ $? != 0 ]; then
+echo "Creating backups"
+if ! source "$(script-dir)/backup.sh" "$SHELLRC_DIR/components"; then
     exit 1
 fi
-echo "Backups created in $BAK_DIR"
+echo "Backups created in "$HOME/ShellrcBackups"
 
 echo "Writing dotfiles"
 write-dotfiles
