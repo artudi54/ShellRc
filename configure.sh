@@ -1,1 +1,1 @@
-configure/configure.sh
+deployment/configure/configure.sh
