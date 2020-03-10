@@ -1,1 +1,0 @@
-deployment/configure/configure.sh

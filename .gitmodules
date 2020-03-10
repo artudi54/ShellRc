@@ -1,11 +1,11 @@
 [submodule "shell/plugins/files/bash-completion"]
-	path = shell/plugins/completions/bash-completion
+	path = components/shell/shell/plugins/completions/bash-completion
 	url = https://github.com/scop/bash-completion
 [submodule "shell/plugins/files/zsh-completions"]
-	path = shell/plugins/completions/zsh-completions
+	path = components/shell/shell/plugins/completions/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
 [submodule "shell/plugins/files/zsh-syntax-highlighting"]
-	path = shell/plugins/syntax-highlighting/zsh-syntax-highlighting
+	path = components/shell/shell/plugins/syntax-highlighting/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "vim/bundle/vim-gitgutter"]
 	path = components/vim/plugins/vim-gitgutter
@@ -63,7 +63,7 @@
 	path = components/vim/plugins/quickmenu
 	url = https://github.com/skywind3000/quickmenu.vim
 [submodule "shell/plugins/files/paki/paki"]
-	path = shell/plugins/paki/paki
+	path = components/shell/shell/plugins/paki/paki
 	url = https://github.com/artudi54/paki
 [submodule "vim/bundle/ps1"]
 	path = components/vim/plugins/ps1
@@ -84,13 +84,13 @@
 	path = components/less/lesspipe
 	url = https://github.com/wofr06/lesspipe
 [submodule "shell/plugins/git/lib/git-flow-completion"]
-	path = shell/plugins/git/lib/git-flow-completion
+	path = components/shell/shell/plugins/git/lib/git-flow-completion
 	url = https://github.com/bobthecow/git-flow-completion
 [submodule "shell/plugins/git/lib/git-flow"]
-	path = shell/plugins/git/lib/git-flow
+	path = components/shell/shell/plugins/git/lib/git-flow
 	url = https://github.com/nvie/gitflow
 [submodule "shell/plugins/git/lib/git-extras"]
-	path = shell/plugins/git/lib/git-extras
+	path = components/shell/shell/plugins/git/lib/git-extras
 	url = https://github.com/tj/git-extras
 [submodule "vim/bundle/alternate-lite"]
 	path = components/vim/plugins/alternate-lite
