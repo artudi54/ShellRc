@@ -1,1 +1,3 @@
 git feature -r does not work
+not working configure
+remove shell plugins
