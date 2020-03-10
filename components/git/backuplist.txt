@@ -1,2 +1,4 @@
+"$HOME/.gitattributes"
 "$HOME/.gitconfig"
+"$HOME/.gitignore"
 "$XDG_CONFIG_HOME/git"
