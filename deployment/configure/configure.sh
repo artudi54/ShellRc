@@ -1,5 +1,8 @@
 #!/bin/bash
-SHELLRC_DIR="$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")"
+export SHELLRC_DIR="$(dirname "$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")")"
+source "$SHELLRC_DIR/lib/lib.sh"
+export -f include
+export -f script-directory
 
 exists() {
     if which "$1" >/dev/null 2>&1; then
@@ -34,21 +37,6 @@ install() {
 
 postinstall() {
     "$SHELLRC_DIR/configure/postinstall/postinstall.sh" "$SHELLRC_DIR"
-}
-
-
-write-dotfiles() {
-    echo "source "\"$SHELLRC_DIR/shellrc.sh\""" > "$HOME/.bashrc"
-    ln -s ".bashrc" "$HOME/.zshrc"
-    
-    echo "source "\"$SHELLRC_DIR/shellrc.sh\""" > "$HOME/.profile"
-    ln -s ".profile" "$HOME/.zprofile"
-
-    mkdir -p "$HOME/.config/git"
-    echo "[include]" > "$HOME/.config/git/config"
-    echo "    path = "\"$SHELLRC_DIR/git/gitconfig.ini\""" >> "$HOME/.config/git/config"
-
-    echo "source "\"$SHELLRC_DIR/components/tmux/tmux.conf\""" > "$HOME/.tmux.conf"
 }
 
 configure-vim-ycm() {
@@ -87,17 +75,16 @@ if [ $? != 0 ]; then
 fi
 
 echo "Creating backups"
-if ! source "$(script-dir)/backup.sh" "$SHELLRC_DIR/components"; then
+if ! "$(script-dir)/backup.sh" "$SHELLRC_DIR/components"; then
     exit 1
 fi
-echo "Backups created in "$HOME/ShellrcBackups"
+echo "Backups created in \"$HOME/ShellrcBackups\""
 
-echo "Writing dotfiles"
-write-dotfiles
-if [ $? != 0 ]; then
+echo "Configuring components"
+if ! "$(script-dir)/install.sh" "$SHELLRC_DIR/components"; then
     exit 1
 fi
-echo "Writing dotfiles done"
+echo "Configuring components done"
 
 echo "Configuring vim"
 configure-vim
