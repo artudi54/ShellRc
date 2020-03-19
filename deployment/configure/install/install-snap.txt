@@ -1,0 +1,9 @@
+discord
+foobar2000
+gitkraken
+matroska-tools
+obs-studio
+ponysay
+remarkable
+snap-store
+spotify

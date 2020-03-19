@@ -1,0 +1,13 @@
+android-studio
+brackets
+clion
+code
+datagrip
+intellij-idea-ultimate
+node
+powershell
+pycharm-professional
+rider
+skype
+slack
+webstorm
