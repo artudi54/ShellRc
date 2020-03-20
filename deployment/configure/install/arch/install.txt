@@ -1,4 +1,5 @@
 gcc
+ncurses5-compat-libs
 python-pdftotext
 python
 python-pip

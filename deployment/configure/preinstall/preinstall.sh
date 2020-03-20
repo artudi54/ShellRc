@@ -10,18 +10,18 @@ SHELLRC_DIR=$1
 
 # Update system
 if grep -qE "(Microsoft|WSL)" /proc/version &>/dev/null; then
-    $SHELLRC_DIR/shell/plugins/paki/paki/bin/paki update -ys
+    $SHELLRC_DIR/components/shell/shell/plugins/paki/paki/bin/paki update -ys
 else
-    $SHELLRC_DIR/shell/plugins/paki/paki/bin/paki update -y
+    $SHELLRC_DIR/components/shell/shell/plugins/paki/paki/bin/paki update -y
 fi
 
 # Platform switch
 if [ -f /etc/arch-release ]; then
-    "$SHELLRC_DIR/configure/preinstall/arch.sh"
+    "$SHELLRC_DIR/deployment/configure/preinstall/arch.sh"
 elif [ -f /etc/centos-release ]; then
-    "$SHELLRC_DIR/configure/preinstall/centos.sh"
+    "$SHELLRC_DIR/deployment/configure/preinstall/centos.sh"
 elif [ -f /etc/debian_version ]; then
-    "$SHELLRC_DIR/configure/preinstall/debian.sh"
+    "$SHELLRC_DIR/deployment/configure/preinstall/debian.sh"
 elif [ -f /etc/fedora-release ]; then
-    "$SHELLRC_DIR/configure/preinstall/fedora.sh"
+    "$SHELLRC_DIR/deployment/configure/preinstall/fedora.sh"
 fi

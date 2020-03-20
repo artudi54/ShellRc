@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=Tango
-Font=Anonymous Pro,14,-1,5,50,0,0,0,0,0,Regular
+Font=Monospace,11,-1,5,50,0,0,0,0,0
 UseFontLineChararacters=true
 
 [General]
