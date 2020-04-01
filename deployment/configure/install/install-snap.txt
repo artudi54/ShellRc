@@ -4,6 +4,7 @@ gitkraken
 matroska-tools
 obs-studio
 ponysay
+qalculate
 remarkable
 snap-store
 spotify
