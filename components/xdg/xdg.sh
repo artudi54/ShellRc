@@ -3,6 +3,10 @@
 # TODO
 # wget, xorg-auth
 
+# Breezy
+export BRZ_LOG="$XDG_CACHE_HOME/breezy/brz.log"
+export BRZ_HOME="$XDG_CONFIG_HOME/breezy"
+
 # CCache
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
@@ -10,6 +14,9 @@ export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 # Docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
+
+# GnuPG
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
 # Gradle
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
