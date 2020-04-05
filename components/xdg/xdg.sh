@@ -41,6 +41,7 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
 # NVIDIA/CUDA
+export __GL_SHADER_DISK_CACHE_PATH="XDG_CACHE_HOME/nv"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 # python-pylint

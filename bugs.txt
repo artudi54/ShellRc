@@ -1,4 +1,3 @@
 git feature -r does not work
 remove shell plugins
-GIT_CONFIG
 yakuake
