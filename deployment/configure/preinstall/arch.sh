@@ -17,6 +17,15 @@ if ! grep "https://aur.andontie.net" /etc/pacman.conf >/dev/null; then
     echo "Server = https://aur.andontie.net/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
+
+if ! grep "https://arch4edu.keybase.pub" /etc/pacman.conf > /dev/null; then
+    sudo pacman-key --recv-keys 7931B6D628C8D3BA
+    sudo pacman-key --finger 7931B6D628C8D3BA
+    sudo pacman-key --lsign-key 7931B6D628C8D3BA
+    echo "[arch4edu]" | sudo tee -a /etc/pacman.conf >/dev/null
+    echo "Server = https://arch4edu.keybase.pub/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
+fi
+
 sudo pacman -Syy
 if ! which yay 2>/dev/null 1>&2; then
     sudo pacman -S --noconfirm yay
