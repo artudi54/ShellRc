@@ -2,3 +2,5 @@ git feature -r does not work
 remove shell plugins
 yakuake
 GIT_CONFIG
+cdpach
+shelltheme
