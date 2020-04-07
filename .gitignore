@@ -1,6 +1,4 @@
 *.swo
 *.swp
-tmp
 .vscode/
-history/
-settings.conf
+personal

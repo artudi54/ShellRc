@@ -1,14 +1,15 @@
 # Shell configuration setup for ShellRc
 
-if [[ ! -v SHELLRC_ENVIRONMENT ]]; then
-    export SHELLRC_ENVIRONMENT="$SHELLRC_DIR/environment.conf"
-fi
+# Set environment file variable
+export SHELLRC_ENVIRONMENT="$SHELLRC_DIR/personal/environment.conf"
 
-if [[ ! -f "$SHELLRC_ENVIRONMENT" ]]; then
-    touch "$SHELLRC_ENVIRONMENT"
-fi
+# Create file if it does not exist
+[[ ! -f "$SHELLRC_ENVIRONMENT" ]] && touch "$SHELLRC_ENVIRONMENT"
 
+# Load shellenv command line utility
 include "shellenv.sh"
 include "shellenv-completion.sh"
+
+# Load variables
 shellenv reload
 
