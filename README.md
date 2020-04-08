@@ -1,8 +1,10 @@
 ## Supported Distributions
-- Ubuntu 16.04, 18.04+
-- CentOS 6+
-- Debian 8+
-- Fedora 26+
-- Arch Linux and derivatives
+- Arch Linux latest
+- CentOS 7+
+- Debian 10+
+- Fedora 31+
+- Linux Mint 19+
+- Manjaro latest
+- Ubuntu 18.04, 19.04+
 
-ShellRc may work on other distributions but it isn't guaranteed.
+ShellRc may work on other similar distributions but it isn't guaranteed.

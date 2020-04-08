@@ -1,5 +1,6 @@
 #!/bin/bash
 
-/ShellRc/configure.sh
+export SHELL=/bin/bash
+/root/.config/ShellRc/deployment/configure/configure.sh
 exec bash
 

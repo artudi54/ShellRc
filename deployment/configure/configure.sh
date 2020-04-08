@@ -73,12 +73,6 @@ if [ $? != 0 ]; then
 fi
 echo "Installation done"
 
-echo "Postconfiguring installation"
-postinstall
-if [ $? != 0 ]; then
-    exit 1
-fi
-
 echo "Creating backups"
 if ! "$(script-directory)/backup.sh" "$SHELLRC_DIR/components"; then
     exit 1
