@@ -4,3 +4,5 @@ yakuake
 GIT_CONFIG
 cdpach
 shelltheme
+configure - debian non-free
+configure - dnf on centos 7
