@@ -1,1 +1,3 @@
+com.github.micahflee.torbrowser-launcher
 com.teamspeak.TeamSpeak
+org.qbittorrent.qBittorrent
