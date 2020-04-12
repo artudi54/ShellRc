@@ -9,3 +9,7 @@ alias la='ls -a'
 
 alias ll='ls -l'
 alias lla='ls -al'
+
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+
