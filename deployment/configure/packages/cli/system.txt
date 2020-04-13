@@ -4,6 +4,7 @@ bzip2
 clang
 cmake
 emacs
+gcc
 git
 grep
 gzip
@@ -12,6 +13,7 @@ less
 make
 ncompress
 net-tools
+openvpn
 p7zip
 screen
 tar

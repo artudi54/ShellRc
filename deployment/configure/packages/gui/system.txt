@@ -1,0 +1,4 @@
+dolphin
+gparted
+konsole
+yakuake

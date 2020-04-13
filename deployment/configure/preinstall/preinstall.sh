@@ -1,27 +1,21 @@
 #!/bin/bash
 set -e
 
-if [ $# -ne 1 ]; then
-    echo "preconfigure: invalid number of arguments" 1>&2
-    exit 1
-fi
-
-SHELLRC_DIR=$1
-
 # Update system
+#TODO move WSL case to paki or wait for WSL2
 if grep -qE "(Microsoft|WSL)" /proc/version &>/dev/null; then
-    $SHELLRC_DIR/components/shell/shell/plugins/paki/paki/bin/paki update -ys
+    paki update -ys
 else
-    $SHELLRC_DIR/components/shell/shell/plugins/paki/paki/bin/paki update -y
+    paki update -y
 fi
 
 # Platform switch
 if [ -f /etc/arch-release ]; then
-    "$SHELLRC_DIR/deployment/configure/preinstall/arch.sh"
+    "$(script-directory)/arch.sh"
 elif [ -f /etc/centos-release ]; then
-    "$SHELLRC_DIR/deployment/configure/preinstall/centos.sh"
+    "$(script-directory)/centos.sh"
 elif [ -f /etc/debian_version ]; then
-    "$SHELLRC_DIR/deployment/configure/preinstall/debian.sh"
+    "$(script-directory)/debian.sh"
 elif [ -f /etc/fedora-release ]; then
-    "$SHELLRC_DIR/deployment/configure/preinstall/fedora.sh"
+    "$(script-directory)/fedora.sh"
 fi

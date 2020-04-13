@@ -23,7 +23,7 @@ if [[ $# -ne 1 ]]; then
 fi
 
 SCAN_DIR="$1"
-BACKUP_DIR="$HOME/ShellrcBackups"
+BACKUP_DIR="$HOME/ShellRcBackups"
 
 if [[ -e "$BACKUP_DIR" ]]; then
     echo "backup: backup directory already exists - '$BACKUP_DIR'" 1>&2
@@ -38,4 +38,6 @@ for componentDirectory in "$SCAN_DIR"/*; do
     echo "backing up $componentName"
     backup-from-file "$componentDirectory/backuplist.txt" "$componentName"
 done
+
+echo "backups created in '$BACKUP_DIR'"
 

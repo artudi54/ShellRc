@@ -1,7 +1,4 @@
 g++
-gcc
-g++-8
-gcc-8
 liblua5.2-dev
 libncurses-dev
 libtinfo5
@@ -12,6 +9,6 @@ python3-dev
 python3-pip
 python3-future
 python3-certifi
-vim-gtk
+vim-gtk3
 wireless-tools
 zlib1g-dev

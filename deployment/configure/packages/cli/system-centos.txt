@@ -1,5 +1,4 @@
 gcc-c++
-gcc
 pdftotext
 python36u
 python36u-devel

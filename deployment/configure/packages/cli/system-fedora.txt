@@ -1,5 +1,4 @@
 gcc-c++
-gcc
 pdftotext
 python3
 python3-devel
