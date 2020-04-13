@@ -1,3 +1,4 @@
+cheese
 dolphin
 gparted
 k3b
