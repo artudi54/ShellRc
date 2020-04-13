@@ -19,14 +19,21 @@ if ! grep "https://aur.andontie.net" /etc/pacman.conf >/dev/null; then
     echo "Server = https://aur.andontie.net/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
-
 # Arch4edu
-if ! grep "https://arch4edu.keybase.pub" /etc/pacman.conf > /dev/null; then
+if ! grep "https://arch4edu.keybase.pub" /etc/pacman.conf >/dev/null; then
     sudo pacman-key --recv-keys 7931B6D628C8D3BA
     sudo pacman-key --finger 7931B6D628C8D3BA
     sudo pacman-key --lsign-key 7931B6D628C8D3BA
     echo "[arch4edu]" | sudo tee -a /etc/pacman.conf >/dev/null
     echo "Server = https://arch4edu.keybase.pub/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
+fi
+
+# Disastrous AUR
+if ! grep "https://mirror.repohost.de" /etc/pacman.conf >/dev/null; then
+    sudo pacman-key --recv-keys CBAE582A876533FD
+    sudo pacman-key --lsign-key CBAE582A876533FD
+    echo "[disastrousaur]" | sudo tee -a /etc/pacman.conf >/dev/null
+    echo "Server = https://mirror.repohost.de/\$repo/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
 paki update-get
