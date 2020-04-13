@@ -1,0 +1,4 @@
+alsa-utils
+bluez
+net-tools
+pulseaudio

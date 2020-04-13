@@ -1,0 +1,2 @@
+NetworkManager
+pulseaudio-module-bluetooth

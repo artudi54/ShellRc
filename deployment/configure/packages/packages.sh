@@ -24,8 +24,10 @@ fi
 
 commonCli="$(script-directory)/cli/system.txt"
 commonGui="$(script-directory)/gui/system.txt"
-specialCli="$(script-directory)cli/system-$arch.txt"
-specialGui="$(script-directory)gui/system-$arch.txt"
+commonDriverish="$(script-directory)/driverish/system.txt"
+specialCli="$(script-directory)/cli/system-$arch.txt"
+specialGui="$(script-directory)/gui/system-$arch.txt"
+specialDriverish="$(script-directory)/driverish/system-$arch.txt"
 
-paki install -y $(cat "$commonCli" "$commonGui" "$specialCli" "$specialGui")
+paki install -y $(cat "$commonCli" "$commonGui" "$commonDriverish" "$specialCli" "$specialGui" "$specialDriverish")
 

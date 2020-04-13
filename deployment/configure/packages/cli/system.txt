@@ -13,7 +13,6 @@ icoutils
 less
 make
 ncompress
-net-tools
 openvpn
 p7zip
 screen
