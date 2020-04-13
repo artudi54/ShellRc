@@ -8,18 +8,24 @@ exists() {
     fi
 }
 
-common="$(script-directory)/cli/system.txt"
-
-if exists apt-get; then
-    paki install -y $(cat "$common" "$(script-directory)/cli/system-debian.txt")
-elif exists dnf; then
-    paki install -y $(cat "$common" "$(script-directory)/cli/fedora/system-fedora.txt")
-elif exists yum; then
-    paki install -y $(cat "$common" "$(script-directory)/cli/system-centos.txt")
-elif exists yay; then
-    # TODO: fix in paki
-    paki install --noconfirm $(cat "$common" "$(script-directory)/cli/system-arch.txt")
+# platform switch
+if [ -f /etc/arch-release ]; then
+    arch=arch
+elif [ -f /etc/centos-release ]; then
+    arch=centos
+elif [ -f /etc/debian_version ]; then
+    arch=debian
+elif [ -f /etc/fedora-release ]; then
+    arch=fedora
 else
-    echo "$0: no suitable package manager for installing dependencies found" 1>&2
+    echo "$0: couldn't recognize linux distribution" 1>&2
     return 1
 fi
+
+commonCli="$(script-directory)/cli/system.txt"
+commonGui="$(script-directory)/gui/system.txt"
+specialCli="$(script-directory)cli/system-$arch.txt"
+specialGui="$(script-directory)gui/system-$arch.txt"
+
+paki install -y $(cat "$commonCli" "$commonGui" "$specialCli" "$specialGui")
+

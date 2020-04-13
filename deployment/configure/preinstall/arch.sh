@@ -29,9 +29,21 @@ if ! grep "https://arch4edu.keybase.pub" /etc/pacman.conf > /dev/null; then
     echo "Server = https://arch4edu.keybase.pub/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
+paki update-get
+
 # Install yay if not present
-sudo pacman -Syy
 if ! which yay 2>/dev/null 1>&2; then
-    sudo pacman -S --noconfirm yay
+    #TODO fix for arch
+    paki install --noconfirm yay
 fi
+
+
+# Install snap if not present
+if ! which snap 2>/dev/null 1>&2; then
+    #TODO fix for arch
+    paki install  --noconfirm snapd
+    sudo systemctl enable --now snapd.socket
+fi
+# Enable snap classic support
+[[ ! -d /snap ]] && sudo ln -s /var/lib/snapd/snap /snap
 
