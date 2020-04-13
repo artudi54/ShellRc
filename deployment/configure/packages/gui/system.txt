@@ -3,5 +3,6 @@ gparted
 k3b
 keepassxc
 konsole
+pcsxr
 vlc
 yakuake
