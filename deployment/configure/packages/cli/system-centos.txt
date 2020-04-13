@@ -1,4 +1,5 @@
 gcc-c++
+openssh
 pdftotext
 python36u
 python36u-devel

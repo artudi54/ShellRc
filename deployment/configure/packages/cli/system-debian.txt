@@ -3,6 +3,8 @@ liblua5.2-dev
 libncurses-dev
 libtinfo5
 lua5.2
+openssh-client
+openssh-server
 poppler-utils
 python3
 python3-dev

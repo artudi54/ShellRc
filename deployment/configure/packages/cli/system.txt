@@ -3,7 +3,6 @@ bash
 bzip2
 clang
 cmake
-coreutils
 emacs
 gcc
 git
@@ -16,6 +15,7 @@ ncompress
 openvpn
 p7zip
 screen
+sed
 tar
 tmux
 unzip

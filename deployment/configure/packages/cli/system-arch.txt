@@ -1,4 +1,5 @@
 ncurses5-compat-libs
+openssh
 python-pdftotext
 python
 python-pip

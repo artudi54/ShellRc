@@ -1,4 +1,7 @@
 dolphin
 gparted
+k3b
+keepassxc
 konsole
+vlc
 yakuake

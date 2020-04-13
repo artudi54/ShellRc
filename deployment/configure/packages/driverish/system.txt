@@ -1,4 +1,6 @@
 alsa-utils
 bluez
+coreutils
+findutils
 net-tools
 pulseaudio
