@@ -21,6 +21,7 @@ screen
 sed
 tar
 tmux
+traceroute
 unzip
 unrar
 vim
