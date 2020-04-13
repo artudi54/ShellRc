@@ -5,6 +5,7 @@ clang
 cmake
 coreutils
 emacs
+fakeroot
 findutils
 gcc
 git
