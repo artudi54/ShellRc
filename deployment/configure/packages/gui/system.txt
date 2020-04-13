@@ -1,3 +1,4 @@
+baobab
 cheese
 dolphin
 gparted
