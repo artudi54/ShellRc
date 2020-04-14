@@ -36,6 +36,13 @@ if ! grep "https://mirror.repohost.de" /etc/pacman.conf >/dev/null; then
     echo "Server = https://mirror.repohost.de/\$repo/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
+# Chinese Community
+if ! grep "https://repo.archlinuxcn.org" /etc/pacman.conf >/dev/null; then
+    echo "[archlinuxcn]" | sudo tee -a /etc/pacman.conf >/dev/null
+    echo "Server = https://repo.archlinuxcn.org/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
+    sudo pacman -Syy && sudo pacman -S archlinuxcn-keyring
+fi
+
 paki update-get
 
 # Install yay if not present
