@@ -29,5 +29,6 @@ specialCli="$(script-directory)/cli/system-$arch.txt"
 specialGui="$(script-directory)/gui/system-$arch.txt"
 specialDriverish="$(script-directory)/driverish/system-$arch.txt"
 
-paki install -y $(cat "$commonCli" "$commonGui" "$commonDriverish" "$specialCli" "$specialGui" "$specialDriverish")
+# TODO FIX FOR ARCH add yes option
+paki install $(cat "$commonCli" "$commonGui" "$commonDriverish" "$specialCli" "$specialGui" "$specialDriverish")
 

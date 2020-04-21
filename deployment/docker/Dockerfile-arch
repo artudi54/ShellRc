@@ -1,6 +1,6 @@
-ARG SYSTEM=ubuntu:18.04
+ARG SYSTEM=archlinux:latest
 FROM $SYSTEM
-RUN apt-get update && apt-get install sudo -y
+RUN pacman -Sy --noconfirm sudo
 COPY . /root/.config/ShellRc
 
 ENTRYPOINT /root/.config/ShellRc/deployment/test/configure-test.sh
