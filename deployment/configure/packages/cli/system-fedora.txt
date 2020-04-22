@@ -1,4 +1,7 @@
 gcc-c++
+lua-devel
+ncurses-*libs
+ncurses-devel
 openssh
 python3
 python3-devel
@@ -6,3 +9,4 @@ python3-pip
 python3-future
 python3-certifi
 wireless-tools
+zlib-devel

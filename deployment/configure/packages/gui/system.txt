@@ -5,7 +5,6 @@ gparted
 k3b
 keepassxc
 konsole
-pcsxr
 thunderbird
 vlc
 yakuake

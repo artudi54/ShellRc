@@ -51,20 +51,3 @@ if ! which yay 2>/dev/null 1>&2; then
     pacman -S --noconfirm yay
 fi
 
-
-# Install snap if not present
-if ! which snap 2>/dev/null 1>&2; then
-    #TODO fix for arch
-    paki install  --noconfirm snapd
-    sudo systemctl enable --now snapd.socket
-fi
-# Enable snap classic support
-[[ -d /snap ]] || sudo ln -s /var/lib/snapd/snap /snap
-
-
-# Install flatpak if not present
-if ! which flatpak 2>/dev/null 1>&2; then
-    #TODO fix for arch
-    paki install --noconfirm flatpak
-fi
-
