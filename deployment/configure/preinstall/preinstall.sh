@@ -37,4 +37,5 @@ fi
 if ! which flatpak 2>/dev/null 1>&2; then
     paki install -y flatpak
 fi
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
