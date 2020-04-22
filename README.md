@@ -9,3 +9,6 @@
 - Ubuntu and it's flavours 18.04, 19.04+
 
 ShellRc may work on other similar distributions but it isn't guaranteed.
+
+prequisites:
+sudo, which

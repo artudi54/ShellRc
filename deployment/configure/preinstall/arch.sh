@@ -43,12 +43,12 @@ if ! grep "https://repo.archlinuxcn.org" /etc/pacman.conf >/dev/null; then
     sudo pacman -Syy && sudo pacman -S archlinuxcn-keyring
 fi
 
-paki update-get
+pacman -Sy
 
 # Install yay if not present
 if ! which yay 2>/dev/null 1>&2; then
     #TODO fix for arch
-    paki install --noconfirm yay
+    pacman -S --noconfirm yay
 fi
 
 
@@ -60,4 +60,11 @@ if ! which snap 2>/dev/null 1>&2; then
 fi
 # Enable snap classic support
 [[ -d /snap ]] || sudo ln -s /var/lib/snapd/snap /snap
+
+
+# Install flatpak if not present
+if ! which flatpak 2>/dev/null 1>&2; then
+    #TODO fix for arch
+    paki install --noconfirm flatpak
+fi
 

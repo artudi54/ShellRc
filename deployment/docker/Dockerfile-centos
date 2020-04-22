@@ -1,0 +1,7 @@
+ARG SYSTEM=centos:8
+FROM $SYSTEM
+RUN dnf install -y sudo
+COPY . /root/.config/ShellRc
+
+ENTRYPOINT /root/.config/ShellRc/deployment/test/configure-test.sh
+
