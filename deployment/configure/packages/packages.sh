@@ -29,6 +29,18 @@ specialCli="$(script-directory)/cli/system-$arch.txt"
 specialGui="$(script-directory)/gui/system-$arch.txt"
 specialDriverish="$(script-directory)/driverish/system-$arch.txt"
 
+snapCli="$(script-directory)/cli/snap.txt"
+snapGui="$(script-directory)/gui/snap.txt"
+
+flatpakCli="$(script-directory)/cli/flatpak.txt"
+flatpakGui="$(script-directory)/gui/flatpak.txt"
+
 # TODO FIX FOR ARCH add yes option
 paki install $(cat "$commonCli" "$commonGui" "$commonDriverish" "$specialCli" "$specialGui" "$specialDriverish")
+
+for entry in $(cat "$snapCli" "$snapGui"); do
+    sudo snap install --classic $entry
+done
+
+flatpak install -y flathub $(cat "$flatpakCli" "$flatpakGui")
 
