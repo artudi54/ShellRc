@@ -29,7 +29,6 @@ if ! which snap 2>/dev/null 1>&2; then
     paki install -y snapd
     sudo systemctl enable --now snapd.socket
 fi
-# Enable snap classic support
 [[ -d /snap ]] || sudo ln -s /var/lib/snapd/snap /snap
 
 
