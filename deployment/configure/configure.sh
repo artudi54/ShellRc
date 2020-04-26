@@ -14,8 +14,6 @@ echo "[ShellRc] Installing system packages"
 "$(script-directory)/packages/packages.sh" || exit 1
 echo "[ShellRc] Installing system packages complete"
 
-exit
-
 echo "[ShellRc] Creating backups"
 "$(script-directory)/backup/backup.sh" "$SHELLRC_DIR/components" || exit 1
 echo "[ShellRc] Creating backups complete"
