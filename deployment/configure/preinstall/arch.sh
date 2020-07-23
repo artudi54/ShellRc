@@ -43,6 +43,14 @@ if ! grep "https://repo.archlinuxcn.org" /etc/pacman.conf >/dev/null; then
     sudo pacman -Syy && sudo pacman -S archlinuxcn-keyring
 fi
 
+
+# User Repository
+if ! grep "https://userrepository.eu" /etc/pacman.conf >/dev/null; then
+    echo "[userrepository]" | sudo tee -a /etc/pacman.conf >/dev/null
+    echo "Server = https://userrepository.eu" | sudo tee -a /etc/pacman.conf >/dev/null
+    echo "SigLevel = Optional TrustAll" | sudo tee -a /etc/pacman.conf >/dev/null
+fi
+
 pacman -Sy
 
 # Install yay if not present
