@@ -6,7 +6,6 @@ if ! grep "http://chaotic.bangl.de" /etc/pacman.conf >/dev/null; then
     sudo pacman-key --keyserver keys.mozilla.org -r 3056513887B78AEB
     sudo pacman-key --lsign-key 3056513887B78AEB
     echo "[chaotic-aur]" | sudo tee -a /etc/pacman.conf >/dev/null
-    echo "Server = http://lonewolf-builder.duckdns.org/\$repo/x86_64" | sudo tee -a /etc/pacman.conf >/dev/null
     echo "Server = http://chaotic.bangl.de/\$repo/x86_64" | sudo tee -a /etc/pacman.conf >/dev/null
     echo "Server = https://repo.kitsuna.net/x86_64" | sudo tee -a /etc/pacman.conf >/dev/null
 fi

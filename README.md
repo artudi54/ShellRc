@@ -1,6 +1,6 @@
 ## Supported Distributions
 - Arch Linux latest
-- CentOS 7+
+- CentOS 8+
 - Debian 10+
 - Fedora 31+
 - KDE Neon
