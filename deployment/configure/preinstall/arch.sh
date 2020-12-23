@@ -27,14 +27,6 @@ if ! grep "https://arch4edu.keybase.pub" /etc/pacman.conf >/dev/null; then
     echo "Server = https://arch4edu.keybase.pub/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
-# Disastrous AUR
-if ! grep "https://mirror.repohost.de" /etc/pacman.conf >/dev/null; then
-    sudo pacman-key --recv-keys CBAE582A876533FD
-    sudo pacman-key --lsign-key CBAE582A876533FD
-    echo "[disastrousaur]" | sudo tee -a /etc/pacman.conf >/dev/null
-    echo "Server = https://mirror.repohost.de/\$repo/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
-fi
-
 # Chinese Community
 if ! grep "https://repo.archlinuxcn.org" /etc/pacman.conf >/dev/null; then
     echo "[archlinuxcn]" | sudo tee -a /etc/pacman.conf >/dev/null
