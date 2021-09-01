@@ -1,2 +1,2 @@
-kde-connect
+kdeconnect
 libreoffice

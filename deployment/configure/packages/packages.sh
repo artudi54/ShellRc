@@ -42,5 +42,5 @@ for entry in $(cat "$snapCli" "$snapGui"); do
     sudo snap install --classic $entry
 done
 
-flatpak install -y flathub $(cat "$flatpakCli" "$flatpakGui")
+sudo flatpak install -y flathub $(cat "$flatpakCli" "$flatpakGui")
 
