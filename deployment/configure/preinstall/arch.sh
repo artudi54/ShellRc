@@ -53,6 +53,14 @@ if ! grep "/etc/pacman.d/archstrike-mirrorlist" /etc/pacman.conf >/dev/null; the
     echo "Include = /etc/pacman.d/archstrike-mirrorlist" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
+# miffe
+if ! grep "https://arch.miffe.org/" /etc/pacman.conf >/dev/null; then
+    sudo pacman-key --keyserver keyserver.ubuntu.com -r 313F5ABD
+    sudo pacman-key --lsign-key 313F5ABD
+    echo "[miffe]" | sudo tee -a /etc/pacman.conf >/dev/null
+    echo "Server = https://arch.miffe.org/\$arch/" | sudo tee -a /etc/pacman.conf >/dev/null
+fi
+
 pacman -Syy --noconfirm
 
 # Install yay if not present
@@ -60,4 +68,3 @@ if ! which yay 2>/dev/null 1>&2; then
     #TODO fix for arch
     pacman -S --noconfirm yay
 fi
-

@@ -1,1 +1,2 @@
-components/vim/plugins/color_coded/build
+/components/vim/plugins/color_coded/build
+.git/
