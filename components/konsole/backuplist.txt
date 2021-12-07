@@ -1,2 +1,3 @@
 $XDG_CONFIG_HOME/konsolerc
 $XDG_DATA_HOME/konsole
+$XDG_DATA_HOME/kxmlgui5/konsole

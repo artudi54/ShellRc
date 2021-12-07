@@ -2,5 +2,6 @@
 dir="$(script-directory)"
 ln -s "$dir/konsole.ini" "$XDG_CONFIG_HOME/konsolerc"
 ln -s "$dir/config" "$XDG_DATA_HOME/konsole"
-git update-index --assume-unchanged "$dir/konsole.ini"
+mkdir -p "$XDG_DATA_HOME/kxmlgui5"
+ln -s "$dir/menus" "$XDG_DATA_HOME/kxmlgui5/konsole"
 
