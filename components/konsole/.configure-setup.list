@@ -1,2 +1,0 @@
-link konsole.ini $XDG_CONFIG_HOME/konsolerc
-link config $XDG_DATA_HOME/konsole
