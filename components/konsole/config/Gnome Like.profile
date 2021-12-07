@@ -1,7 +1,7 @@
 [Appearance]
 AntiAliasFonts=true
 BoldIntense=true
-ColorScheme=Tango
+ColorScheme=Tango Modified
 Font=Monospace,11,-1,5,50,0,0,0,0,0
 UseFontLineChararacters=true
 
