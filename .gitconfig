@@ -1,3 +1,3 @@
 [filter "ignore_konsole_ini"]
-    clean = sed '/^State=/d'
-    smudge = sed '/^State=/d'
+    clean = sed -e '/^State=/d' -e '/^detailViewIconSize=/d'
+    smudge = sed -e '/^State=/d' -e '/^detailViewIconSize=/d'
