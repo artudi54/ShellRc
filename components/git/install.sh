@@ -6,4 +6,5 @@ read -p "Enter your email: " email
 git config --global include.path "$dir/gitconfig.ini"
 git config --global user.name "$name"
 git config --global user.email "$email"
+git config --local include.path ../.gitconfig
 

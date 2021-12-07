@@ -1,8 +1,8 @@
-#  _____  _            _  _ ______       
-# /  ___|| |          | || || ___ \      
-# \ `--. | |__    ___ | || || |_/ /  ___ 
+#  _____  _            _  _ ______
+# /  ___|| |          | || || ___ \
+# \ `--. | |__    ___ | || || |_/ /  ___
 #  `--. \| '_ \  / _ \| || ||    /  / __|
-# /\__/ /| | | ||  __/| || || |\ \ | (__ 
+# /\__/ /| | | ||  __/| || || |\ \ | (__
 # \____/ |_| |_| \___||_||_|\_| \_| \___|
 
 
@@ -17,7 +17,10 @@ elif [ -n "$ZSH_VERSION" ]; then
 fi
 
 # Basic configuration required for all components to load
+source "$SHELLRC_DIR/lib/script-sourcing.sh"
 source "$SHELLRC_DIR/lib/lib.sh"
+
+include "src/src.sh"
 
 # Components configuration
 source "$SHELLRC_DIR/components/components.sh"

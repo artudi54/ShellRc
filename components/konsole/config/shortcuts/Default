@@ -1,50 +1,60 @@
-<gui name="konsole" version="1">
+<gui version="1" name="konsole">
   <ActionProperties>
-    <Action name="close-session" shortcut="Ctrl+Shift+W"/>
-    <Action name="edit_copy" shortcut="Ctrl+Shift+C"/>
-    <Action name="edit_paste" shortcut="Ctrl+Shift+V; Shift+Ins"/>
-    <Action name="paste-selection" shortcut="Ctrl+Shift+Ins"/>
-    <Action name="file_save_as" shortcut="Ctrl+Shift+S"/>
-    <Action name="file_print" shortcut="Ctrl+Shift+P"/>
-    <Action name="clear-history-and-reset" shortcut="Ctrl+Shift+K"/>
-    <Action name="edit_find" shortcut="Ctrl+Shift+F"/>
-    <Action name="edit_find_next" shortcut="F3"/>
-    <Action name="edit_find_prev" shortcut="Shift+F3"/>
-    <Action name="rename-session" shortcut="Ctrl+Alt+S"/>
-    <Action name="copy-input-to-selected-tabs" shortcut="Ctrl+Shift+."/>
-    <Action name="copy-input-to-none" shortcut="Ctrl+Shift+/"/>
-    <Action name="zmodem-upload" shortcut="Ctrl+Alt+U"/>
-    <Action name="monitor-activity" shortcut="Ctrl+Shift+A"/>
-    <Action name="monitor-silence" shortcut="Ctrl+Shift+I"/>
-    <Action name="enlarge-font" shortcut="Ctrl++; Ctrl+="/>
-    <Action name="shrink-font" shortcut="Ctrl+-"/>
-    <Action name="reset-font-size" shortcut="Ctrl+Alt+0"/>
-    <Action name="new-tab" shortcut="Ctrl+Shift+T"/>
-    <Action name="new-window" shortcut="Ctrl+Shift+N"/>
-    <Action name="close-window" shortcut="Ctrl+Shift+Q"/>
-    <Action name="add_bookmark" shortcut="Ctrl+B"/>
-    <Action name="options_show_menubar" shortcut="Ctrl+Shift+M"/>
-    <Action name="fullscreen" shortcut="F11"/>
-    <Action name="options_configure" shortcut="Ctrl+Shift+,"/>
-    <Action name="activate-menu" shortcut="Ctrl+Shift+F10"/>
-    <Action name="split-view-left-right" shortcut="Ctrl+("/>
-    <Action name="split-view-top-bottom" shortcut="Ctrl+)"/>
-    <Action name="expand-active-view" shortcut="Ctrl+Shift+]"/>
-    <Action name="shrink-active-view" shortcut="Ctrl+Shift+["/>
-    <Action name="detach-view" shortcut="Ctrl+Shift+H"/>
-    <Action name="detach-tab" shortcut="Ctrl+Shift+L"/>
-    <Action name="next-tab" shortcut="Shift+Right; Ctrl+PgDown"/>
-    <Action name="previous-tab" shortcut="Shift+Left; Ctrl+PgUp"/>
-    <Action name="focus-view-above" shortcut="Ctrl+Shift+Up"/>
-    <Action name="focus-view-below" shortcut="Ctrl+Shift+Down"/>
-    <Action name="focus-view-left" shortcut="Ctrl+Shift+Left"/>
-    <Action name="focus-view-right" shortcut="Ctrl+Shift+Right"/>
-    <Action name="last-used-tab" shortcut="Ctrl+Tab"/>
-    <Action name="last-used-tab-reverse" shortcut="Ctrl+Shift+Tab"/>
-    <Action name="maximize-current-terminal" shortcut="Ctrl+Shift+E"/>
-    <Action name="move-tab-to-right" shortcut="Ctrl+Alt+Right"/>
-    <Action name="move-tab-to-left" shortcut="Ctrl+Alt+Left"/>
-    <Action name="help_contents" shortcut="F1"/>
-    <Action name="help_whats_this" shortcut="Shift+F1"/>
+    <Action shortcut="Ctrl+Shift+W" name="close-session"/>
+    <Action shortcut="Ctrl+Shift+C" name="edit_copy"/>
+    <Action shortcut="Ctrl+Shift+V; Shift+Ins" name="edit_paste"/>
+    <Action shortcut="Ctrl+Shift+Ins" name="paste-selection"/>
+    <Action shortcut="Ctrl+Shift+S" name="file_save_as"/>
+    <Action shortcut="Ctrl+Shift+P" name="file_print"/>
+    <Action shortcut="Ctrl+Shift+K" name="clear-history-and-reset"/>
+    <Action shortcut="Ctrl+Shift+F" name="edit_find"/>
+    <Action shortcut="F3" name="edit_find_next"/>
+    <Action shortcut="Shift+F3" name="edit_find_prev"/>
+    <Action shortcut="Ctrl+Alt+S" name="rename-session"/>
+    <Action shortcut="Ctrl+Shift+." name="copy-input-to-selected-tabs"/>
+    <Action shortcut="Ctrl+Shift+/" name="copy-input-to-none"/>
+    <Action shortcut="Ctrl+Alt+U" name="zmodem-upload"/>
+    <Action shortcut="Ctrl+Shift+A" name="monitor-activity"/>
+    <Action shortcut="Ctrl+Shift+I" name="monitor-silence"/>
+    <Action shortcut="Ctrl++; Ctrl+=" name="enlarge-font"/>
+    <Action shortcut="Ctrl+-" name="shrink-font"/>
+    <Action shortcut="Ctrl+Alt+0" name="reset-font-size"/>
+    <Action shortcut="Ctrl+Alt+I" name="open_kcommand_bar"/>
+    <Action shortcut="Ctrl+Shift+T" name="new-tab"/>
+    <Action shortcut="Ctrl+Shift+N" name="new-window"/>
+    <Action shortcut="Ctrl+Shift+Q" name="close-window"/>
+    <Action shortcut="Ctrl+Shift+B" name="add_bookmark"/>
+    <Action shortcut="Ctrl+Shift+M" name="options_show_menubar"/>
+    <Action shortcut="F11" name="fullscreen"/>
+    <Action shortcut="Ctrl+Shift+," name="options_configure"/>
+    <Action shortcut="Ctrl+Shift+F10" name="activate-menu"/>
+    <Action shortcut="Ctrl+(" name="split-view-left-right"/>
+    <Action shortcut="Ctrl+)" name="split-view-top-bottom"/>
+    <Action shortcut="Ctrl+Shift+]" name="expand-active-view"/>
+    <Action shortcut="Ctrl+Shift+[" name="shrink-active-view"/>
+    <Action shortcut="Ctrl+Shift+H" name="detach-view"/>
+    <Action shortcut="Shift+Right; Ctrl+PgDown" name="next-tab"/>
+    <Action shortcut="Shift+Left; Ctrl+PgUp" name="previous-tab"/>
+    <Action shortcut="Ctrl+Shift+Up" name="focus-view-above"/>
+    <Action shortcut="Ctrl+Shift+Down" name="focus-view-below"/>
+    <Action shortcut="Ctrl+Shift+Left" name="focus-view-left"/>
+    <Action shortcut="Ctrl+Shift+Right" name="focus-view-right"/>
+    <Action shortcut="Ctrl+Tab" name="last-used-tab"/>
+    <Action shortcut="Ctrl+Shift+Tab" name="last-used-tab-reverse"/>
+    <Action shortcut="Ctrl+Shift+E" name="toggle-maximize-current-view"/>
+    <Action shortcut="Ctrl+Alt+Right" name="move-tab-to-right"/>
+    <Action shortcut="Ctrl+Alt+Left" name="move-tab-to-left"/>
+    <Action shortcut="Alt+1" name="switch-to-tab-0"/>
+    <Action shortcut="Alt+2" name="switch-to-tab-1"/>
+    <Action shortcut="Alt+3" name="switch-to-tab-2"/>
+    <Action shortcut="Alt+4" name="switch-to-tab-3"/>
+    <Action shortcut="Alt+5" name="switch-to-tab-4"/>
+    <Action shortcut="Alt+6" name="switch-to-tab-5"/>
+    <Action shortcut="Alt+7" name="switch-to-tab-6"/>
+    <Action shortcut="Alt+8" name="switch-to-tab-7"/>
+    <Action shortcut="Alt+9" name="switch-to-tab-8"/>
+    <Action shortcut="Alt+0" name="switch-to-tab-9"/>
+    <Action shortcut="Ctrl+Alt+," name="options_configure_keybinding"/>
+    <Action shortcut="Shift+F1" name="help_whats_this"/>
   </ActionProperties>
 </gui>

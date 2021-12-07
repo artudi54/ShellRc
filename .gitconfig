@@ -1,0 +1,3 @@
+[filter "ignore_konsole_ini"]
+    clean = sed '/^State=/d'
+    smudge = sed '/^State=/d'
