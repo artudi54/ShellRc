@@ -1,3 +1,6 @@
 [filter "ignore_konsole_ini"]
     clean = sed -e '/^State=/d' -e '/^detailViewIconSize=/d'
     smudge = sed -e '/^State=/d' -e '/^detailViewIconSize=/d'
+[filter "ignore_yakuake_ini"]
+    clean = sed -e '/^Favorites=/d' -e '/^Height=/d'
+    smudge = sed -e '/^Favorites=/d' -e '/^Height=/d'
