@@ -43,14 +43,14 @@ if ! grep "https://userrepository.eu" /etc/pacman.conf >/dev/null; then
     echo "SigLevel = Optional TrustAll" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
-# ArchStrike
-if ! grep "/etc/pacman.d/archstrike-mirrorlist" /etc/pacman.conf >/dev/null; then
-    sudo pacman-key -r 9D5F1C051D146843CDA4858BDE64825E7CBC0D51
-    sudo pacman-key --lsign-key 9D5F1C051D146843CDA4858BDE64825E7CBC0D51
-    echo "[archstrike]" | sudo tee -a /etc/pacman.conf >/dev/null
-    echo "Server = https://mirror.archstrike.org/\$arch/\$repo" | sudo tee -a /etc/pacman.conf >/dev/null
-    sudo pacman -Syy --noconfirm && sudo pacman -S --noconfirm archstrike-keyring archstrike-mirrorlist
-    echo "Include = /etc/pacman.d/archstrike-mirrorlist" | sudo tee -a /etc/pacman.conf >/dev/null
+# BlackArch
+if ! grep "/etc/pacman.d/blackarch-mirrorlist" /etc/pacman.conf >/dev/null; then
+    sudo pacman-key --keyserver keyserver.ubuntu.com -r 4345771566D76038C7FEB43863EC0ADBEA87E4E3
+    sudo pacman-key --keyserver keyserver.ubuntu.com --lsign-key 4345771566D76038C7FEB43863EC0ADBEA87E4E3
+    sudo pacman -U --noconfirm "https://www.blackarch.org/keyring/blackarch-keyring.pkg.tar.xz"
+    sudo curl -s "https://blackarch.org/blackarch-mirrorlist" -o "/etc/pacman.d/blackarch-mirrorlist"
+    echo "[blackarch]" | sudo tee -a /etc/pacman.conf >/dev/null
+    echo "Include = /etc/pacman.d/blackarch-mirrorlist" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
 # miffe
@@ -61,10 +61,9 @@ if ! grep "https://arch.miffe.org/" /etc/pacman.conf >/dev/null; then
     echo "Server = https://arch.miffe.org/\$arch/" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
-pacman -Syy --noconfirm
+sudo pacman -Syy --noconfirm
 
 # Install yay if not present
 if ! which yay 2>/dev/null 1>&2; then
-    #TODO fix for arch
     pacman -S --noconfirm yay
 fi
