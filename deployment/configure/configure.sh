@@ -2,6 +2,7 @@
 export SHELLRC_DIR="$(dirname "$(dirname "$(dirname "$(realpath "$BASH_SOURCE")")")")"
 source "$SHELLRC_DIR/lib/lib.sh"
 source "$SHELLRC_DIR/components/shell/shell/plugins/paki/paki.plugin.sh"
+source "$SHELLRC_DIR/src/directory-setup/xdg-dirs.sh"
 export -f __script_directory
 export -f script_directory
 export -f include
