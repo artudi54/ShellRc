@@ -4,8 +4,10 @@ sudo pacman-key --init
 
 # Chaotic AUR
 if ! grep "chaotic-mirrorlist" /etc/pacman.conf >/dev/null; then
-    sudo pacman-key --keyserver keyserver.ubuntu.com -r 3056513887B78AEB
+    sudo pacman-key --keyserver keyserver.ubuntu.com --recv-key 3056513887B78AEB
     sudo pacman-key --lsign-key 3056513887B78AEB
+    sudo pacman-key --keyserver keyserver.ubuntu.com --recv-key FBA220DFC880C036
+    sudo pacman-key --lsign-key FBA220DFC880C036
     sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-'{keyring,mirrorlist}'.pkg.tar.zst'
     echo "[chaotic-aur]" | sudo tee -a /etc/pacman.conf >/dev/null
     echo "Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf >/dev/null
@@ -65,5 +67,5 @@ sudo pacman -Syy --noconfirm
 
 # Install yay if not present
 if ! which yay 2>/dev/null 1>&2; then
-    pacman -S --noconfirm yay
+    sudo pacman -S --noconfirm yay
 fi

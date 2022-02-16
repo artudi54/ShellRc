@@ -1,4 +1,4 @@
-# Python interactive interpreter configuration 
+# Python interactive interpreter configuration
 
-export PYTHONSTARTUP="$(script-directory)/pythonrc.py"
+export PYTHONSTARTUP="$(script_directory)/pythonrc.py"
 

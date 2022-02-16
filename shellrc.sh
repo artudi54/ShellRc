@@ -17,7 +17,6 @@ elif [ -n "$ZSH_VERSION" ]; then
 fi
 
 # Basic configuration required for all components to load
-source "$SHELLRC_DIR/lib/script-sourcing.sh"
 source "$SHELLRC_DIR/lib/lib.sh"
 
 include "src/src.sh"

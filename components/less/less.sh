@@ -16,5 +16,5 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Lesspipe open
-export LESSOPEN="|$(script-directory)/lesspipe.sh %s"
+export LESSOPEN="|$(script_directory)/lesspipe.sh %s"
 

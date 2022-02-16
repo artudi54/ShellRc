@@ -1,7 +1,7 @@
 # paki plugin file
 
 # PATH addition
-export PATH="$PATH:$(script-directory)/paki/bin"
+export PATH="$PATH:$(script_directory)/paki/bin"
 
 # autocompletion
 include "paki/lib/completion.sh"

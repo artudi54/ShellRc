@@ -22,18 +22,18 @@ else
     return 1
 fi
 
-commonCli="$(script-directory)/cli/system.txt"
-commonGui="$(script-directory)/gui/system.txt"
-commonDriverish="$(script-directory)/driverish/system.txt"
-specialCli="$(script-directory)/cli/system-$arch.txt"
-specialGui="$(script-directory)/gui/system-$arch.txt"
-specialDriverish="$(script-directory)/driverish/system-$arch.txt"
+commonCli="$(script_directory)/cli/system.txt"
+commonGui="$(script_directory)/gui/system.txt"
+commonDriverish="$(script_directory)/driverish/system.txt"
+specialCli="$(script_directory)/cli/system-$arch.txt"
+specialGui="$(script_directory)/gui/system-$arch.txt"
+specialDriverish="$(script_directory)/driverish/system-$arch.txt"
 
-snapCli="$(script-directory)/cli/snap.txt"
-snapGui="$(script-directory)/gui/snap.txt"
+snapCli="$(script_directory)/cli/snap.txt"
+snapGui="$(script_directory)/gui/snap.txt"
 
-flatpakCli="$(script-directory)/cli/flatpak.txt"
-flatpakGui="$(script-directory)/gui/flatpak.txt"
+flatpakCli="$(script_directory)/cli/flatpak.txt"
+flatpakGui="$(script_directory)/gui/flatpak.txt"
 
 # TODO FIX FOR ARCH add yes option
 paki install $(cat "$commonCli" "$commonGui" "$commonDriverish" "$specialCli" "$specialGui" "$specialDriverish")

@@ -3,13 +3,13 @@ set -e
 
 # platform switch
 if [ -f /etc/arch-release ]; then
-    "$(script-directory)/arch.sh"
+    "$(script_directory)/arch.sh"
 elif [ -f /etc/centos-release ]; then
-    "$(script-directory)/centos.sh"
+    "$(script_directory)/centos.sh"
 elif [ -f /etc/debian_version ]; then
-    "$(script-directory)/debian.sh"
+    "$(script_directory)/debian.sh"
 elif [ -f /etc/fedora-release ]; then
-    "$(script-directory)/fedora.sh"
+    "$(script_directory)/fedora.sh"
 else
     echo "$0: couldn't recognize linux distribution" 1>&2
     return 1

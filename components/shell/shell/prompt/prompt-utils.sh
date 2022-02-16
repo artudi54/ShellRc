@@ -7,7 +7,7 @@ shellrc-prompt() {
 
 # listing available themes
 shellrc-prompt-list() {
-    ls "$(script-directory)/themes/"*.theme.sh 2>/dev/null | awk -F'/' '{print $NF }' | sed 's/.theme.sh//'
+    ls "$(script_directory)/themes/"*.theme.sh 2>/dev/null | awk -F'/' '{print $NF }' | sed 's/.theme.sh//'
 }
 
 # setting prompt theme
@@ -18,11 +18,11 @@ shellrc-prompt-set() {
     fi
 
     theme="$1"
-    if [ ! -f "$(script-directory)/themes/$theme.theme.sh" ]; then
+    if [ ! -f "$(script_directory)/themes/$theme.theme.sh" ]; then
         echo "shellrc-prompt: \"$theme\" - no such theme available"
         return 2
     fi
-    
+
     shellenv set SHELLRC_PROMPT "$theme"
     unset -f make-prompt 2>/dev/null
     shellrc-reload

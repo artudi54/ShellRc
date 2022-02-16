@@ -1,6 +1,6 @@
-dir="$(script-directory)"
+dir="$(script_directory)"
 mkdir -p "$XDG_CONFIG_HOME/git"
-printf "[include]\tpath = \"$dir/gitconfig.ini\"\n" >"$XDG_CONFIG_HOME/git/config" 
+printf "[include]\tpath = \"$dir/gitconfig.ini\"\n" >"$XDG_CONFIG_HOME/git/config"
 IFS=$'\n' read -p "Enter your name: " name
 read -p "Enter your email: " email
 git config --global include.path "$dir/gitconfig.ini"

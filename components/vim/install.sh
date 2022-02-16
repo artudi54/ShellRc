@@ -1,7 +1,7 @@
-dir="$(script-directory)"
+dir="$(script_directory)"
 
 #ycm
-python3 "$dir/plugins/YouCompleteMe/install.py" --clang-completer --clangd-completer
+python3 "$dir/plugins/YouCompleteMe/install.py" --all
 
 # color_coded
 rm -f "$dir/plugins/color_coded/CMakeCache.txt"

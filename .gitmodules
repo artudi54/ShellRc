@@ -98,3 +98,6 @@
 [submodule "vim/bundle/lh-vim-lib"]
 	path = components/vim/plugins/lh-vim-lib
 	url = https://github.com/LucHermitte/lh-vim-lib
+[submodule "lib/script-sourcing"]
+	path = lib/script-sourcing
+	url = https://github.com/artudi54/script-sourcing

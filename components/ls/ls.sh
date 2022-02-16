@@ -1,5 +1,5 @@
 # colours
-eval "$(dircolors "$(script-directory)/directory-colors.conf")"
+eval "$(dircolors "$(script_directory)/directory-colors.conf")"
 
 # ls aliases
 alias ls='ls --color=auto -vh'

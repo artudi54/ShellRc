@@ -8,7 +8,7 @@ if [ -n "$ZSH_VERSION" ]; then
 fi
 
 # Apply prompt theme
-if [ -n "$SHELLRC_PROMPT" ] && [ -f "$(script-directory)/themes/$SHELLRC_PROMPT.theme.sh" ]; then
+if [ -n "$SHELLRC_PROMPT" ] && [ -f "$(script_directory)/themes/$SHELLRC_PROMPT.theme.sh" ]; then
     include "themes/$SHELLRC_PROMPT.theme.sh"
 else
     include "themes/default.theme.sh"
