@@ -24,6 +24,7 @@ rambox
 remarkable
 rider
 rubymine
+signal-desktop
 skype
 slack
 snap-store
