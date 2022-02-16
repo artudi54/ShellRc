@@ -13,14 +13,6 @@ if ! grep "chaotic-mirrorlist" /etc/pacman.conf >/dev/null; then
     echo "Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
-# Andontie AUR
-if ! grep "https://aur.andontie.net" /etc/pacman.conf >/dev/null; then
-    sudo pacman-key --recv-key B545E9B7CD906FE3
-    sudo pacman-key --lsign-key B545E9B7CD906FE3
-    echo "[andontie-aur]" | sudo tee -a /etc/pacman.conf >/dev/null
-    echo "Server = https://aur.andontie.net/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
-fi
-
 # Arch4edu
 if ! grep "https://arch4edu.keybase.pub" /etc/pacman.conf >/dev/null; then
     sudo pacman-key --recv-keys 7931B6D628C8D3BA

@@ -1,2 +1,2 @@
 networkmanager
-pulseaudio-bluetooth
+pulseaudio-modules-bt
