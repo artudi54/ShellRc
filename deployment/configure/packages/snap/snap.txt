@@ -6,7 +6,6 @@ code
 datagrip
 discord
 ferdi
-fluent-reader
 foobar2000
 goland
 google-chat-electron
@@ -33,3 +32,4 @@ spotify
 strawberry
 webstorm
 whatsapp-for-linux
+zoom-client
