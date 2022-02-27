@@ -37,6 +37,9 @@ export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss
 # libice
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 
+# mednafen
+export MEDNAFEN_HOME="$XDG_CONFIG_HOME/mednafen"
+
 # nuget
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
@@ -46,3 +49,4 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 # python-pylint
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+

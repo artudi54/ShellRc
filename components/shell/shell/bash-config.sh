@@ -33,3 +33,8 @@ bind "set mark-symlinked-directories on"
 
 # don't put duplicate lines or lines starting with space in the history
 HISTCONTROL="erasedups:ignoreboth"
+
+# zsh like completion
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+bind "set colored-completion-prefix on"

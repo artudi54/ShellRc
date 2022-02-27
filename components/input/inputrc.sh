@@ -8,3 +8,6 @@
 "\e\e[C": forward-word
 "\e\e[D": backward-word
 
+TAB: menu-complete
+"\e[Z": menu-complete-backward
+

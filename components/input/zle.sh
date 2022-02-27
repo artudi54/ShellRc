@@ -10,3 +10,6 @@ bindkey "^[[5D" backward-word
 
 bindkey  "^[[3~" delete-char
 
+bindkey "TAB" expand-or-complete
+bindkey "\e[Z" reverse-menu-complete
+
