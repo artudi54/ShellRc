@@ -7,4 +7,5 @@ git config --global include.path "$dir/gitconfig.ini"
 git config --global user.name "$name"
 git config --global user.email "$email"
 git config --local include.path ../.gitconfig
+touch "$XDG_CONFIG_HOME/git/credentials"
 

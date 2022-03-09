@@ -3,8 +3,8 @@ unset PS2
 unset PROMPT
 
 _file-info() {
-    local files=$(ls -A1 | wc -l)
-    local hidden=$(($files-$(ls -1 | wc -l)))
+    local files=$(ls -A1 2>/dev/null | wc -l)
+    local hidden=$(($files-$(ls -1 2>/dev/null | wc -l)))
 
     local form
     if [ "$files" -eq 1 ]; then
@@ -21,7 +21,7 @@ _file-info() {
 }
 
 _file-size() {
-    ls -lah | head -n 1 | awk '{ print $2 }'
+    ls -lah 2>/dev/null | head -n 1 | awk '{ print $2 }'
 }
 
 
