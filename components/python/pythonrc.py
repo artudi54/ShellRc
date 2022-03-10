@@ -18,7 +18,6 @@ def save_history():
     except IOError:
         pass
 
-
 load_history()
 atexit.register(save_history)
 

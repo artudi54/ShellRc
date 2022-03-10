@@ -21,6 +21,11 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 # Gradle
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 
+# GTK
+export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+
 # ipython
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
@@ -46,6 +51,9 @@ export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 # NVIDIA/CUDA
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+
+# nvm
+export NVM_DIR="$XDG_DATA_HOME"/nvm
 
 # python-pylint
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
