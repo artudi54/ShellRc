@@ -3,6 +3,9 @@ if [[ -o login ]]; then
   return
 fi
 
+# disable ctrl-s
+stty -ixon
+
 # History
 setopt histignorealldups
 setopt histignorespace

@@ -19,7 +19,6 @@ postman
 powershell
 pycharm-professional
 qalculate
-rambox
 remarkable
 rider
 rubymine

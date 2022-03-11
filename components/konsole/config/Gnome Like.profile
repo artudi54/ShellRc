@@ -3,14 +3,15 @@ AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=Tango Modified
 Font=Monospace,11,-1,5,50,0,0,0,0,0
+TabColor=27,30,32,0
 UseFontLineChararacters=true
 
 [General]
 Command=/usr/bin/zsh
-LocalTabTitleFormat=Terminal
+LocalTabTitleFormat=%u@%h:%d %n
 Name=Gnome Like
 Parent=FALLBACK/
-RemoteTabTitleFormat=
+RemoteTabTitleFormat=%h
 SilenceSeconds=1
 TerminalColumns=110
 TerminalRows=32

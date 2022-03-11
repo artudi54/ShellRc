@@ -1,8 +1,10 @@
 # check if running interactively
-if [[ $- != *i* ]]
-then
+if [[ $- != *i* ]]; then
     return
 fi
+
+# disable ctrl-s
+stty -ixon
 
 # append to the history file, don't overwrite it
 shopt -s histappend

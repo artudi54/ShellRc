@@ -6,6 +6,9 @@ hardstatus alwayslastline "%{= yk} [%S | $SHELL] %{= gW} $USER@%H  %-= %{= yk} %
 # Remove annoying binds
 bindkey -k k4
 
+# Screen menu
+escape "^Bb"
+
 # Navigate windows
 bindkey "^[[1;3D" prev
 bindkey "^[^[[D" prev
