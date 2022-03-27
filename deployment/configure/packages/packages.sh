@@ -39,5 +39,5 @@ for entry in $(cat "$snap"); do
     sudo snap install --classic $entry
 done
 
-sudo flatpak install -y flathub $(cat "$flatpak")
+sudo flatpak install -y $(cat "$flatpak")
 
