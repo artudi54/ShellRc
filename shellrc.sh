@@ -22,5 +22,5 @@ source "$SHELLRC_DIR/lib/lib.sh"
 include "src/src.sh"
 
 # Components configuration
-source "$SHELLRC_DIR/components/components.sh"
+include "components/components.sh"
 

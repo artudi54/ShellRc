@@ -8,10 +8,10 @@ UseFontLineChararacters=true
 
 [General]
 Command=/usr/bin/zsh
-LocalTabTitleFormat=%u@%h:%d %n
+LocalTabTitleFormat=%w
 Name=Gnome Like
 Parent=FALLBACK/
-RemoteTabTitleFormat=%h
+RemoteTabTitleFormat=%w
 SilenceSeconds=1
 TerminalColumns=110
 TerminalRows=32

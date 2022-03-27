@@ -2,11 +2,17 @@
 
 # PATH for git commands
 ## Git Flow
-export PATH="$PATH:$(script_directory)/bin/git-flow"
+if [[ "$PATH" != *"$(script_directory)/bin/git-flow"* ]]; then
+    export PATH="$PATH:$(script_directory)/bin/git-flow"
+fi
 ## Git Extras
-export PATH="$PATH:$(script_directory)/bin/git-extras"
+if [[ "$PATH" != *"$(script_directory)/bin/git-extras"* ]]; then
+    export PATH="$PATH:$(script_directory)/bin/git-extras"
+fi
 ## Git Utils
-export PATH="$PATH:$(script_directory)/bin/git-utils"
+if [[ "$PATH" != *"$(script_directory)/bin/git-utils"* ]]; then
+    export PATH="$PATH:$(script_directory)/bin/git-utils"
+fi
 
 # MANPATH for manual
 ## Git Flow
