@@ -45,6 +45,9 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 # mednafen
 export MEDNAFEN_HOME="$XDG_CONFIG_HOME/mednafen"
 
+# mplayer
+export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+
 # nuget
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
