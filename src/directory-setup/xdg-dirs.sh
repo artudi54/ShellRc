@@ -29,3 +29,10 @@ if [[ ! -v XDG_DATA_HOME ]]; then
     fi
 fi
 
+if [[ ! -v XDG_STATE_HOME ]]; then
+    export XDG_STATE_HOME="$HOME/.local/state"
+    if [[ ! -d "$XDG_STATE_HOME" ]]; then
+        mkdir -p "$XDG_STATE_HOME"
+    fi
+fi
+
