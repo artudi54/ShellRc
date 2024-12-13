@@ -1,2 +1,3 @@
 "$HOME/.emacs.d"
 "$HOME/.emacs"
+"$XDG_CONFIG_HOME/emacs"
