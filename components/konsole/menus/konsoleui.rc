@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <!DOCTYPE gui SYSTEM 'kpartgui.dtd'>
-<gui version="19" name="konsole">
+<gui name="konsole" version="20">
  <MenuBar>
   <Menu name="file">
    <text>File</text>
@@ -23,11 +23,14 @@
     <text>Split View</text>
     <Action name="split-view-left-right"/>
     <Action name="split-view-top-bottom"/>
+    <Action name="split-view-left-right-next-tab"/>
+    <Action name="split-view-top-bottom-next-tab"/>
     <Action name="close-active-view"/>
     <Action name="close-other-views"/>
     <Action name="expand-active-view"/>
     <Action name="shrink-active-view"/>
     <Action name="toggle-maximize-current-view"/>
+    <Action name="equal-size-view"/>
    </Menu>
    <Separator/>
    <Action name="detach-tab"/>
@@ -59,7 +62,7 @@
    <text>Help</text>
   </Menu>
  </MenuBar>
- <ToolBar noMerge="1" name="mainToolBar" alreadyVisited="1">
+ <ToolBar alreadyVisited="1" name="mainToolBar" noMerge="1">
   <text translationDomain="kxmlgui5">Main Toolbar</text>
   <index>0</index>
   <Action name="new-tab"/>
@@ -72,10 +75,10 @@
   <Action name="fullscreen"/>
  </ToolBar>
  <ActionProperties>
-  <Action priority="0" name="add_bookmark"/>
+  <Action name="add_bookmark" priority="0"/>
   <Action name="clone-tab" shortcut=""/>
-  <Action priority="0" name="fullscreen"/>
+  <Action name="fullscreen" priority="0"/>
   <Action name="help_contents" shortcut=""/>
-  <Action priority="0" name="split-view-top-bottom"/>
+  <Action name="split-view-top-bottom" priority="0"/>
  </ActionProperties>
 </gui>
