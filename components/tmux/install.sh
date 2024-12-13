@@ -1,2 +1,3 @@
 dir="$(script_directory)"
-echo "source \"$dir/tmux.conf\"" > "$HOME/.tmux.conf"
+mkdir -p "$XDG_CONFIG_HOME/tmux"
+echo "source \"$dir/tmux.conf\"" > "$XDG_CONFIG_HOME/tmux/tmux.conf"

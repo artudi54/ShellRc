@@ -2,5 +2,5 @@
 
 for dir in "$(script_directory)"/*; do
     dirname="$(basename $dir)"
-    [[ -d "$dir" ]] && source "$dir/$dirname.sh"
+    [[ -d "$dir" ]] && [[ -f "$dir/$dirname.sh" ]] && source "$dir/$dirname.sh"
 done

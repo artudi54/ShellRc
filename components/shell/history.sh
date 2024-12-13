@@ -18,7 +18,7 @@ HISTFILESIZE=10000
 SAVEHIST=10000
 
 # history file
-HISTFILE="$SHELLRC_CACHE_DIR/shell_history.log"
+HISTFILE="$SHELLRC_STATE_DIR/shell_history.log"
 
 # append history on every command both for bash and zsh
 precmd_functions+=(append-history)

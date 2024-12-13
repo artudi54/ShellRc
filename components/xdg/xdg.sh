@@ -25,7 +25,6 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
-
 # ipython
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
@@ -35,6 +34,9 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
 # KDE4
 export KDEHOME="$XDG_CONFIG_HOME"/kde
+
+# Leiningen
+export LEIN_HOME="$XDG_DATA_HOME"/lein
 
 # libdvdcss
 export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss

@@ -9,3 +9,8 @@ export SHELLRC_DATA_DIR="$XDG_DATA_HOME/ShellRc"
 if [[ ! -d "$SHELLRC_DATA_DIR" ]]; then
     mkdir "$SHELLRC_DATA_DIR"
 fi
+
+export SHELLRC_STATE_DIR="$XDG_STATE_HOME/ShellRc"
+if [[ ! -d "$SHELLRC_STATE_DIR" ]]; then
+    mkdir "$SHELLRC_STATE_DIR"
+fi

@@ -2,7 +2,7 @@ import os
 import readline
 import atexit
 
-HISTORY_FILE = os.path.join(os.getenv("SHELLRC_CACHE_DIR"), "python_history.log")
+HISTORY_FILE = os.path.join(os.getenv("SHELLRC_STATE_DIR"), "python_history.log")
 
 
 def load_history():

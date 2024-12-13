@@ -1,7 +1,7 @@
 # Less configuration
 
 # History files
-export LESSHISTFILE="$SHELLRC_CACHE_DIR/lesshst.log"
+export LESSHISTFILE="$SHELLRC_STATE_DIR/lesshst.log"
 
 # Default arguments
 export LESS="--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4"
