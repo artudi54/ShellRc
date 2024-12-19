@@ -1,9 +1,11 @@
 <?xml version='1.0'?>
 <!DOCTYPE gui SYSTEM 'kpartgui.dtd'>
-<gui version="35" name="session">
+<gui name="session" version="36">
  <MenuBar>
   <Menu name="file">
    <Action group="session-operations" name="file_save_as"/>
+   <Action group="session-operations" name="file-autosave"/>
+   <Action group="session-operations" name="stop-autosave"/>
    <Separator group="session-operations"/>
    <Action group="session-operations" name="file_print"/>
    <Separator group="session-operations"/>

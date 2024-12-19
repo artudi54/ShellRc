@@ -101,6 +101,11 @@ inoremap <C-j> <C-O>:tabprev<CR>
 nnoremap <C-k> :tabnext<CR>
 nnoremap <C-j> :tabprev<CR>
 
+inoremap <C-Tab> <C-O>:tabnext<CR>
+inoremap <C-S-Tab> <C-O>:tabprev<CR>
+nnoremap <C-Tab> :tabnext<CR>
+nnoremap <C-S-Tab> :tabprev<CR>
+
 " Shift Selecting
 inoremap <S-Up> <C-O>vk
 nnoremap <S-Up> vk

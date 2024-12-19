@@ -76,9 +76,9 @@
  </ToolBar>
  <ActionProperties>
   <Action name="add_bookmark" priority="0"/>
-  <Action name="clone-tab" shortcut=""/>
   <Action name="fullscreen" priority="0"/>
-  <Action name="help_contents" shortcut=""/>
   <Action name="split-view-top-bottom" priority="0"/>
+  <Action name="last-used-tab" shortcut=""/>
+  <Action name="last-used-tab-reverse" shortcut=""/>
  </ActionProperties>
 </gui>
