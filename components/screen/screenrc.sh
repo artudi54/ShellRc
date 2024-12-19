@@ -1,7 +1,8 @@
 startup_message off
 defscrollback 20000
-caption always "%{= bw}%-w%{= BW}%n %t%{-}%+w %-="
-hardstatus alwayslastline "%{= yk} [%S | $SHELL] %{= gW} $USER@%H  %-= %{= yk} %LD %d %LM %Y - %c"
+
+caption always "%{7;4}%-w%{7;12}%n %t%{-}%+w %-="
+hardstatus alwayslastline "%{0;3} [%S | $SHELL] %{7;2} $USER@%H  %-= %{= yk} %LD %d %LM %Y - %c"
 
 # Remove annoying binds
 bindkey -k k4
