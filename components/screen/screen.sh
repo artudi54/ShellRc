@@ -12,6 +12,7 @@ if which screen 2>&1 1>/dev/null; then
     else
         export SCREENRC="$(script_directory)/screenrc-v4.sh"
     fi
+    export SCREENDIR="$SHELLRC_STATE_DIR/screen-sessions"
 
     # Scripts
     include "scripts/screenprofile.sh"
