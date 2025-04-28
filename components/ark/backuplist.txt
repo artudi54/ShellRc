@@ -1,0 +1,2 @@
+$XDG_CONFIG_HOME/arkrc
+$XDG_DATA_HOME/kxmlgui5/ark
