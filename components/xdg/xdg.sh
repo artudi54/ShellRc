@@ -7,6 +7,9 @@
 export BRZ_LOG="$XDG_CACHE_HOME/breezy/brz.log"
 export BRZ_HOME="$XDG_CONFIG_HOME/breezy"
 
+# Cargo
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
 # CCache
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
