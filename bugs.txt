@@ -7,3 +7,4 @@ shelltheme
 configure - debian non-free
 configure - dnf on centos 7
 move wireless-tools to driverish
+configure - audio

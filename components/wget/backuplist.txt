@@ -1,0 +1,2 @@
+"$HOME/.wgetrc"
+"$HOME/.wget-hsts"
