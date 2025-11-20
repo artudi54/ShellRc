@@ -1,0 +1,7 @@
+curl
+iw
+net-tools
+nmap
+openvpn
+traceroute
+wget

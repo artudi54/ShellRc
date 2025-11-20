@@ -1,0 +1,2 @@
+pulseaudio
+pulseaudio-module-bluetooth

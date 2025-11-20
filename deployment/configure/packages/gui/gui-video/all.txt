@@ -1,0 +1,3 @@
+cheese
+matroska-tools
+vlc

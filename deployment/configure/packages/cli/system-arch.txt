@@ -1,7 +1,0 @@
-ncurses5-compat-libs
-openssh
-python
-python-pip
-python-future
-python-certifi
-wireless_tools

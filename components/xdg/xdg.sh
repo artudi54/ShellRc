@@ -14,10 +14,6 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 
-# Docker
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
-
 # GnuPG
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
@@ -52,6 +48,9 @@ export MEDNAFEN_HOME="$XDG_CONFIG_HOME/mednafen"
 
 # mplayer
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+
+# .NET CLI
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet                            
 
 # nuget
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages

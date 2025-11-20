@@ -1,0 +1,8 @@
+coreutils
+fakeroot
+findutils
+git
+grep
+icoutils
+less
+sed

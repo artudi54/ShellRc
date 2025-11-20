@@ -1,0 +1,11 @@
+android-studio
+clion
+code
+datagrip
+goland
+intellij-idea-ultimate
+phpstorm
+pycharm-professional
+rider
+rubymine
+webstorm

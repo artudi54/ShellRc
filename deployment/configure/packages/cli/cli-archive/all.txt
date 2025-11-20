@@ -1,0 +1,11 @@
+bzip2
+cabextract
+cpio
+gzip
+ncompress
+p7zip
+tar
+unzip
+unrar
+zip
+zstd

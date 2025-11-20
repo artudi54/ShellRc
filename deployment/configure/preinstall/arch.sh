@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
+
+echo "Configuring pacman keyring"
 sudo pacman-key --init
+echo "Configured pacman keyring"
 
 # Chaotic AUR
 if ! grep "chaotic-mirrorlist" /etc/pacman.conf >/dev/null; then
@@ -27,14 +30,6 @@ if ! grep "https://repo.archlinuxcn.org" /etc/pacman.conf >/dev/null; then
     echo "[archlinuxcn]" | sudo tee -a /etc/pacman.conf >/dev/null
     echo "Server = https://repo.archlinuxcn.org/\$arch" | sudo tee -a /etc/pacman.conf >/dev/null
     sudo pacman -Syy --noconfirm && sudo pacman -S --noconfirm archlinuxcn-keyring
-fi
-
-
-# User Repository
-if ! grep "https://userrepository.eu" /etc/pacman.conf >/dev/null; then
-    echo "[userrepository]" | sudo tee -a /etc/pacman.conf >/dev/null
-    echo "Server = https://userrepository.eu" | sudo tee -a /etc/pacman.conf >/dev/null
-    echo "SigLevel = Optional TrustAll" | sudo tee -a /etc/pacman.conf >/dev/null
 fi
 
 # BlackArch
