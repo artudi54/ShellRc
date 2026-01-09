@@ -1,6 +1,3 @@
-[filter "ignore_konsole_ini"]
-    clean = sed -e '/^State=/d' -e '/^RestorePositionForNextInstance=/d' -e '/^detailViewIconSize=/d' -e '/XPosition/d' -e '/YPosition/d'
-    smudge = sed -e '/^State=/d' -e -e '/^RestorePositionForNextInstance=/d' '/^detailViewIconSize=/d' -e '/XPosition/d' -e '/YPosition/d'
 [filter "ignore_yakuake_ini"]
     clean = sed -e '/^Favorites=/d' -e '/^Height=/d' -e '/^Width=/d'
     smudge = sed -e '/^Favorites=/d' -e '/^Height=/d' -e '/^Width=/d'
