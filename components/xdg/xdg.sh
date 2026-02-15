@@ -14,6 +14,9 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 
+# Dart
+export PUB_CACHE="$XDG_CACHE_HOME"/pub-cache
+
 # GnuPG
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
@@ -64,4 +67,7 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 
 # python-pylint
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+
+# TeamSpeak3
+export TS3_CONFIG_DIR="$XDG_CONFIG_HOME"/ts3client
 
