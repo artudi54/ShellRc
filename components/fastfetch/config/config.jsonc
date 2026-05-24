@@ -28,7 +28,10 @@
     "gpu",
     "memory",
     "swap",
-    "disk",
+    {
+        "type": "disk",
+        "hideFS": ["fuse.sshfs"]
+    },
     "localip",
     "battery",
     "poweradapter",
