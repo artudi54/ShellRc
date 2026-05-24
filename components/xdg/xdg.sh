@@ -1,7 +1,7 @@
 # Environmental variable fixes for XDG Base Directories for programs 
 
-# TODO
-# wget, xorg-auth
+# Android
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android 
 
 # Breezy
 export BRZ_LOG="$XDG_CACHE_HOME/breezy/brz.log"
@@ -13,6 +13,9 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 # CCache
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
+
+# CDDB
+export CDDB_PATH="$XDG_DATA_HOME"/cddb
 
 # Dart
 export PUB_CACHE="$XDG_CACHE_HOME"/pub-cache
@@ -45,6 +48,9 @@ export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss
 
 # libice
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+
+# Maven
+export MAVEN_USER_HOME="$XDG_DATA_HOME"/maven
 
 # mednafen
 export MEDNAFEN_HOME="$XDG_CONFIG_HOME/mednafen"
