@@ -7,6 +7,6 @@ if ! python3 -c "
                text = open('/etc/zsh/zshenv').read()
                sys.exit(0 if sys.argv[1] in text else 1)" \
     "$zdotCommand" 2>/dev/null; then
-    echo "\n$zdotCommand\n" | sudo tee -a /etc/zsh/zshenv >/dev/null
+    printf "\n$zdotCommand\n\n" | sudo tee -a /etc/zsh/zshenv >/dev/null
 fi
 
