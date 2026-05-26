@@ -17,8 +17,14 @@ export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 # CDDB
 export CDDB_PATH="$XDG_DATA_HOME"/cddb
 
+# Claude Code
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME"/claude
+
 # Dart
 export PUB_CACHE="$XDG_CACHE_HOME"/pub-cache
+
+# Github Copilot
+export COPILOT_HOME="$XDG_CONFIG_HOME"/copilot
 
 # GnuPG
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
