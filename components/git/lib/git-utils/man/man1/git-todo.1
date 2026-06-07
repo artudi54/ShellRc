@@ -1,0 +1,32 @@
+." generated with Ronn-NG/v0.10.1
+." http://github.com/apjanke/ronn-ng/tree/0.10.1
+.TH "GIT\-TODO" "1" "June 2026" "" "Git Extras"
+.SH "NAME"
+\fBgit\-todo\fR \- Search a Git repository for TODO and FIXME markers
+.SH "SYNOPSIS"
+\fBgit\-todo\fR [directory]
+.SH "DESCRIPTION"
+Search the working tree for source comments containing \fBTODO\fR or \fBFIXME\fR and print matching file names, line numbers, and the matching text.
+
+If a directory is specified, the search is restricted to that directory and its subdirectories. If no directory is supplied, the current directory is searched.
+.SH "OPTIONS"
+None
+.SH "EXAMPLES"
+Search the current repository for TODO and FIXME comments:
+.IP "" 4
+.nf
+$ git todo
+.fi
+.P
+Search only under the "src" directory:
+.IP "" 4
+.nf
+$ git todo src
+.fi
+.P
+.SH "AUTHOR"
+Written by Artur Pietrzyk
+.SH "REPORTING BUGS"
+<\fIhttps://github\.com/artudi54/git\-utils/issues\fR>
+.SH "SEE ALSO"
+<\fIhttps://github\.com/artudi54/git\-utils\fR>

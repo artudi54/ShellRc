@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -eou pipefail
+
+if [[ $# -gt 1 ]]; then
+    echo "usage: todo [directory]" 1>&2
+    exit 1
+fi
+
+directory="."
+if [[ $# -eq 1 ]]; then
+    directory="$1"
+    if [[ ! -d "$directory" ]]; then
+        echo "fatal: directory not found: '$directory'" 1>&2
+        exit 128
+    fi
+fi
+
+C_GREEN=$'\e[0;32m'
+C_BLUE=$'\e[0;34m'
+C_PURPLE=$'\e[0;35m'
+C_NC=$'\e[0m'
+
+git grep -inz "todo\|fixme" -- "$directory" | while read -d '' -r file && read -d '' -r line && read -d $'\n' -r todo; do
+    file="${C_PURPLE}$file${C_NC}"
+    line="${C_GREEN}$line${C_NC}"
+    colon="${C_BLUE}:${C_NC}"
+    todo=$(echo "$todo" | xargs | sed 's/.*\(todo\|fixme\)/\1/gI') #format
+    printf "%s%s%s %s %s\n" "$file" "$colon" "$line" "$todo"
+done

@@ -7,94 +7,91 @@
 [submodule "shell/plugins/files/zsh-syntax-highlighting"]
 	path = components/shell/shell/plugins/syntax-highlighting/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule "vim/bundle/vim-gitgutter"]
+[submodule "components/vim/bundle/vim-gitgutter"]
 	path = components/vim/plugins/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "vim/bundle/lightline"]
+[submodule "components/vim/bundle/lightline"]
 	path = components/vim/plugins/lightline
 	url = https://github.com/itchyny/lightline.vim
-[submodule "vim/bundle/haskell"]
+[submodule "components/vim/bundle/haskell"]
 	path = components/vim/plugins/haskell
 	url = https://github.com/neovimhaskell/haskell-vim
-[submodule "vim/bundle/colorschemes"]
+[submodule "components/vim/bundle/colorschemes"]
 	path = components/vim/plugins/colorschemes
 	url = https://github.com/flazz/vim-colorschemes
-[submodule "vim/bundle/indentLine"]
+[submodule "components/vim/bundle/indentLine"]
 	path = components/vim/plugins/indentLine
 	url = https://github.com/Yggdroot/indentLine
-[submodule "vim/bundle/nerdtree"]
+[submodule "components/vim/bundle/nerdtree"]
 	path = components/vim/plugins/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "vim/bundle/nerdtree-direnter"]
+[submodule "components/vim/bundle/nerdtree-direnter"]
 	path = components/vim/plugins/nerdtree-direnter
 	url = https://github.com/Nopik/vim-nerdtree-direnter
-[submodule "vim/bundle/nerdtree-tabs"]
+[submodule "components/vim/bundle/nerdtree-tabs"]
 	path = components/vim/plugins/nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs
-[submodule "vim/bundle/nerdtree-git"]
+[submodule "components/vim/bundle/nerdtree-git"]
 	path = components/vim/plugins/nerdtree-git
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin
-[submodule "vim/bundle/vim-eunuch"]
+[submodule "components/vim/bundle/vim-eunuch"]
 	path = components/vim/plugins/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
-[submodule "vim/bundle/YouCompleteMe"]
+[submodule "components/vim/bundle/YouCompleteMe"]
 	path = components/vim/plugins/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
-[submodule "vim/bundle/vim-cpp-enhanced-highlight"]
+[submodule "components/vim/bundle/vim-cpp-enhanced-highlight"]
 	path = components/vim/plugins/vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight
-[submodule "vim/bundle/vim-code-dark"]
+[submodule "components/vim/bundle/vim-code-dark"]
 	path = components/vim/plugins/vim-code-dark
 	url = https://github.com/tomasiser/vim-code-dark
-[submodule "vim/bundle/tender.vim"]
+[submodule "components/vim/bundle/tender.vim"]
 	path = components/vim/plugins/tender.vim
 	url = https://github.com/jacoborus/tender.vim
-[submodule "vim/bundle/neco-ghc"]
+[submodule "components/vim/bundle/neco-ghc"]
 	path = components/vim/plugins/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc
-[submodule "vim/bundle/YCM-Generator"]
+[submodule "components/vim/bundle/YCM-Generator"]
 	path = components/vim/plugins/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator
     branch = stable
-[submodule "vim/bundle/bracketed-paste"]
+[submodule "components/vim/bundle/bracketed-paste"]
 	path = components/vim/plugins/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste
-[submodule "vim/bundle/quickmenu"]
+[submodule "components/vim/bundle/quickmenu"]
 	path = components/vim/plugins/quickmenu
 	url = https://github.com/skywind3000/quickmenu.vim
 [submodule "shell/plugins/files/paki/paki"]
 	path = components/shell/shell/plugins/paki/paki
 	url = https://github.com/artudi54/paki
-[submodule "vim/bundle/ps1"]
+[submodule "components/vim/bundle/ps1"]
 	path = components/vim/plugins/ps1
 	url = https://github.com/PProvost/vim-ps1
-[submodule "vim/bundle/vim-commentary"]
+[submodule "components/vim/bundle/vim-commentary"]
 	path = components/vim/plugins/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "vim/bundle/delimiters"]
+[submodule "components/vim/bundle/delimiters"]
 	path = components/vim/plugins/delimiters
 	url = https://github.com/Raimondi/delimitMate
-[submodule "vim/bundle/qml"]
+[submodule "components/vim/bundle/qml"]
 	path = components/vim/plugins/qml
 	url = https://github.com/peterhoeg/vim-qml
 [submodule "shell/plugins/less/lesspipe"]
 	path = components/less/lesspipe
 	url = https://github.com/wofr06/lesspipe
-[submodule "shell/plugins/git/lib/git-flow-completion"]
-	path = components/shell/shell/plugins/git/lib/git-flow-completion
-	url = https://github.com/bobthecow/git-flow-completion
-[submodule "shell/plugins/git/lib/git-flow"]
-	path = components/shell/shell/plugins/git/lib/git-flow
-	url = https://github.com/nvie/gitflow
-[submodule "shell/plugins/git/lib/git-extras"]
-	path = components/shell/shell/plugins/git/lib/git-extras
-	url = https://github.com/tj/git-extras
-[submodule "vim/bundle/alternate-lite"]
+[submodule "components/vim/bundle/alternate-lite"]
 	path = components/vim/plugins/alternate-lite
 	url = https://github.com/LucHermitte/alternate-lite
-[submodule "vim/bundle/lh-vim-lib"]
+[submodule "components/vim/bundle/lh-vim-lib"]
 	path = components/vim/plugins/lh-vim-lib
 	url = https://github.com/LucHermitte/lh-vim-lib
 [submodule "lib/script-sourcing"]
 	path = lib/script-sourcing
 	url = https://github.com/artudi54/script-sourcing
+[submodule "components/git/git-flow-next"]
+	path = components/git/lib/git-flow-next
+	url = https://github.com/gittower/git-flow-next
+[submodule "components/git/lib/git-extras"]
+	path = components/git/lib/git-extras
+	url = https://github.com/tj/git-extras

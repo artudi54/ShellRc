@@ -1,0 +1,32 @@
+# bash completion for git-todo and git todo
+
+_git_todo() {
+    local cur words cword
+    if type _get_comp_words_by_ref >/dev/null 2>&1; then
+        _get_comp_words_by_ref -n : cur words cword
+    else
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        words=("${COMP_WORDS[@]}")
+        cword=$COMP_CWORD
+    fi
+
+    if [[ "${words[0]}" == git ]]; then
+        # Only complete for the git todo subcommand.
+        [[ "${words[1]}" == todo ]] || return 1
+        # Only one path argument is supported.
+        (( cword != 2 )) && echo return 1
+        cur="${words[cword]}"
+    else
+        # Only one path argument is supported for git-todo.
+        (( cword != 1 )) && return 1
+    fi
+
+    COMPREPLY=()
+    while IFS= read -r -d $'\n' entry; do
+        COMPREPLY+=("$entry")
+    done < <(compgen -d -- "$cur")
+
+    return 0
+}
+
+complete -F _git_todo git-todo

@@ -1,0 +1,14 @@
+_git-todo() {
+    if [[ $words[1] == git ]]; then
+        # Only complete for the git todo subcommand.
+        [[ $words[2] == todo ]] || return 1
+        _arguments '2:directory:_files -/'
+    else
+        _arguments '1:directory:_files -/'
+    fi
+}
+
+compdef _git-todo git-todo
+
+zstyle ':completion:*:*:git:*' user-commands $existing_user_commands \
+    todo:'find and show TODOs and FIXMEs in the codebase'
