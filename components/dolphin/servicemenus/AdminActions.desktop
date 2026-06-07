@@ -1,0 +1,32 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+Actions=f1_Delete;f2_OwnershipRoot;f2_OwnershipRootRec;f3_OwnershipUser;f3_OwnershipUserRec;
+MimeType=all/all;
+X-KDE-Submenu=Administrator
+
+[Desktop Action f1_Delete]
+Name=Delete (permamently)
+Icon=delete
+Exec=_admin_actions_delete.sh %F
+
+[Desktop Action f2_OwnershipRoot]
+Name=Take Ownership (root)
+Icon=lock
+Exec=_admin_actions_take_ownership_root.sh %F
+
+[Desktop Action f2_OwnershipRootRec]
+Name=Take Ownership Recursive (root)
+Icon=lock
+Exec=_admin_actions_take_ownership_root_rec.sh %F
+
+[Desktop Action f3_OwnershipUser]
+Name=Take Ownership (me)
+Icon=user-identity
+Exec=_admin_actions_take_ownership_me.sh %F
+
+[Desktop Action f3_OwnershipUserRec]
+Name=Take Ownership Recursive (me)
+Icon=user-identity
+Exec=_admin_actions_take_ownership_me_rec.sh %F
+
