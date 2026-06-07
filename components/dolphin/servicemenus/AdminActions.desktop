@@ -4,6 +4,9 @@ ServiceTypes=KonqPopupMenu/Plugin
 Actions=f1_Delete;f2_OwnershipRoot;f2_OwnershipRootRec;f3_OwnershipUser;f3_OwnershipUserRec;
 MimeType=all/all;
 X-KDE-Submenu=Administrator
+X-KDE-Icon=folder-red
+Icon=folder-red
+X-KDE-Priority=TopLevel
 
 [Desktop Action f1_Delete]
 Name=Delete (permamently)

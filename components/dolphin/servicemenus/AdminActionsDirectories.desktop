@@ -4,27 +4,27 @@ ServiceTypes=KonqPopupMenu/Plugin
 Actions=d1_OpenAsAdministrator;d2_OpenTerminalAsAdministrator;d3_MountpointMount;d4_MountpointUnmount;
 MimeType=inode/directory;
 X-KDE-Submenu=Administrator
+X-KDE-Icon=folder-red
+Icon=folder-red
+X-KDE-MaxNumberOfUrls=1
+X-KDE-Priority=TopLevel
 
 [Desktop Action d1_OpenAsAdministrator]
 Name=Open Folder
 Icon=folder-red
 Exec=_admin_actions_folder.sh %f
-X-KDE-MaxNumberOfUrls=1
 
 [Desktop Action d2_OpenTerminalAsAdministrator]
 Name=Open Terminal
 Icon=utilities-terminal
 Exec=_admin_actions_konsole.sh %f
-X-KDE-MaxNumberOfUrls=1
 
 [Desktop Action d3_MountpointMount]
 Name=Mountpoint - Mount
 Icon=media-eject
 Exec=_admin_actions_folder_mount.sh %f
-X-KDE-MaxNumberOfUrls=1
 
 [Desktop Action d4_MountpointUnmount]
 Name=Mountpoint - Unmount
 Icon=media-eject
 Exec=_admin_actions_folder_unmount.sh %f
-X-KDE-MaxNumberOfUrls=1
