@@ -1,4 +1,9 @@
 # Command for managing configuration of ShellRc
+include "shellenv-completion.sh"
+
+# Set environment file variable
+export SHELLRC_ENVIRONMENT="$SHELLRC_DATA_DIR/environment.conf"
+[[ ! -f "$SHELLRC_ENVIRONMENT" ]] && touch "$SHELLRC_ENVIRONMENT"
 
 _shellenv-help() {
     if [[ "$#" -gt 0 ]]; then
@@ -170,3 +175,5 @@ shellenv() {
 
 }
 
+# Load variables
+shellenv reload

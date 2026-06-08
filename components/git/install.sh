@@ -1,15 +1,15 @@
 dir="$(script_directory)"
-# mkdir -p "$XDG_CONFIG_HOME/git"
-# printf "[include]\tpath = \"$dir/gitconfig.ini\"\n" >"$XDG_CONFIG_HOME/git/config"
-# touch "$XDG_CONFIG_HOME/git/credentials"
+mkdir -p "$XDG_CONFIG_HOME/git"
+printf "[include]\tpath = \"$dir/gitconfig.ini\"\n" >"$XDG_CONFIG_HOME/git/config"
+touch "$XDG_CONFIG_HOME/git/credentials"
 
-# IFS=$'\n' read -p "Enter your name: " name
-# read -p "Enter your email: " email
+IFS=$'\n' read -p "Enter your name: " name
+read -p "Enter your email: " email
 
-# git config --global include.path "$dir/gitconfig.ini"
-# git config --global user.name "$name"
-# git config --global user.email "$email"
-# git config --local include.path ../.gitconfig
+git config --global include.path "$dir/gitconfig.ini"
+git config --global user.name "$name"
+git config --global user.email "$email"
+git config --local include.path ../.gitconfig
 
 mkdir -p "$dir/bin"
 mkdir -p "$dir/man/man"{1..8}

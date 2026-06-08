@@ -16,10 +16,8 @@ elif [ -n "$ZSH_VERSION" ]; then
     export SHELLRC_DIR="$(dirname "${(%):-%N}")"
 fi
 
-# Basic configuration required for all components to load
-source "$SHELLRC_DIR/lib/lib.sh"
-
-include "src/src.sh"
+# Core setup for all components
+source "$SHELLRC_DIR/src/src.sh"
 
 # Components configuration
 include "components/components.sh"
