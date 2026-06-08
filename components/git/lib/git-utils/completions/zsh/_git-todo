@@ -10,5 +10,7 @@ _git-todo() {
 
 compdef _git-todo git-todo
 
+zstyle -g existing_user_commands ':completion:*:*:git:*' user-commands
+
 zstyle ':completion:*:*:git:*' user-commands $existing_user_commands \
     todo:'find and show TODOs and FIXMEs in the codebase'
