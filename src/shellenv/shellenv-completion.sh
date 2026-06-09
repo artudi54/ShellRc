@@ -1,5 +1,8 @@
 # Command completion for shelenv command
 
+# interactive shell only
+[[ $- != *i* ]] && return
+
 _shellenv-complete-commands() {
     if [ "${COMP_WORDS[1]:0:1}" = "-" ]; then
         COMPREPLY+=($(compgen -W "--help" -- "${COMP_WORDS[1]}"))

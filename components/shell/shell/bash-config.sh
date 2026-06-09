@@ -1,7 +1,7 @@
-# check if running interactively
-if [[ $- != *i* ]]; then
-    return
-fi
+[[ ! -v BASH_VERSION ]] && return
+
+# interactive shell only
+[[ $- != *i* ]] && return
 
 # disable ctrl-s
 stty -ixon
@@ -40,3 +40,4 @@ HISTCONTROL="erasedups:ignoreboth"
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 bind "set colored-completion-prefix on"
+bind "set colored-stats on"

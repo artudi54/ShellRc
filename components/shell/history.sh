@@ -1,13 +1,15 @@
+# interactive shell only
+[[ $- != *i* ]] && return
 
 #append history bash-zsh compatible
 if [ -n "$BASH_VERSION" ]; then
-    append-history() {
+    __append-history() {
         history -a
         history -c
         history -r
     }
 elif [ -n "$ZSH_VERSION" ]; then
-    append-history() {
+    __append-history() {
         fc -W
     }
 fi
@@ -21,5 +23,5 @@ SAVEHIST=10000
 HISTFILE="$SHELLRC_STATE_DIR/shell_history.log"
 
 # append history on every command both for bash and zsh
-precmd_functions+=(append-history)
+precmd_functions+=(__append-history)
 

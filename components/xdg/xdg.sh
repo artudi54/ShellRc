@@ -1,7 +1,7 @@
-# Environmental variable fixes for XDG Base Directories for programs 
+# Environmental variable fixes for XDG Base Directories for programs
 
 # Android
-export ANDROID_USER_HOME="$XDG_DATA_HOME"/android 
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 
 # Breezy
 export BRZ_LOG="$XDG_CACHE_HOME/breezy/brz.log"
@@ -65,7 +65,7 @@ export MEDNAFEN_HOME="$XDG_CONFIG_HOME/mednafen"
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 
 # .NET CLI
-export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet                            
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 
 # nuget
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages

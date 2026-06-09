@@ -1,5 +1,6 @@
 # Main entry for all aliases
-
+# Interactive shell only
+[[ $- != *i* ]] && return
 # colouring first
 include "colours.sh"
 

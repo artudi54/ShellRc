@@ -1,5 +1,8 @@
 # Command completion for screenprofile command
 
+# interactive shell only
+[[ $- != *i* ]] && return
+
 _screenprofile() {
     COMPREPLY=()
     if [[ "$COMP_CWORD" -eq 1 ]]; then

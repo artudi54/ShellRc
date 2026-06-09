@@ -9,6 +9,9 @@ include "directory-setup/shellrc-dirs.sh"
 include "bash-zsh-comp/completion.sh"
 include "bash-zsh-comp/hooks.sh"
 
+# Builtin overrides
+include "overrides/alias.sh"
+
 # Shellenv
 include "shellenv/shellenv.sh"
 

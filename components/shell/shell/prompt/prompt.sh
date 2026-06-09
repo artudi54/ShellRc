@@ -18,4 +18,3 @@ fi
 include "prompt-utils.sh"
 
 precmd_functions+=(make-prompt)
-

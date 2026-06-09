@@ -4,9 +4,13 @@
 
 # Currently supported: chpwd, precmd, preexec
 
-if [[ -v BASH_VERSION ]]; then
-    # chpwd hook
-    include "bash-chpwd.sh"
-    # precmd, preexec hooks - modified version of https://github.com/rcaloras/bash-preexec
-    include "bash-precmd-preexec.sh"
-fi
+[[ ! -v BASH_VERSION ]] && return
+
+# interactive shell only
+[[ $- != *i* ]] && return
+
+# chpwd hook
+include "bash-chpwd.sh"
+# precmd, preexec hooks - modified version of https://github.com/rcaloras/bash-preexec
+include "bash-precmd-preexec.sh"
+

@@ -1,7 +1,7 @@
-# Check if running interactively
-if [[ -o login ]]; then
-  return
-fi
+[[ ! -v ZSH_VERSION ]] && return
+
+# interactive shell only
+[[ $- != *i* ]] && return
 
 # disable ctrl-s
 stty -ixon

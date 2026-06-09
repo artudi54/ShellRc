@@ -95,3 +95,6 @@
 [submodule "components/git/lib/git-extras"]
 	path = components/git/lib/git-extras
 	url = https://github.com/tj/git-extras
+[submodule "src/overrides/alias/bash-complete-alias"]
+	path = src/overrides/alias/bash-complete-alias
+	url = https://github.com/cykerway/complete-alias
