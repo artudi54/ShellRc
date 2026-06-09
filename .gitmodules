@@ -86,8 +86,8 @@
 [submodule "components/vim/bundle/lh-vim-lib"]
 	path = components/vim/plugins/lh-vim-lib
 	url = https://github.com/LucHermitte/lh-vim-lib
-[submodule "src/script-sourcing"]
-	path = src/script-sourcing
+[submodule "components/script-sourcing"]
+	path = components/script-sourcing
 	url = https://github.com/artudi54/script-sourcing
 [submodule "components/git/git-flow-next"]
 	path = components/git/lib/git-flow-next
@@ -95,6 +95,6 @@
 [submodule "components/git/lib/git-extras"]
 	path = components/git/lib/git-extras
 	url = https://github.com/tj/git-extras
-[submodule "src/overrides/alias/bash-complete-alias"]
-	path = src/overrides/alias/bash-complete-alias
+[submodule "components/completable-aliases/bash-complete-alias"]
+	path = components/completable-aliases/bash-complete-alias
 	url = https://github.com/cykerway/complete-alias

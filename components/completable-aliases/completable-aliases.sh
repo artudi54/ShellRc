@@ -3,7 +3,7 @@
 [[ $- != *i* ]] && return
 
 if [[ -v ZSH_VERSION ]]; then
-    include "alias/zsh-complete-alias.sh"
+    include "zsh-complete-alias.sh"
     alias() {
         builtin alias "$@" || return $?
 
@@ -22,7 +22,7 @@ if [[ -v ZSH_VERSION ]]; then
         done
     }
 elif [[ -v BASH_VERSION ]]; then
-    include "alias/bash-complete-alias/complete_alias"
+    include "bash-complete-alias/complete_alias"
     alias() {
         builtin alias "$@" || return $?
 
