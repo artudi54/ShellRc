@@ -51,6 +51,7 @@ load-component ascii-colors
 load-component command-completions
 load-component input
 load-component shell-history
+load-component cdpath
 load-component common-aliases
 load-component shell
 

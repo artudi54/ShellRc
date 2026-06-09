@@ -1,33 +1,57 @@
-# Command completion for shelenv command
-
-# interactive shell only
+# Command completion for shellenv command
 [[ $- != *i* ]] && return
 
-_shellenv-complete-commands() {
-    if [ "${COMP_WORDS[1]:0:1}" = "-" ]; then
-        COMPREPLY+=($(compgen -W "--help" -- "${COMP_WORDS[1]}"))
-    else
-        local commands="get help list print reload set unset"
-        COMPREPLY+=($(compgen -W "$commands" -- "${COMP_WORDS[1]}"))
-    fi
-}
-
-_shellenv-complete-keys() {
-    COMPREPLY+=($(compgen -W "$(shellenv list)" -- "${COMP_WORDS[2]}"))
-}
-
-_shellenv() {
-    COMPREPLY=()
-    if [[ "$COMP_CWORD" -eq 1 ]]; then
-        _shellenv-complete-commands
-    elif [[ "$COMP_CWORD" -eq 2 ]]; then
-        local comm="${COMP_WORDS[1]}"
-        if [[ "$comm" == get ]] || [[ "$comm" == set ]] || [[ "$comm" == unset ]]; then
-            _shellenv-complete-keys
+if [[ -v BASH_VERSION ]]; then
+    _shellenv() {
+        COMPREPLY=()
+        if [[ "$COMP_CWORD" -eq 1 ]]; then
+            if [[ "${COMP_WORDS[1]:0:1}" == "-" ]]; then
+                COMPREPLY=($(compgen -W "--help" -- "${COMP_WORDS[1]}"))
+            else
+                COMPREPLY=($(compgen -W "get help list print reload set unset" -- "${COMP_WORDS[1]}"))
+            fi
+        elif [[ "$COMP_CWORD" -eq 2 ]]; then
+            case "${COMP_WORDS[1]}" in
+                get|set|unset)
+                    COMPREPLY=($(compgen -W "$(shellenv list)" -- "${COMP_WORDS[2]}"))
+                    ;;
+            esac
         fi
-    fi
-}
+    }
+    complete -F _shellenv shellenv
 
+elif [[ -v ZSH_VERSION ]]; then
+    _shellenv() {
+        local -a commands
+        commands=(
+            'get:get variable value'
+            'help:display help message'
+            'list:show all shellenv variables'
+            'print:print configuration file'
+            'reload:reload variables from configuration file'
+            'set:set variable value'
+            'unset:remove variable'
+        )
 
-complete -F _shellenv shellenv
+        _arguments -s \
+            '1:command:->command' \
+            '2:key:->key' && return
 
+        case "$state" in
+            command)
+                _describe 'command' commands
+                _arguments '1:command:(--help)'
+                ;;
+            key)
+                case "${words[2]}" in
+                    get|set|unset)
+                        local -a keys
+                        keys=(${(z)$(shellenv list)})
+                        _describe 'key' keys
+                        ;;
+                esac
+                ;;
+        esac
+    }
+    compdef _shellenv shellenv
+fi
