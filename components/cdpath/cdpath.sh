@@ -37,17 +37,6 @@ if [[ -v BASH_VERSION ]]; then
 fi
 
 # persist CDPATH changes to shellenv
-__cdpath_last_saved="$CDPATH"
-
-__cdpath-sync-shellenv() {
-    [[ "$CDPATH" == "$__cdpath_last_saved" ]] && return
-    __cdpath_last_saved="$CDPATH"
-
-    if [[ -z "$CDPATH" ]]; then
-        shellenv unset CDPATH
-    else
-        shellenv set CDPATH "$CDPATH"
-    fi
-}
-precmd_functions+=(__cdpath-sync-shellenv)
+[[ -z "${CDPATH+x}" ]] && export CDPATH=""
+shellenv sync CDPATH
 

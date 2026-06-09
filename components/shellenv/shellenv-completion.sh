@@ -8,12 +8,15 @@ if [[ -v BASH_VERSION ]]; then
             if [[ "${COMP_WORDS[1]:0:1}" == "-" ]]; then
                 COMPREPLY=($(compgen -W "--help" -- "${COMP_WORDS[1]}"))
             else
-                COMPREPLY=($(compgen -W "get help list print reload set unset" -- "${COMP_WORDS[1]}"))
+                COMPREPLY=($(compgen -W "get help list print reload set sync unset" -- "${COMP_WORDS[1]}"))
             fi
         elif [[ "$COMP_CWORD" -eq 2 ]]; then
             case "${COMP_WORDS[1]}" in
                 get|set|unset)
                     COMPREPLY=($(compgen -W "$(shellenv list)" -- "${COMP_WORDS[2]}"))
+                    ;;
+                sync)
+                    COMPREPLY=($(compgen -e -- "${COMP_WORDS[2]}"))
                     ;;
             esac
         fi
@@ -30,6 +33,7 @@ elif [[ -v ZSH_VERSION ]]; then
             'print:print configuration file'
             'reload:reload variables from configuration file'
             'set:set variable value'
+            'sync:register variable for automatic persistence on change'
             'unset:remove variable'
         )
 
@@ -48,6 +52,9 @@ elif [[ -v ZSH_VERSION ]]; then
                         local -a keys
                         keys=(${(z)$(shellenv list)})
                         _describe 'key' keys
+                        ;;
+                    sync)
+                        _parameters -g 'export'
                         ;;
                 esac
                 ;;

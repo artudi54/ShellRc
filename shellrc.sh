@@ -49,7 +49,7 @@ load-component ascii-colors
 
 # shell setup
 load-component command-completions
-load-component input
+load-component terminal-inputs
 load-component shell-history
 load-component cdpath
 load-component common-aliases

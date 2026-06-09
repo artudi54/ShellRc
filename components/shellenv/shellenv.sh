@@ -29,6 +29,7 @@ _shellenv-help() {
     echo "  print - print contents of configuration file"
     echo "  reload - reload variables from configuration file"
     echo "  set - set variable value"
+    echo "  sync - register variable for automatic persistence on change"
     echo "  unset - remove variable"
     echo
 }
@@ -127,6 +128,10 @@ _shellenv-unset() {
         echo "shellenv: unset: failed to remove '$key' from '$SHELLRC_ENVIRONMENT'" 1>&2
         return 2
     fi
+
+    # Remove from sync tracking if registered
+    __shellenv_synced_vars=("${__shellenv_synced_vars[@]/$key/}")
+    unset "__shellenv_sync_last_${key}"
 }
 
 _shellenv-reload() {
@@ -147,6 +152,62 @@ _shellenv-reload() {
             export "$key"
         fi
     done <"$SHELLRC_ENVIRONMENT"
+}
+
+# Tracked synced variables (guard against duplicate registration)
+declare -a __shellenv_synced_vars=()
+
+__shellenv-sync-hook() {
+    local varname
+    for varname in "${__shellenv_synced_vars[@]}"; do
+        local current_value last_key last_value
+        last_key="__shellenv_sync_last_${varname}"
+
+        eval "current_value=\${${varname}}"
+        eval "last_value=\${${last_key}}"
+
+        if [[ "$current_value" == "$last_value" ]]; then
+            continue
+        fi
+
+        typeset -g "${last_key}=${current_value}"
+
+        if [[ -z "$current_value" ]]; then
+            shellenv unset "$varname"
+        else
+            shellenv set "$varname" "$current_value"
+        fi
+    done
+}
+precmd_functions+=(__shellenv-sync-hook)
+
+_shellenv-sync() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "shellenv: sync: this command takes one argument (variable name), $# provided" 1>&2
+        return 1
+    fi
+
+    local varname="$1"
+
+    # Precondition: variable must be a valid environment variable name
+    if ! declare -p "$varname" &>/dev/null; then
+        echo "shellenv: sync: '$varname' is not a defined variable" 1>&2
+        return 1
+    fi
+
+    # Guard: check if already synced
+    if [[ " ${__shellenv_synced_vars[*]} " == *" $varname "* ]]; then
+        return 0
+    fi
+
+    __shellenv_synced_vars+=("$varname")
+    eval "typeset -g __shellenv_sync_last_${varname}=\${${varname}}"
+
+    # Persist current value immediately
+    eval "local current_value=\${${varname}}"
+    if [[ -n "$current_value" ]]; then
+        shellenv set "$varname" "$current_value"
+    fi
 }
 
 shellenv() {
