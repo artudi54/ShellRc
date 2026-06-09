@@ -1,7 +1,5 @@
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# ANSI colour variables
 
-# colours variables
 C_BLACK='\e[0;30m'
 C_RED='\e[0;31m'
 C_GREEN='\e[0;32m'

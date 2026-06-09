@@ -6,12 +6,6 @@
 # disable ctrl-s
 stty -ixon
 
-# History
-setopt histignorealldups
-setopt histignorespace
-setopt sharehistory
-setopt appendhistory
-
 # extended globbing
 setopt extendedglob
 setopt +o nomatch

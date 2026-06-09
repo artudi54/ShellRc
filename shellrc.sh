@@ -27,21 +27,31 @@ load-component() {
     [[ -f "$entry" ]] && source "$entry"
 }
 
-# needs to be loaded first to allow relative includes
+# core shell settings and utilities required for other components, order is important
+## relative includes, script directory
 load-component script-sourcing
-
-# core shell settings and utilities required for other components
+## make sure that xdg dirs are defined and created
 load-component xdg-dirs
+## shellrc-specific dirs created under xdg dirs
 load-component shellrc-dirs
+## enable zsh completion + bash completion compatibility
 load-component zsh-completion
+## add partial hook support to bash
 load-component bash-hooks
+## automatically add alias command completion
 load-component completable-aliases
+## configure PATH to include user bin dir(s)
 load-component user-bin
+## utility for persistent env variable management
 load-component shellenv
+## ANSI colour variables for use by other components
+load-component ascii-colors
 
 # shell setup
 load-component command-completions
 load-component input
+load-component shell-history
+load-component common-aliases
 load-component shell
 
 # xdg overrides for clean home directory
@@ -52,6 +62,7 @@ load-component ark
 load-component dolphin
 load-component emacs
 load-component fastfetch
+load-component gcc
 load-component git
 load-component konsole
 load-component less
