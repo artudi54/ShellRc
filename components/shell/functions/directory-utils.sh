@@ -1,18 +1,3 @@
-# function for listing directories only
-# TODO: FIX
-ld() {
-    local IFS=$'\n' 
-	local files=$(ls -l $@ | grep "^d\|^l" | awk '{print $9}')
-    local directories=""
-    for file in $files; do 
-        if [[ -d "$file" ]] || [[ -d "$(readlink -- "$file")" ]]; then
-            directories="${directories}"$'\n'"${file}"
-        fi
-    done
-    ls -d $@ $directories
-}
-alias ldl='ld -l'
-
 # change directory with create when specified does not exist exist
 cdc() {
     if [[ ! -d "$@" ]]; then

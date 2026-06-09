@@ -53,6 +53,7 @@ load-component input
 load-component shell-history
 load-component cdpath
 load-component common-aliases
+load-component common-util
 load-component shell
 
 # xdg overrides for clean home directory

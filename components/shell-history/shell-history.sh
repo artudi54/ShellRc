@@ -32,3 +32,4 @@ elif [[ -v ZSH_VERSION ]]; then
 fi
 
 precmd_functions+=(__append-history)
+preexec_functions+=(__append-history)
