@@ -4,8 +4,8 @@
 [submodule "components/command-completions/zsh-completions"]
 	path = components/command-completions/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
-[submodule "components/shell/shell/plugins/syntax-highlighting/zsh-syntax-highlighting"]
-	path = components/shell/shell/plugins/syntax-highlighting/zsh-syntax-highlighting
+[submodule "components/syntax-highlighting/zsh-syntax-highlighting"]
+	path = components/syntax-highlighting/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "components/vim/plugins/vim-gitgutter"]
 	path = components/vim/plugins/vim-gitgutter

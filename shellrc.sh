@@ -41,13 +41,14 @@ load-component shellenv
 load-component shellrc
 
 # shell setup
+load-component shell
 load-component command-completions
 load-component terminal-inputs
 load-component shell-history
+load-component syntax-highlighting
 load-component cdpath
 load-component common-aliases
 load-component common-util
-load-component shell
 
 # xdg overrides for clean home directory
 load-component xdg
