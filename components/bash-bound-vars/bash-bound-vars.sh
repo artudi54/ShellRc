@@ -7,12 +7,10 @@
 #   Changes to either are detected and propagated on each precmd.
 #   Requires bash-hooks component (precmd_functions).
 
-[[ $- != *i* ]] && return
-
 if [[ -v BASH_VERSION ]]; then
-    declare -a __bound_var_scalars=()
-    declare -a __bound_var_arrays=()
-    declare -a __bound_var_seps=()
+    declare -ag __bound_var_scalars=()
+    declare -ag __bound_var_arrays=()
+    declare -ag __bound_var_seps=()
 
     bind-var() {
         if [[ $# -lt 2 || $# -gt 3 ]]; then
@@ -93,6 +91,7 @@ if [[ -v BASH_VERSION ]]; then
         done
     }
     precmd_functions+=(__bound-vars-sync)
+    shellrc-atexit __bound-vars-sync
 
 elif [[ -v ZSH_VERSION ]]; then
     bind-var() {

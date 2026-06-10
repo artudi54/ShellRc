@@ -62,9 +62,6 @@
 [submodule "components/vim/plugins/quickmenu"]
 	path = components/vim/plugins/quickmenu
 	url = https://github.com/skywind3000/quickmenu.vim
-[submodule "components/shell/shell/plugins/paki/paki"]
-	path = components/shell/shell/plugins/paki/paki
-	url = https://github.com/artudi54/paki
 [submodule "components/vim/plugins/ps1"]
 	path = components/vim/plugins/ps1
 	url = https://github.com/PProvost/vim-ps1

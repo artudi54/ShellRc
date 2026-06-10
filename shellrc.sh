@@ -27,8 +27,10 @@ load-component() {
     [[ -f "$entry" ]] && source "$entry"
 }
 
+
 # core shell settings and utilities required for other components, order is important
 load-component script-sourcing
+load-component shellrc-atexit
 load-component xdg-dirs
 load-component shellrc-dirs
 load-component zsh-completion
@@ -43,6 +45,7 @@ load-component shellrc
 # shell setup
 load-component shell
 load-component command-completions
+load-component command-not-found
 load-component terminal-inputs
 load-component shell-history
 load-component syntax-highlighting
@@ -72,4 +75,7 @@ load-component vim
 load-component wget
 load-component wine
 load-component yakuake
+
+# Run registered initialization hooks
+shellrc-exit
 

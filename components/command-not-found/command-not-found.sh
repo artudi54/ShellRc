@@ -1,6 +1,5 @@
 # plugin for showing command information in shell
 
-
 # debian based
 if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-not-found ]; then
     command_not_found_handle() {

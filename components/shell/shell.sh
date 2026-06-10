@@ -1,8 +1,5 @@
 # promt settings
-include "shell/prompt/prompt.sh"
-
-# plugins
-include "shell/plugins/plugins.sh"
+include "prompt/prompt.sh"
 
 # interactive shell only
 [[ $- != *i* ]] && return
