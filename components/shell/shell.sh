@@ -1,6 +1,3 @@
-# functions
-include "functions/functions.sh"
-
 # promt settings
 include "shell/prompt/prompt.sh"
 

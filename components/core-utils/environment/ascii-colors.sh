@@ -1,4 +1,4 @@
-# ANSI colour variables
+# ANSI colour variables (moved from components/ascii-colors)
 
 C_BLACK='\e[0;30m'
 C_RED='\e[0;31m'

@@ -1,7 +1,5 @@
 # Override the alias builtin to automatically register completion for aliases
 
-[[ $- != *i* ]] && return
-
 if [[ -v ZSH_VERSION ]]; then
     include "zsh-complete-alias.sh"
     alias() {

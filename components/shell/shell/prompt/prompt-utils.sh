@@ -25,5 +25,5 @@ shellrc-prompt-set() {
 
     shellenv set SHELLRC_PROMPT "$theme"
     unset -f make-prompt 2>/dev/null
-    shellrc-reload
+    include "themes/$SHELLRC_PROMPT.theme.sh"
 }
