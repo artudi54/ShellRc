@@ -1,18 +1,9 @@
 # Ensure .local/bin exists
 mkdir -p "$HOME/.local/bin"
 
-# Add .local/bin and its subdirectories to path
-binFiles=("$HOME/.local/bin" "$HOME/.local/bin/"*)
-addedPaths=""
-
-for ((idx=${#binFiles[@]}; idx>=0 ; idx-- )); do
-    if [[ -d "${binFiles[idx]}" ]] && [[ "$PATH" != *"${binFiles[idx]}"* ]]; then
-        addedPaths="${binFiles[idx]}:$addedPaths"
-    fi
+# Add .local/bin and its subdirectories to path (prepend, reverse order)
+for dir in "$HOME/.local/bin/"* "$HOME/.local/bin"; do
+    [[ -d "$dir" ]] && array-prepend-unique path "$dir"
 done
-export PATH="${addedPaths}${PATH}"
-
-unset idx
-unset binFiles
-unset addedPaths
+unset dir
 

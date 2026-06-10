@@ -1,3 +1,1 @@
-if [[ "$PATH" != *"$(script_directory)/bin"* ]]; then
-    export PATH="$PATH:$(script_directory)/bin"
-fi
+array-append-unique path "$(script_directory)/bin"

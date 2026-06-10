@@ -1,13 +1,8 @@
 dir="$(script_directory)"
 
 
-if [[ "$PATH" != *"$dir/bin"* ]]; then
-    export PATH="$PATH:$dir/bin"
-fi
-
-if [[ "$MANPATH" != *"$dir/man"* ]]; then
-    export MANPATH="$MANPATH:$dir/man"
-fi
+array-append-unique path "$dir/bin"
+array-append-unique manpath "$dir/man"
 
 
 # interactive shell only

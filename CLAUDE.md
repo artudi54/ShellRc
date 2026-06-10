@@ -68,5 +68,5 @@ Several components include third-party tools as submodules (bash-completion, zsh
 ## Style
 
 - 4-space indentation, UTF-8, LF line endings, trailing newline (see `.editorconfig`)
-- Shell scripts use `#!/bin/bash` shebangs for standalone scripts; sourced files have no shebang
+- Shell scripts use `#!/usr/bin/env bash` shebangs for standalone scripts; sourced files have no shebang
 - Use `include` for relative sourcing, not manual `source`/`.` with path construction
