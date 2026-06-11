@@ -1,23 +1,19 @@
 # Main entry for screen configuration
 
-# Execute only when GNU Screen is installed
-if which screen 2>&1 1>/dev/null; then
-    # Default screenrc
-    # Screen profiles
-    export SCREEN_PROFILES="$(script_directory)/profiles"
-
-    # screen 4 compatibility
-    if [[ "$(screen --version)" == *5.* ]]; then
-        export SCREENRC="$(script_directory)/screenrc.sh"
-    else
-        export SCREENRC="$(script_directory)/screenrc-v4.sh"
-    fi
-    export SCREENDIR="$SHELLRC_STATE_DIR/screen-sessions"
-
-    # Scripts
-    include "scripts/screenprofile.sh"
-    include "scripts/termscreen.sh"
-
-    # Autocompletion
-    include "completion/screenprofiles-completion.sh"
+# screen 4 compatibility
+if [[ "$(screen --version)" == *5.* ]]; then
+    export SCREENRC="$(script_directory)/screenrc.sh"
+else
+    export SCREENRC="$(script_directory)/screenrc-v4.sh"
 fi
+export SCREENDIR="$SHELLRC_STATE_DIR/screen-sessions"
+
+# termscreen - persistent screen session using basic setup
+termscreen() {
+    if screen -ls | grep 'termscreen' 2>&1 >/dev/null; then
+        screen -r termscreen
+    else
+        screen -S termscreen
+    fi
+}
+

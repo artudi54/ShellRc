@@ -1,8 +1,8 @@
 startup_message off
 defscrollback 20000
 
-caption always "%{7;4}%-w%{7;12}%n %t%{-}%+w %-="
-hardstatus alwayslastline "%{0;3} [%S | $SHELL] %{7;2} $USER@%H  %-= %{= yk} %LD %d %LM %Y - %c"
+caption always "%{7;4}%-w%{7;12} %n %t %{-}%+w %-="
+hardstatus alwayslastline "%{0;3} [%S | $SHELL] %{7;2} $USER@%H  %-= %{= yk} %LD %d %LM %Y - %c "
 
 # Remove annoying binds
 bindkey -k k4
@@ -24,11 +24,11 @@ bindkey "^[[1;8C" number +1
 bindkey "^[[1;6D" focus prev
 bindkey "^[[1;6C" focus next
 
-# Splits
-bindkey SS! eval "only"
-bindkey SS@ eval "only" "split -v" "focus left"
-bindkey SS# eval "only" "split -v" "focus right" "split" "focus left"
-bindkey SS$ eval "only" "split" "split -v"  "focus down" "split -v" "focus up" "focus left"
+# Splits (Prefix + Shift+1/2/3/4)
+bind ! eval "only"
+bind @ eval "only" "split -v" "focus left"
+bind \# eval "only" "split -v" "focus right" "split" "focus left"
+bind $ eval "only" "split" "split -v"  "focus down" "split -v" "focus up" "focus left"
 
 term xterm-256color
 
