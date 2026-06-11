@@ -40,10 +40,10 @@ load-component bash-bound-vars
 load-component completable-aliases
 load-component user-bin
 load-component shellenv
-load-component shellrc
 
 # shell setup
 load-component shell
+load-component shellprompt
 load-component command-completions
 load-component command-not-found
 load-component terminal-inputs
@@ -52,11 +52,11 @@ load-component syntax-highlighting
 load-component cdpath
 load-component common-aliases
 load-component common-util
+load-component shellrc
 
-# xdg overrides for clean home directory
-load-component xdg
 
 # app configs
+load-component xdg # xdg overrides for clean home directory
 load-component ark
 load-component dolphin
 load-component emacs

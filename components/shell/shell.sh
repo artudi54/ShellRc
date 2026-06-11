@@ -1,6 +1,3 @@
-# promt settings
-include "prompt/prompt.sh"
-
 # interactive shell only
 [[ $- != *i* ]] && return
 

@@ -5,7 +5,7 @@
 
 # Initialize array if not already present
 if [[ -z "${__shellrc_atexit_funcs+x}" ]]; then
-    declare -a __shellrc_atexit_funcs=()
+    declare -ga __shellrc_atexit_funcs=()
 fi
 
 # Register one or more function names to run at shellrc exit.

@@ -155,12 +155,11 @@ _shellenv-reload() {
 }
 
 # Tracked synced variables (guard against duplicate registration)
-declare -a __shellenv_synced_vars=()
+declare -ag __shellenv_synced_vars=()
 
 __shellenv-sync-hook() {
-    local varname
+    local varname current_value last_key last_value
     for varname in "${__shellenv_synced_vars[@]}"; do
-        local current_value last_key last_value
         last_key="__shellenv_sync_last_${varname}"
 
         eval "current_value=\${${varname}}"
@@ -180,6 +179,7 @@ __shellenv-sync-hook() {
     done
 }
 precmd_functions+=(__shellenv-sync-hook)
+shellrc-atexit __shellenv-sync-hook
 
 _shellenv-sync() {
     if [[ "$#" -ne 1 ]]; then
