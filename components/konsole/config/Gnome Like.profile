@@ -17,7 +17,7 @@ TerminalColumns=110
 TerminalRows=32
 
 [Keyboard]
-KeyBindings=default
+KeyBindings=ShellRc
 
 [Scrolling]
 HistorySize=30000
