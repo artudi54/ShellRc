@@ -17,3 +17,12 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Lesspipe open
 export LESSOPEN="|$(script_directory)/lesspipe.sh %s"
+
+# Completions (interactive only)
+if [[ $- == *i* ]]; then
+    if [[ -v BASH_VERSION ]]; then
+        source "$(script_directory)/completions/bash/less"
+    elif [[ -v ZSH_VERSION ]]; then
+        source "$(script_directory)/completions/zsh/less"
+    fi
+fi
