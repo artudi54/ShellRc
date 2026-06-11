@@ -90,6 +90,7 @@ if [[ -v BASH_VERSION ]]; then
             declare -g "$last_scalar_var=${!scalar}"
         done
     }
+    shellrc-atnext __bound-vars-sync
     precmd_functions+=(__bound-vars-sync)
     shellrc-atexit __bound-vars-sync
 

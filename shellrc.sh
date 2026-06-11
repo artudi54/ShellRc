@@ -25,12 +25,13 @@ load-component() {
     fi
     local entry="$dir/$name.sh"
     [[ -f "$entry" ]] && source "$entry"
+    declare -f shellrc-next >/dev/null 2>&1 && shellrc-next
 }
 
 
 # core shell settings and utilities required for other components, order is important
 load-component script-sourcing
-load-component shellrc-atexit
+load-component shellrc-hooks
 load-component xdg-dirs
 load-component shellrc-dirs
 load-component zsh-completion

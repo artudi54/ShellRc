@@ -1,3 +1,5 @@
+[[ $- != *i* ]] && return
+
 bind '"\e[1~": beginning-of-line'
 bind '"\e[4~": end-of-line'
 

@@ -36,6 +36,7 @@
 if [[ "${__bp_imported:-}" == "defined" ]]; then
     return 0
 fi
+[[ $- != *i* ]] && return
 __bp_imported="defined"
 
 # Should be available to each precmd and preexec

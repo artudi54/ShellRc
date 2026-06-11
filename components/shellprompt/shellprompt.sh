@@ -1,4 +1,6 @@
 # Command for managing ShellRc prompt theme
+[[ $- != *i* ]] && return
+
 include "shellprompt-completion.sh"
 
 # Setup for zsh

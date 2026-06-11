@@ -1,4 +1,5 @@
 # chpwd hook
+[[ $- != *i* ]] && return
 
 # source file only once 
 if [ "$__chpwd_imported" = "defined" ]; then
