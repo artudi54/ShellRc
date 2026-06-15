@@ -86,6 +86,9 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 # Parallel
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel 
 
+# P4
+export P4ENVIRO="$XDG_CONFIG_HOME"/p4enviro
+
 # python-pylint
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 
