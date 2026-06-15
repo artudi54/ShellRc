@@ -7,7 +7,7 @@ HISTFILESIZE=10000
 SAVEHIST=10000
 
 # shared history file - both shells use plain format
-HISTFILE="$SHELLRC_STATE_DIR/shell_history.log"
+export HISTFILE="$SHELLRC_STATE_DIR/shell_history.log"
 
 if [[ -v BASH_VERSION ]]; then
     shopt -s histappend
