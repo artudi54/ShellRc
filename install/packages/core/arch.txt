@@ -1,0 +1,14 @@
+gettext
+util-linux
+net-tools
+iputils
+xz
+p7zip
+dpkg
+rpm-tools
+poppler
+sqlite
+python
+pkgfile
+base-devel
+vim

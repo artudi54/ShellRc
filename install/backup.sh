@@ -18,7 +18,7 @@ backup-from-file() {
 }
 
 if [[ $# -ne 1 ]]; then
-    echo "backup: invalid number of arguments passed" 1>&2
+    echo "backup.sh: invalid number of arguments passed" 1>&2
     exit 1
 fi
 

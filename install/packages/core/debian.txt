@@ -1,0 +1,14 @@
+gettext-base
+bsdextrautils
+net-tools
+iputils-ping
+xz-utils
+p7zip-full
+dpkg
+rpm
+poppler-utils
+sqlite3
+python3
+build-essential
+command-not-found
+vim-gtk3
