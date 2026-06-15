@@ -12,3 +12,4 @@ python3
 build-essential
 command-not-found
 vim-gtk3
+golang

@@ -1,2 +1,3 @@
 "$HOME/.pythonrc"
 "$HOME/.python-history"
+"$HOME/.python_history"

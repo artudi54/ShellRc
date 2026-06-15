@@ -70,14 +70,14 @@ done
 
 (cd "$dir/lib/git-extras" && PREFIX="$dir/install" make install)
 mv "$dir/install/bin"/* "$dir/bin"
-ln -s "$dir/lib/git-extras/man"/*.1 "$dir/man/man1"
-ln -s "$dir/lib/git-extras/etc/bash_completion.sh" "$dir/completions/bash/_git-extras"
-ln -s "$dir/lib/git-extras/etc/git-extras-completion.zsh" "$dir/completions/zsh/_git-extras"
+ln -sf "$dir/lib/git-extras/man"/*.1 "$dir/man/man1"
+ln -sfT "$dir/lib/git-extras/etc/bash_completion.sh" "$dir/completions/bash/_git-extras"
+ln -sfT "$dir/lib/git-extras/etc/git-extras-completion.zsh" "$dir/completions/zsh/_git-extras"
 rm -rf "$dir/install"
 
 
-ln -s "$dir/lib/git-utils/bin"/* "$dir/bin"
-ln -s "$dir/lib/git-utils/man/man1"/* "$dir/man/man1"
-ln -s "$dir/lib/git-utils/completions/bash"/* "$dir/completions/bash"
-ln -s "$dir/lib/git-utils/completions/zsh"/* "$dir/completions/zsh"
+ln -sf "$dir/lib/git-utils/bin"/* "$dir/bin"
+ln -sf "$dir/lib/git-utils/man/man1"/* "$dir/man/man1"
+ln -sf "$dir/lib/git-utils/completions/bash"/* "$dir/completions/bash"
+ln -sf "$dir/lib/git-utils/completions/zsh"/* "$dir/completions/zsh"
 

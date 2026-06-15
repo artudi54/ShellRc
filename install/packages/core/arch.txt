@@ -12,3 +12,4 @@ python
 pkgfile
 base-devel
 vim
+go

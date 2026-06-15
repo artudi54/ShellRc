@@ -1,25 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
-export SHELLRC_DIR="$(dirname "$BASH_SOURCE")"
+export SHELLRC_DIR="$(cd -- "$(dirname "$BASH_SOURCE")" && pwd)"
 
 source "$SHELLRC_DIR/components/script-sourcing/script-sourcing.sh"
 source "$SHELLRC_DIR/components/xdg-dirs/xdg-dirs.sh"
 
-# make available for scripts (TODO: add -e option to script-sourcing.sh)
-export -f __script_directory
-export -f script_directory
-export -f include
+# TODO: make it work with export (-e option for script-sourcing) and just running scripts directly
+# TODO: add --skip-backup option for debugging
+# TODO: add --core-install and --no-install options
 
 echo "[ShellRc] Installing system packages"
-"$(script_directory)/install/packages.sh" || exit 1
+include install/packages.sh
 echo "[ShellRc] Installing system packages complete"
 
 echo "[ShellRc] Creating backups"
-"$(script_directory)/install/backup.sh" "$SHELLRC_DIR/components" || exit 1
+include /install/backup.sh "$SHELLRC_DIR/components"
 echo "[ShellRc] Creating backups complete"
 
 echo "[ShellRc] Configuring components"
-"$(script_directory)/install/components.sh" "$SHELLRC_DIR/components" || exit 1
+include install/components.sh "$SHELLRC_DIR/components"
 echo "[ShellRc] Configuring components complete"
 
 echo "[ShellRc] Configuration complete"

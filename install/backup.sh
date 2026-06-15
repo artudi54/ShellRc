@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
 check-mv() {
     if [ -h "$1" ] || [ -e "$1" ]; then

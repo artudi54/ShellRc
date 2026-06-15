@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
-
+set -e
 PACKAGES_DIR="$(script_directory)/packages"
 
 detect_distro() {
