@@ -23,11 +23,17 @@ export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME"/claude
 # Dart
 export PUB_CACHE="$XDG_CACHE_HOME"/pub-cache
 
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
 # Github Copilot
 export COPILOT_HOME="$XDG_CONFIG_HOME"/copilot
 
 # GnuPG
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+# Go
+export GOPATH="$XDG_DATA_HOME"/go
 
 # Gradle
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
@@ -76,6 +82,9 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 # nvm
 export NVM_DIR="$XDG_DATA_HOME"/nvm
+
+# Parallel
+export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel 
 
 # python-pylint
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
