@@ -3,5 +3,6 @@ FROM $SYSTEM
 RUN pacman -Sy --noconfirm sudo which
 COPY . /root/.config/ShellRc
 
-ENTRYPOINT /root/.config/ShellRc/deployment/test/configure-test.sh
+ENTRYPOINT /root/.config/ShellRc/docker/entrypoint.sh
+
 

@@ -3,5 +3,5 @@ FROM $SYSTEM
 RUN apt-get update && apt-get install -y sudo
 COPY . /root/.config/ShellRc
 
-ENTRYPOINT /root/.config/ShellRc/deployment/test/configure-test.sh
+ENTRYPOINT /root/.config/ShellRc/docker/entrypoint.sh
 
