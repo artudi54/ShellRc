@@ -9,6 +9,10 @@ source "$SHELLRC_DIR/components/xdg-dirs/xdg-dirs.sh"
 # TODO: add --skip-backup option for debugging
 # TODO: add --core-install and --no-install options
 
+echo "[ShellRc] Preparing system repositories"
+include install/prepare.sh
+echo "[ShellRc] Preparing system repositories complete"
+
 echo "[ShellRc] Installing system packages"
 include install/packages.sh
 echo "[ShellRc] Installing system packages complete"
