@@ -10,7 +10,7 @@ export skip_global_compinit=1
 [[ -v __SHELLRC_COMPINIT_LOADED ]] && return
 __SHELLRC_COMPINIT_LOADED=1
 
-autoload -Uz compinit && compinit -C -d "$SHELLRC_STATE_DIR/zcompdump.log"
+autoload -Uz compinit && compinit -d "$SHELLRC_STATE_DIR/zcompdump.log"
 autoload -Uz bashcompinit && bashcompinit
 
 # Clean the guard flag after startup completes
