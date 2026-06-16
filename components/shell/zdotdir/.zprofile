@@ -1,1 +1,1 @@
-source /home/artur/.profile
+source "$HOME/.profile"

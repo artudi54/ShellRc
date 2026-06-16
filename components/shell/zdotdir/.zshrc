@@ -1,1 +1,1 @@
-source /home/artur/.bashrc
+source "$HOME/.bashrc"
