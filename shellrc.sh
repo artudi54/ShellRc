@@ -32,14 +32,12 @@ load-component() {
 # core shell settings and utilities required for other components, order is important
 load-component script-sourcing
 load-component shellrc-hooks
-load-component xdg-dirs
-load-component shellrc-dirs
+load-component directory-setup
 load-component zsh-completion
 load-component core-utils
 load-component bash-hooks
 load-component bash-bound-vars
 load-component completable-aliases
-load-component user-bin
 load-component shellenv
 
 # shell setup
@@ -57,6 +55,7 @@ load-component shellrc
 
 
 # app configs
+load-component user-bin # user binary folder
 load-component xdg # xdg overrides for clean home directory
 load-component ark
 load-component dolphin
