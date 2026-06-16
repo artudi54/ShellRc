@@ -139,8 +139,8 @@ _ip-address() {
 make-prompt() {
     local code=$?
     if [ -n "$BASH_VERSION" ]; then
-        PS1='\n\[\033[36m\]$(date)\[\033[0m\]$(_jobs-arrow) -> \[\033[1;33m\]$(_ip-address)\[\033[0m\]\n\[\033[01;32m\]$PWD\[\033[0m\]$(_git-branch-arrow) -> \[\033[1;36m\]$(_file-info)\[\033[0m\] -> \[\033[1;35m\]$(_file-size)\[\033[0m\]\n\[\033[1;34m\]\u@\h\[\033[0m\] -> \[\033[1;35m\]$(_tty)\[\033[0m\]$(_return-code-format '$code') -> '
+        PS1='\n\[\033[0;36m\]$(date)\[\033[0m\]$(_jobs-arrow) -> \[\033[1;33m\]$(_ip-address)\[\033[0m\] -> \[\033[1;35m\]$(_tty)\[\033[0m\] -> \[\033[0m\]\n\[\033[01;32m\]$PWD\[\033[0m\]$(_git-branch-arrow) -> \[\033[1;36m\]$(_file-info)\[\033[0m\] -> \[\033[1;35m\]$(_file-size)\[\033[0m\]\n\[\033[1;34m\]\u@\h\[\033[0m\]$(_return-code-format '$code') -> '
     elif [ -n "$ZSH_VERSION" ]; then
-        PS1=$'\n%{$fg[cyan]%}$(date)%{$reset_color%}$(_jobs-arrow) -> %{$fg_bold[yellow]%}$(_ip-address)%{$reset_color%}\n%{$fg_bold[green]%}$PWD%{$reset_color%}$(_git-branch-arrow) -> %{$fg_bold[cyan]%}$(_file-info)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_file-size)%{$reset_color%}\n%{$fg_bold[blue]%}%n@%m%{$reset_color%} -> %{$fg_bold[magenta]%}$(_tty)%{$reset_color%}$(_return-code-format '$code') -> '
+        PS1=$'\n%{$fg[cyan]%}$(date)%{$reset_color%}$(_jobs-arrow) -> %{$fg_bold[yellow]%}$(_ip-address)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_tty)%{$reset_color%}\n%{$fg_bold[green]%}$PWD%{$reset_color%}$(_git-branch-arrow) -> %{$fg_bold[cyan]%}$(_file-info)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_file-size)%{$reset_color%}\n%{$fg_bold[blue]%}%n@%m%{$reset_color%}$(_return-code-format '$code') -> '
     fi
 }
