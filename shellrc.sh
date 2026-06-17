@@ -37,6 +37,7 @@ load-component zsh-completion
 load-component core-utils
 load-component bash-hooks
 load-component bash-bound-vars
+load-component bash-autoload
 load-component completable-aliases
 load-component shellenv
 
