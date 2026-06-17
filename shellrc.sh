@@ -53,7 +53,6 @@ load-component shellrc
 
 
 # app configs
-load-component user-bin # user binary folder
 load-component xdg # xdg overrides for clean home directory
 load-component ark
 load-component dolphin
