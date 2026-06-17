@@ -35,7 +35,8 @@ bind @ eval "only" "split -v" "focus left"
 bind \# eval "only" "split -v" "focus right" "split" "focus left"
 bind $ eval "only" "split" "split -v"  "focus down" "split -v" "focus up" "focus left"
 
-term xterm-256color
+term screen-256color
+truecolor on
 
 defmousetrack on
 layout save default
