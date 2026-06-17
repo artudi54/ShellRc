@@ -34,8 +34,8 @@ declare -g FPATH="${FPATH:-}"
 declare -ga fpath=()
 bind-var FPATH fpath
 
-# Add bundled zsh-compatible function directory to fpath
-fpath+=("$(script_directory)/zsh")
+# Add bundled zsh-compatible function directories to fpath
+fpath+=("$(script_directory)/zsh" "$(script_directory)/zsh-stubs")
 
 # Registry of autoloaded functions — values: "undefined" (stub) or "loaded"
 declare -gA __autoload_registry=()

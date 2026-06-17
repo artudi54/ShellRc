@@ -2,8 +2,8 @@ unset PS1
 unset PS2
 unset PROMPT
 
-if [ -n "$BASH_VERSION" ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ '
-elif [ -n "$ZSH_VERSION" ]; then
-    PS1=$'%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~%{$reset_color%}$ '
+if [[ -v BASH_VERSION ]]; then
+    PS1="\[${fg_bold[green]}\]\u@\h\[${reset_color}\]:\[${fg_bold[blue]}\]\w\[${reset_color}\]\$ "
+elif [[ -v ZSH_VERSION ]]; then
+    PS1="%{${fg_bold[green]}%}%n@%m%{${reset_color}%}:%{${fg_bold[blue]}%}%~%{${reset_color}%}%(#.#.$) "
 fi

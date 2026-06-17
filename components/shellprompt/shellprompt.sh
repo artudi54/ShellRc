@@ -4,9 +4,9 @@
 include "shellprompt-completion.sh"
 
 autoload -Uz colors && colors
+autoload -Uz promptinit && promptinit
 # Setup for zsh
 if [[ -v ZSH_VERSION ]]; then
-    autoload -Uz promptinit && promptinit
     setopt promptsubst
 fi
 

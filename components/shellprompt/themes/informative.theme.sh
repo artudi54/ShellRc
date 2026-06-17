@@ -26,18 +26,18 @@ _file-size() {
 
 
 # branch name
-if [ -n "$BASH_VERSION" ]; then
+if [[ -v BASH_VERSION ]]; then
     _git-branch-arrow() {
         local branch="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
         if [ -n "$branch" ]; then
-            printf " -> \001\033[1;93m\002${branch}\001\033[0m\002"
+            printf ' -> \001%s\002%s\001%s\002' "${fg_bold[yellow]}" "${branch}" "${reset_color}"
         fi
     }
-elif [ -n "$ZSH_VERSION" ]; then
+elif [[ -v ZSH_VERSION ]]; then
     _git-branch-arrow() {
         local branch="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
         if [ -n "$branch" ]; then
-            echo " -> %{$fg_bold[yellow]%}${branch}%{$reset_color%}"
+            echo " -> %{${fg_bold[yellow]}%}${branch}%{${reset_color}%}"
         fi
     }
 else
@@ -50,7 +50,7 @@ else
 fi
 
 # jobs information
-if [ -n "$BASH_VERSION" ]; then
+if [[ -v BASH_VERSION ]]; then
     _jobs-arrow() {
         local jobcount=$(jobs -l | grep -P '^\[\d+]' | wc -l)    
         if [ "$jobcount" -eq 0 ]; then
@@ -63,9 +63,9 @@ if [ -n "$BASH_VERSION" ]; then
         else
             form="jobs"
         fi
-        printf " -> \001\033[33m\002$jobcount $form\001\033[0m\002"
+        printf ' -> \001%s\002%s %s\001%s\002' "${fg[yellow]}" "$jobcount" "$form" "${reset_color}"
     }
-elif [ -n "$ZSH_VERSION" ]; then
+elif [[ -v ZSH_VERSION ]]; then
     _jobs-arrow() {
         local jobcount=$(jobs -l | grep -P '^\[\d+]' | wc -l)    
         if [ "$jobcount" -eq 0 ]; then
@@ -78,7 +78,7 @@ elif [ -n "$ZSH_VERSION" ]; then
         else
             form="jobs"
         fi
-        echo " -> %{$fg[yellow]%}$jobcount $form%{$reset_color%}"
+        echo " -> %{${fg[yellow]}%}$jobcount $form%{${reset_color}%}"
     }
 else
     _jobs-arrow() {
@@ -99,16 +99,16 @@ fi
 
 
 # return code formatting
-if [ -n "$BASH_VERSION" ]; then
+if [[ -v BASH_VERSION ]]; then
     _return-code-format() {
         if [ "$1" -ne 0 ]; then
-            printf " -> \001\033[31m\002$1\001\033[0m\002";
+            printf ' -> \001%s\002%s\001%s\002' "${fg[red]}" "$1" "${reset_color}"
         fi
     }
-elif [ -n "$ZSH_VERSION" ]; then
+elif [[ -v ZSH_VERSION ]]; then
     _return-code-format() {
         if [ "$1" -ne 0 ]; then
-            echo " -> %{$fg[red]%}$1%{$reset_color%}"
+            echo " -> %{${fg[red]}%}$1%{${reset_color}%}"
         fi
     }
 else
@@ -138,9 +138,9 @@ _ip-address() {
 
 make-prompt() {
     local code=$?
-    if [ -n "$BASH_VERSION" ]; then
-        PS1='\n\[\033[0;36m\]$(date)\[\033[0m\]$(_jobs-arrow) -> \[\033[1;33m\]$(_ip-address)\[\033[0m\] -> \[\033[1;35m\]$(_tty)\[\033[0m\] -> \[\033[0m\]\n\[\033[01;32m\]$PWD\[\033[0m\]$(_git-branch-arrow) -> \[\033[1;36m\]$(_file-info)\[\033[0m\] -> \[\033[1;35m\]$(_file-size)\[\033[0m\]\n\[\033[1;34m\]\u@\h\[\033[0m\]$(_return-code-format '$code') -> '
-    elif [ -n "$ZSH_VERSION" ]; then
-        PS1=$'\n%{$fg[cyan]%}$(date)%{$reset_color%}$(_jobs-arrow) -> %{$fg_bold[yellow]%}$(_ip-address)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_tty)%{$reset_color%}\n%{$fg_bold[green]%}$PWD%{$reset_color%}$(_git-branch-arrow) -> %{$fg_bold[cyan]%}$(_file-info)%{$reset_color%} -> %{$fg_bold[magenta]%}$(_file-size)%{$reset_color%}\n%{$fg_bold[blue]%}%n@%m%{$reset_color%}$(_return-code-format '$code') -> '
+    if [[ -v BASH_VERSION ]]; then
+        PS1="\n\[${fg[cyan]}\]\$(date)\[${reset_color}\]\$(_jobs-arrow) -> \[${fg_bold[yellow]}\]\$(_ip-address)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_tty)\[${reset_color}\]\n\[${fg_bold[green]}\]\$PWD\[${reset_color}\]\$(_git-branch-arrow) -> \[${fg_bold[cyan]}\]\$(_file-info)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_file-size)\[${reset_color}\]\n\[${fg_bold[blue]}\]\u@\h\[${reset_color}\]\$(_return-code-format '$code') -> "
+    elif [[ -v ZSH_VERSION ]]; then
+        PS1=$'\n'"%{${fg[cyan]}%}\$(date)%{${reset_color}%}\$(_jobs-arrow) -> %{${fg_bold[yellow]}%}\$(_ip-address)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_tty)%{${reset_color}%}"$'\n'"%{${fg_bold[green]}%}\$PWD%{${reset_color}%}\$(_git-branch-arrow) -> %{${fg_bold[cyan]}%}\$(_file-info)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_file-size)%{${reset_color}%}"$'\n'"%{${fg_bold[blue]}%}%n@%m%{${reset_color}%}\$(_return-code-format '$code') -> "
     fi
 }
