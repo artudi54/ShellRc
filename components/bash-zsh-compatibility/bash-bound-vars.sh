@@ -90,9 +90,14 @@ if [[ -v BASH_VERSION ]]; then
             declare -g "$last_scalar_var=${!scalar}"
         done
     }
+
+    # install sync hooks
     shellrc-atnext __bound-vars-sync
-    precmd_functions+=(__bound-vars-sync)
     shellrc-atexit __bound-vars-sync
+    [[ " ${precmd_functions[*]} " == *" __bound-vars-sync "* ]] || precmd_functions+=(__bound-vars-sync)
+    # bind common variables
+    bind-var PATH path
+    bind-var MANPATH manpath
 
 elif [[ -v ZSH_VERSION ]]; then
     bind-var() {
@@ -114,11 +119,4 @@ elif [[ -v ZSH_VERSION ]]; then
         typeset -gT "$scalar" "$array" "$sep"
     }
 fi
-
-# bind common variables
-bind-var PATH path
-bind-var MANPATH manpath
-
-# completion
-include "completion/bind-var.sh"
 

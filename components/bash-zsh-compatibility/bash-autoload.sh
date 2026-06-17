@@ -32,10 +32,6 @@
 # Not exported to avoid overriding zsh's fpath in child shells.
 declare -g FPATH="${FPATH:-}"
 declare -ga fpath=()
-bind-var FPATH fpath
-
-# Add bundled zsh-compatible function directories to fpath
-fpath+=("$(script_directory)/zsh" "$(script_directory)/zsh-stubs")
 
 # Registry of autoloaded functions — values: "undefined" (stub) or "loaded"
 declare -gA __autoload_registry=()
@@ -326,3 +322,12 @@ autoload() {
     done
     return $rc
 }
+
+# Install hooks
+bind-var FPATH fpath
+for p in "$(script_directory)/functions"/*; do
+  [[ " ${fpath[*]} " == *" $p "* ]] || fpath+=("$p")
+done
+unset p
+__bound-vars-sync
+

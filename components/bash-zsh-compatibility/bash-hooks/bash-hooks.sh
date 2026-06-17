@@ -11,6 +11,5 @@
 
 # chpwd hook
 include "bash-chpwd.sh"
-# precmd, preexec hooks - https://github.com/rcaloras/bash-preexec
 include "bash-preexec/bash-preexec.sh"
 

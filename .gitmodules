@@ -95,6 +95,6 @@
 [submodule "components/completable-aliases/bash-complete-alias"]
 	path = components/completable-aliases/bash-complete-alias
 	url = https://github.com/cykerway/complete-alias
-[submodule "components/bash-hooks/bash-preexec"]
-	path = components/bash-hooks/bash-preexec
+[submodule "components/bash-zsh-compatibility/bash-hooks/bash-preexec"]
+	path = components/bash-zsh-compatibility/bash-hooks/bash-preexec
 	url = https://github.com/rcaloras/bash-preexec
