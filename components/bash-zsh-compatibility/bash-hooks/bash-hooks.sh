@@ -13,3 +13,6 @@
 include "bash-chpwd.sh"
 include "bash-preexec/bash-preexec.sh"
 
+declare -ga precmd_functions=("${precmd_functions[@]}")
+declare -ga preexec_functions=("${preexec_functions[@]}")
+
