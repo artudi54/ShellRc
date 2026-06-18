@@ -119,6 +119,70 @@ else
     }
 fi
 
+# command execution time formatting
+_exec-time-human() {
+    local now=$1 start=$2
+
+    local now_s=${now%.*} now_us=${now#*.}
+    local start_s=${start%.*} start_us=${start#*.}
+    now_us="${now_us}000000"; now_us=${now_us:0:6}
+    start_us="${start_us}000000"; start_us=${start_us:0:6}
+
+    local s=$(( now_s - start_s ))
+    local us=$(( 10#$now_us - 10#$start_us ))
+    if (( us < 0 )); then
+        (( us += 1000000 ))
+        (( s -= 1 ))
+    fi
+    local ms=$(( us / 1000 ))
+    if (( us % 1000 >= 500 )); then
+        (( ms += 1 ))
+        if (( ms >= 1000 )); then
+            (( ms -= 1000 ))
+            (( s += 1 ))
+        fi
+    fi
+
+    if (( s < 3 )); then
+        return 1
+    fi
+
+    if (( s >= 3600 )); then
+        printf '%dh %dm %d.%03ds' $((s / 3600)) $((s % 3600 / 60)) $((s % 60)) "$ms"
+    elif (( s >= 60 )); then
+        printf '%dm %d.%03ds' $((s / 60)) $((s % 60)) "$ms"
+    else
+        printf '%d.%03ds' "$s" "$ms"
+    fi
+}
+
+if [[ -v BASH_VERSION ]]; then
+    _exec-time-format() {
+        local human
+        human=$(_exec-time-human "$1" "$2") || return
+        printf ' -> \001%s\002%s\001%s\002' "${fg[yellow]}" "$human" "${reset_color}"
+    }
+elif [[ -v ZSH_VERSION ]]; then
+    _exec-time-format() {
+        local human
+        human=$(_exec-time-human "$1" "$2") || return
+        echo " -> %{${fg[yellow]}%}${human}%{${reset_color}%}"
+    }
+else
+    _exec-time-format() {
+        local human
+        human=$(_exec-time-human "$1" "$2") || return
+        printf ' -> %s' "$human"
+    }
+fi
+
+# preexec hook for command timing
+__shellprompt_cmd_start=""
+__shellprompt-theme-preexec() {
+    __shellprompt_cmd_start=$EPOCHREALTIME
+}
+add-zsh-hook preexec __shellprompt-theme-preexec
+
 # tty information
 _tty() {
     local tty=$(tty)
@@ -138,9 +202,16 @@ _ip-address() {
 
 make-prompt() {
     local code=$?
+    local exec_time_fmt=""
+    if [[ -n "$__shellprompt_cmd_start" ]]; then
+        local now=$EPOCHREALTIME
+        local start=$__shellprompt_cmd_start
+        __shellprompt_cmd_start=""
+        exec_time_fmt=$(_exec-time-format "$now" "$start")
+    fi
     if [[ -v BASH_VERSION ]]; then
-        PS1="\n\[${fg[cyan]}\]\$(date)\[${reset_color}\]\$(_jobs-arrow) -> \[${fg_bold[yellow]}\]\$(_ip-address)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_tty)\[${reset_color}\]\n\[${fg_bold[green]}\]\$PWD\[${reset_color}\]\$(_git-branch-arrow) -> \[${fg_bold[cyan]}\]\$(_file-info)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_file-size)\[${reset_color}\]\n\[${fg_bold[blue]}\]\u@\h\[${reset_color}\]\$(_return-code-format '$code') -> "
+        PS1="\n\[${fg[cyan]}\]\$(date)\[${reset_color}\]\$(_jobs-arrow) -> \[${fg_bold[yellow]}\]\$(_ip-address)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_tty)\[${reset_color}\]\n\[${fg_bold[green]}\]\$PWD\[${reset_color}\]\$(_git-branch-arrow) -> \[${fg_bold[cyan]}\]\$(_file-info)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_file-size)\[${reset_color}\]\n\[${fg_bold[blue]}\]\u@\h\[${reset_color}\]${exec_time_fmt}\$(_return-code-format '$code') -> "
     elif [[ -v ZSH_VERSION ]]; then
-        PS1=$'\n'"%{${fg[cyan]}%}\$(date)%{${reset_color}%}\$(_jobs-arrow) -> %{${fg_bold[yellow]}%}\$(_ip-address)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_tty)%{${reset_color}%}"$'\n'"%{${fg_bold[green]}%}\$PWD%{${reset_color}%}\$(_git-branch-arrow) -> %{${fg_bold[cyan]}%}\$(_file-info)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_file-size)%{${reset_color}%}"$'\n'"%{${fg_bold[blue]}%}%n@%m%{${reset_color}%}\$(_return-code-format '$code') -> "
+        PS1=$'\n'"%{${fg[cyan]}%}\$(date)%{${reset_color}%}\$(_jobs-arrow) -> %{${fg_bold[yellow]}%}\$(_ip-address)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_tty)%{${reset_color}%}"$'\n'"%{${fg_bold[green]}%}\$PWD%{${reset_color}%}\$(_git-branch-arrow) -> %{${fg_bold[cyan]}%}\$(_file-info)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_file-size)%{${reset_color}%}"$'\n'"%{${fg_bold[blue]}%}%n@%m%{${reset_color}%}${exec_time_fmt}\$(_return-code-format '$code') -> "
     fi
 }

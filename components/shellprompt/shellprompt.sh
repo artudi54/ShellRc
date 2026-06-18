@@ -8,6 +8,7 @@ autoload -Uz promptinit && promptinit
 # Setup for zsh
 if [[ -v ZSH_VERSION ]]; then
     setopt promptsubst
+    zmodload zsh/datetime
 fi
 
 _shellprompt-help() {
