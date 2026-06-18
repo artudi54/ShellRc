@@ -1,0 +1,39 @@
+# Test whether a version string is greater than or equal to a minimum version.
+# Bash equivalent of zsh's /usr/share/zsh/functions/Misc/is-at-least.
+#
+# Compares dot/dash-separated numeric version strings. Leading non-numeric
+# parts of a segment are stripped (e.g. "zefram4" is treated as "4"). Segments
+# that contain no digits are ignored. Missing trailing segments are treated as
+# zero, so 3 == 3.0 == 3.0.0.
+#
+# Usage:
+#   is-at-least 5.1 "$BASH_VERSION"
+#   is-at-least 3.0.0 "$some_version" && echo "new enough"
+#   is-at-least 5.2 || echo "bash too old"
+
+is-at-least() {
+    local IFS='.-'
+    local -a min_parts ver_parts
+    local min_val ver_val i
+
+    # shellcheck disable=SC2206
+    min_parts=($1)
+    # shellcheck disable=SC2206
+    ver_parts=(${2:-$BASH_VERSION})
+
+    for (( i = 0; i < ${#min_parts[@]}; i++ )); do
+        # Extract leading digits from each segment
+        min_val="${min_parts[i]%%[!0-9]*}"
+        ver_val="${ver_parts[i]%%[!0-9]*}"
+
+        # Treat missing or empty segments as 0
+        min_val="${min_val:-0}"
+        ver_val="${ver_val:-0}"
+
+        # Force base-10 interpretation
+        (( 10#$ver_val > 10#$min_val )) && return 0
+        (( 10#$ver_val < 10#$min_val )) && return 1
+    done
+
+    return 0
+}
