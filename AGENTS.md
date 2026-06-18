@@ -14,9 +14,27 @@ Supported distros: Arch, Debian 13+, Ubuntu 24.04/26.04+.
 
 ## Commands
 
-There is no test suite or linter. Install with `bash install.sh`, which iterates component
-`install.sh` scripts to deploy configs via symlinks and config generation. The install script
+There is no test suite or linter. Install with `bash install.sh`. The install script
 works but is widely untested. Makefile and Docker images are under construction.
+
+### Install flow
+
+`install.sh` runs four phases in order, sourcing helpers from `install/`:
+
+1. `install/prepare.sh` — detects the distro (Arch family vs Debian family via `/etc/os-release` `ID`/`ID_LIKE`) and sources `install/prepare/<distro>.sh` to enable extra repos / refresh package metadata.
+2. `install/packages.sh` — same distro detection, then collects packages from `install/packages/*/` and runs `pacman -Sy --needed --noconfirm` or `apt install -y`.
+3. `install/backup.sh "$SHELLRC_DIR/components"` — moves any existing system files listed in each component's `backuplist.txt` into `~/ShellRcBackups/<component>/`. Aborts if `~/ShellRcBackups` already exists.
+4. `install/components.sh "$SHELLRC_DIR/components"` — sources each `components/*/install.sh` to deploy configs (symlinks, generated files).
+
+### Package lists
+
+Packages live under `install/packages/<group>/` (currently only `core`). Each group has up to three files:
+
+- `packages.txt` — names that are identical on Arch and Debian → goes here, no need to duplicate.
+- `arch.txt` — Arch-only names or Arch-specific aliases.
+- `debian.txt` — Debian/Ubuntu-only names or Debian-specific aliases.
+
+One package per line, blank lines ignored. `install/packages.sh` unions the shared list with the distro-specific list and dedupes via `sort -u`. **When adding a package, default to `packages.txt` and only split into per-distro files if the package name actually differs between distros.**
 
 ## Architecture
 
