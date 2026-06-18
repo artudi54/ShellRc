@@ -179,7 +179,7 @@ fi
 # preexec hook for command timing
 __shellprompt_cmd_start=""
 __shellprompt-theme-preexec() {
-    __shellprompt_cmd_start=$EPOCHREALTIME
+    __shellprompt_cmd_start=$(date +%s.%N)
 }
 add-zsh-hook preexec __shellprompt-theme-preexec
 
@@ -204,7 +204,7 @@ make-prompt() {
     local code=$?
     local exec_time_fmt=""
     if [[ -n "$__shellprompt_cmd_start" ]]; then
-        local now=$EPOCHREALTIME
+        local now=$(date +%s.%N)
         local start=$__shellprompt_cmd_start
         __shellprompt_cmd_start=""
         exec_time_fmt=$(_exec-time-format "$now" "$start")
