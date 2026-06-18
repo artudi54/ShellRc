@@ -11,5 +11,5 @@ __wget-generate-wgetrc() {
 }
 
 __wget-generate-wgetrc
-precmd_functions+=(__wget-generate-wgetrc)
-
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd __wget-generate-wgetrc

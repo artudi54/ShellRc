@@ -178,7 +178,8 @@ __shellenv-sync-hook() {
         fi
     done
 }
-precmd_functions+=(__shellenv-sync-hook)
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd __shellenv-sync-hook
 shellrc-atexit __shellenv-sync-hook
 
 _shellenv-sync() {

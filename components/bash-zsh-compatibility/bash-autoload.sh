@@ -173,6 +173,11 @@ __autoload_register() {
         [[ "${__autoload_registry[$name]:-}" == "loaded" ]] && return 0
         __autoload_resolve "$name" "$flags"
     else
+        # In zsh, autoload on an already-defined function is a no-op.
+        # Skip if the function exists and is not an autoload stub.
+        if declare -F "$name" &>/dev/null && [[ "${__autoload_registry[$name]:-}" != "undefined" ]]; then
+            return 0
+        fi
         __autoload_registry[$name]="undefined"
         __autoload_flags[$name]="$flags"
         eval -- "$(printf '%q' "$name")() {

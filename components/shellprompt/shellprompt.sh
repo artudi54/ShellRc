@@ -109,6 +109,7 @@ __shellprompt-sync() {
     fi
 }
 
-precmd_functions+=(__shellprompt-sync)
-precmd_functions+=(make-prompt)
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd __shellprompt-sync
+add-zsh-hook precmd make-prompt
 

@@ -31,5 +31,7 @@ elif [[ -v ZSH_VERSION ]]; then
     }
 fi
 
-precmd_functions+=(__append-history)
-preexec_functions+=(__append-history)
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd __append-history
+add-zsh-hook preexec __append-history
+
