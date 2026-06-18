@@ -11,6 +11,11 @@ if [[ -v BASH_VERSION ]]; then
     __bound-vars-sync
 fi
 
+# Interactive-only autoloads
+if [[ $- == *i* ]]; then
+    autoload -Uz array-print
+fi
+
 for file in "$(script_directory)"/completions/*.sh; do
     include "$file"
 done
