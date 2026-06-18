@@ -2,6 +2,15 @@
 set -e
 export SHELLRC_DIR="$(cd -- "$(dirname "$BASH_SOURCE")" && pwd)"
 
+while getopts "n:e:" opt; do
+    case "$opt" in
+        n) export GIT_NAME="$OPTARG" ;;
+        e) export GIT_EMAIL="$OPTARG" ;;
+        *) echo "Usage: $0 [-n name] [-e email]" >&2; exit 1 ;;
+    esac
+done
+shift $((OPTIND - 1))
+
 source "$SHELLRC_DIR/components/script-sourcing/script-sourcing.sh"
 source "$SHELLRC_DIR/components/directory-setup/directory-setup.sh"
 

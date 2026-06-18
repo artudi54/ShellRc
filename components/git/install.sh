@@ -3,13 +3,21 @@ mkdir -p "$XDG_CONFIG_HOME/git"
 printf "[include]\tpath = \"$dir/gitconfig.ini\"\n" >"$XDG_CONFIG_HOME/git/config"
 touch "$XDG_CONFIG_HOME/git/credentials"
 
-IFS=$'\n' read -p "Enter your name: " name
-read -p "Enter your email: " email
+if [[ -n "$GIT_NAME" ]]; then
+    name="$GIT_NAME"
+else
+    IFS=$'\n' read -p "Enter your name: " name
+fi
+if [[ -n "$GIT_EMAIL" ]]; then
+    email="$GIT_EMAIL"
+else
+    read -p "Enter your email: " email
+fi
 
 git config --global include.path "$dir/gitconfig.ini"
 git config --global user.name "$name"
 git config --global user.email "$email"
-git config --local include.path ../.gitconfig
+git -C "$SHELLRC_DIR" config --local include.path ../.gitconfig
 
 mkdir -p "$dir/bin"
 mkdir -p "$dir/man/man"{1..8}

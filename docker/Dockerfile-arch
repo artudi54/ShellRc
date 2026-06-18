@@ -1,8 +1,15 @@
 ARG SYSTEM=archlinux:latest
 FROM $SYSTEM
-RUN pacman -Sy --noconfirm sudo which
-COPY . /root/.config/ShellRc
 
-ENTRYPOINT /root/.config/ShellRc/docker/entrypoint.sh
+RUN pacman -Sy --noconfirm sudo which shadow
+RUN useradd -m -s /bin/bash shelluser \
+    && echo 'shelluser ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/shelluser
 
+COPY . /home/shelluser/.config/ShellRc
+RUN chown -R shelluser:shelluser /home/shelluser/.config
+
+ENV SHELL=/bin/bash
+USER shelluser
+WORKDIR /home/shelluser
+ENTRYPOINT ["/home/shelluser/.config/ShellRc/docker/entrypoint.sh"]
 

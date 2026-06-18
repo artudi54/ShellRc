@@ -1,6 +1,5 @@
 #!/bin/bash
 
-export SHELL=/bin/bash
-/root/.config/ShellRc/install.sh
+~/.config/ShellRc/install.sh -n testuser -e testuser@example.com
 exec bash
 

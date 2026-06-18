@@ -24,6 +24,7 @@ bzip2
 zstd
 lz4
 lzip
+zip
 ncompress
 unzip
 unrar
