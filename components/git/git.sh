@@ -1,6 +1,7 @@
 dir="$(script_directory)"
 
 
+autoload -Uz array-append-unique
 array-append-unique path "$dir/bin"
 array-append-unique manpath "$dir/man"
 

@@ -5,7 +5,7 @@ export skip_global_compinit=1
 # interactive only
 [[ $- != *i* ]] && return
 
-#[[ ! -v ZSH_VERSION ]] && return
+[[ ! -v ZSH_VERSION ]] && return
 # Guard against being loaded more than once
 [[ -v __SHELLRC_COMPINIT_LOADED ]] && return
 __SHELLRC_COMPINIT_LOADED=1

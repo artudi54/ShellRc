@@ -330,9 +330,4 @@ autoload() {
 
 # Install hooks
 bind-var FPATH fpath
-for p in "$(script_directory)/functions"/*; do
-  [[ " ${fpath[*]} " == *" $p "* ]] || fpath+=("$p")
-done
-unset p
-__bound-vars-sync
 

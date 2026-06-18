@@ -1,3 +1,4 @@
+autoload -Uz array-append-unique
 array-append-unique path "$(script_directory)/bin"
 
 for file in "$(script_directory)"/functions/*.sh; do

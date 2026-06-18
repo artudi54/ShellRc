@@ -6,5 +6,5 @@ include "zsh-completion.sh"
 # completions
 include "completions/bind-var.sh"
 include "completions/autoload.sh"
-include "completions/functions/zsh/add-zsh-hook.sh"
+
 

@@ -1,0 +1,4 @@
+# print each element of an array on its own line
+array-print() {
+    eval "printf '%s\n' \"\${$1[@]}\""
+}
