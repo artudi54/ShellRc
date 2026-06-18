@@ -44,7 +44,6 @@ load-component shellprompt
 load-component command-completions
 load-component command-not-found
 load-component terminal-inputs
-load-component shell-history
 load-component syntax-highlighting
 load-component cdpath
 load-component common-aliases

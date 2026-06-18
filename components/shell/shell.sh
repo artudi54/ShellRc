@@ -21,3 +21,5 @@ elif [ -n "$ZSH_VERSION" ]; then
     autoload -Uz run-help
 fi
 
+include "history.sh"
+
