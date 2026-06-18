@@ -160,6 +160,7 @@ declare -ag __shellenv_synced_vars=()
 __shellenv-sync-hook() {
     local varname current_value last_key last_value
     for varname in "${__shellenv_synced_vars[@]}"; do
+        [[ -z "$varname" ]] && continue
         last_key="__shellenv_sync_last_${varname}"
 
         eval "current_value=\${${varname}}"

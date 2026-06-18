@@ -87,10 +87,14 @@ shellprompt() {
 }
 
 # Sync SHELLRC_PROMPT via shellenv so direct assignment is persisted
+[[ -z "${SHELLRC_PROMPT+x}" ]] && SHELLRC_PROMPT=""
 shellenv sync SHELLRC_PROMPT
 
+# No-op make-prompt baseline — themes override this if they need precmd prompt logic
+make-prompt() { :; }
+
 # Detect theme change and re-apply
-__shellprompt_last_theme=""
+__shellprompt_last_theme="__unset__"
 
 __shellprompt-sync() {
     if [[ "$SHELLRC_PROMPT" != "$__shellprompt_last_theme" ]]; then
