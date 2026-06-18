@@ -73,9 +73,12 @@ These replace manual `source`/`dirname` boilerplate. Use them in any new compone
 4. **bash-zsh-compatibility** — bundles several bash↔zsh compatibility layers:
    - `bash-hooks` — adds `chpwd`/`precmd`/`preexec` hook support to bash (zsh has these natively)
    - `bash-autoload.sh` — zsh-like `autoload` for bash, with `FPATH`/`fpath` support
-   - `zsh-completion.sh` — sets up zsh completion with bash compatibility
-   - `add-zsh-hook` — autoloadable bash port of zsh's `add-zsh-hook` (manages hook function arrays)
-5. **core-utils** — common utility functions
+   - `zsh-completion.sh` — sets up zsh completion with bash compatibility (zsh only)
+5. **core-utils** — common utility functions and autoloadable function directories:
+   - `functions/` — autoloadable functions for both shells (e.g. `array-append-unique`, `array-prepend-unique`, `array-print`), registered on `fpath`
+   - `functions/zsh/` — bash ports of zsh autoloadable functions (`add-zsh-hook`, `colors`, `is-at-least`), added to `fpath` on bash only
+   - `functions/zsh-stubs/` — no-op stubs for zsh builtins that bash doesn't need (`compinit`, `bashcompinit`, `compaudit`, `promptinit`), added to `fpath` on bash only
+   - `completions/` — tab-completion definitions for the above functions
 6. **completable-aliases** — overrides `alias` builtin so aliases auto-inherit command completions
 7. **shellenv** — persistent environment variable management via `shellenv get/set/unset/list/reload/sync`
 
