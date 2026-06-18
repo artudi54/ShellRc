@@ -32,6 +32,7 @@ cpio
 pandoc
 jq
 openssl
+perl
 groff
 nodejs
 npm

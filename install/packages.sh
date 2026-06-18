@@ -73,3 +73,10 @@ case "$distro" in
         exit 1
         ;;
 esac
+
+# Re-source profile.d scripts to pick up PATH changes from newly installed
+# packages (e.g. Arch's perlbin.sh adds /usr/bin/core_perl to PATH)
+for profile_script in /etc/profile.d/*.sh; do
+    [[ -r "$profile_script" ]] && source "$profile_script"
+done
+unset profile_script
