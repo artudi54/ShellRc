@@ -14,8 +14,7 @@ Supported distros: Arch, Debian 13+, Ubuntu 24.04/26.04+.
 
 ## Commands
 
-There is no test suite or linter. Install with `bash install.sh`. The install script
-works but is widely untested. Makefile and Docker images are under construction.
+There is no test suite or linter. Install with `./install.sh`.
 
 ### Install flow
 
@@ -35,6 +34,31 @@ Packages live under `install/packages/<group>/` (currently only `core`). Each gr
 - `debian.txt` — Debian/Ubuntu-only names or Debian-specific aliases.
 
 One package per line, blank lines ignored. `install/packages.sh` unions the shared list with the distro-specific list and dedupes via `sort -u`. **When adding a package, default to `packages.txt` and only split into per-distro files if the package name actually differs between distros.**
+
+### Docker testing
+
+Docker images are used to test installation on supported distros. All Docker-related files live in `docker/`:
+
+- `Dockerfile` — parameterized with `SYSTEM` build arg, creates a `shelluser` with sudo, copies the repo, uses `runuser -l` in the entrypoint for a full login environment.
+- `entrypoint.sh` — runs `install.sh` via `runuser -l shelluser`, then execs any additional arguments (ENTRYPOINT + CMD pattern).
+- `build-image.sh` — builds an image with logging, timing, and failure output.
+- `run-test.sh` — runs a container with logging, timing, and failure output.
+
+Both helper scripts log to `$SHELLRC_CACHE_DIR/test-logs/` (falling back to `~/.cache/ShellRc/test-logs/`), preserve colors via `script -qec`, include timestamps in log filenames, and only print output on failure.
+
+### Makefile targets
+
+```
+make install              # run install.sh on the host
+make image-<distro>       # build Docker image for a distro
+make images               # build all images
+make test-<distro>        # build + run install in container (exit on completion)
+make test                 # test all distros
+```
+
+Available distros: `arch`, `debian-13`, `ubuntu-24.04`, `ubuntu-26.04`. Aliases: `image-debian` → `debian-13`, `image-ubuntu` → `ubuntu-26.04`, `test-debian` → `debian-13`, `test-ubuntu` → `ubuntu-26.04`.
+
+To run interactively (install + drop into shell): `docker run -it --rm artudi54/shellrc:<distro> bash --login`
 
 ## Architecture
 
