@@ -13,12 +13,8 @@ RUN useradd -m -s /bin/bash shelluser \
 COPY . /home/shelluser/.config/ShellRc
 RUN chown -R shelluser:shelluser /home/shelluser/.config
 
-ENV SHELL=/bin/bash
-ENV USER=shelluser
-ENV LOGNAME=shelluser
-ENV HOME=/home/shelluser
 ENV LANG=C.UTF-8
 ENV TERM=xterm-256color
-USER shelluser
 WORKDIR /home/shelluser
 ENTRYPOINT ["/home/shelluser/.config/ShellRc/docker/entrypoint.sh"]
+CMD []

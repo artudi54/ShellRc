@@ -2,10 +2,9 @@
 mkdir -p "$HOME/.local/bin"
 
 # Add .local/bin and its subdirectories to path (prepend, reverse order)
-for dir in "$HOME/.local/bin"/* "$HOME/.local/bin"; do
-    [[ -d "$dir" ]] || continue
+while IFS= read -r dir; do
     [[ ":$PATH:" != *":$dir:"* ]] || continue
     PATH="$dir:$PATH"
-done
+done < <(find "$HOME/.local/bin" -maxdepth 1 -type d 2>/dev/null | sort -r)
 unset dir
 
