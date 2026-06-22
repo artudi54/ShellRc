@@ -10,6 +10,7 @@ less
 bat
 make
 autoconf
+automake
 gcc
 cmake
 git
