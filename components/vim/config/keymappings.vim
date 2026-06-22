@@ -1,3 +1,12 @@
+" Modifier+arrow keys inside tmux/screen — terminfo for tmux-256color/screen
+" lacks Ctrl/Alt+arrow entries, so vim doesn't recognize \e[1;5D etc.
+if &term =~# '^\(tmux\|screen\)'
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
 " Alt keymappings
 let c='a'
 while c <= 'z'
