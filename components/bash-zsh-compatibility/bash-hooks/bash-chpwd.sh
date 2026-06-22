@@ -30,19 +30,19 @@ __chpwd_hook() {
 cd() {
     builtin cd "$@"
     local ret=$?
-    (( ret == 0 )) && __chpwd_hook
+    (( ret == 0 && BASH_SUBSHELL == 0 )) && __chpwd_hook
     return $ret;
 }
 pushd() {
     builtin pushd "$@"
     local ret=$?
-    (( ret == 0 )) && __chpwd_hook
+    (( ret == 0 && BASH_SUBSHELL == 0 )) && __chpwd_hook
     return $ret
 }
 popd() {
     builtin popd "$@"
     local ret=$?
-    (( ret == 0 )) && __chpwd_hook
+    (( ret == 0 && BASH_SUBSHELL == 0 )) && __chpwd_hook
     return $ret
 }
 
