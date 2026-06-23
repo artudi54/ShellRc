@@ -10,10 +10,10 @@
 # Currently supports bash and zsh
 
 # ShellRc root directory environmental variable
-if [ -n "$BASH_VERSION" ]; then
-    export SHELLRC_DIR="$(dirname "$BASH_SOURCE")"
-elif [ -n "$ZSH_VERSION" ]; then
-    export SHELLRC_DIR="$(dirname "${(%):-%N}")"
+if [[ -v BASH_VERSION ]]; then
+    export SHELLRC_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+elif [[ -v ZSH_VERSION ]]; then
+    export SHELLRC_DIR="$(dirname "$(readlink -f "${(%):-%N}")")"
 fi
 
 load-component() {

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-export SHELLRC_DIR="$(cd -- "$(dirname "$BASH_SOURCE")" && pwd)"
+export SHELLRC_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 while getopts "n:e:" opt; do
     case "$opt" in
