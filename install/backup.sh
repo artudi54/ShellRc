@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
-check-mv() {
-    if [ -h "$1" ] || [ -e "$1" ]; then
-        mv "$1" "$2"
-    fi
-}
-
 backup-from-file() {
     local backupList="$1"
-    local component="$2"
-    mkdir -p "$BACKUP_DIR/$component"
     local file
     while read file; do
         file="$(eval echo $file)"
-        check-mv "$file" "$BACKUP_DIR/$component"
+        if [[ -h "$file" || -e "$file" ]]; then
+            local relpath="${file#"$HOME/"}"
+            local destdir="$BACKUP_DIR/$(dirname "$relpath")"
+            mkdir -p "$destdir"
+            mv "$file" "$destdir"
+        fi
     done < "$backupList"
 }
 
@@ -37,7 +34,7 @@ for componentDirectory in "$SCAN_DIR"/*; do
     fi
     componentName=$(basename "$componentDirectory")
     echo "backing up $componentName"
-    backup-from-file "$componentDirectory/backuplist.txt" "$componentName"
+    backup-from-file "$componentDirectory/backuplist.txt"
 done
 
 echo "backups created in '$BACKUP_DIR'"
