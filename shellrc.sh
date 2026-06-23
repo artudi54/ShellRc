@@ -63,6 +63,7 @@ load-component git
 load-component konsole
 load-component less
 load-component ls
+load-component mediainfo
 load-component npm
 load-component python
 load-component screen
