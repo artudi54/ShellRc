@@ -1,0 +1,2 @@
+$xdg_config_dir/user-dirs.dirs
+$xdg_config_dir/user-dirs.locale

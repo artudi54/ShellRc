@@ -53,6 +53,7 @@ load-component shellrc
 
 # app configs
 load-component xdg # xdg overrides for clean home directory
+load-component user-dirs
 load-component ark
 load-component dolphin
 load-component emacs
