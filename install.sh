@@ -27,7 +27,7 @@ include install/packages.sh
 echo "[ShellRc] Installing system packages complete"
 
 echo "[ShellRc] Creating backups"
-include /install/backup.sh "$SHELLRC_DIR/components"
+include /install/backup.sh "$SHELLRC_DIR/components" "$HOME/ShellRcBackups"
 echo "[ShellRc] Creating backups complete"
 
 echo "[ShellRc] Configuring components"

@@ -74,4 +74,5 @@ load-component yakuake
 
 # Run registered initialization hooks
 shellrc-exit
+unset -f load-component
 

@@ -15,13 +15,13 @@ backup-from-file() {
     done < "$backupList"
 }
 
-if [[ $# -ne 1 ]]; then
-    echo "backup.sh: invalid number of arguments passed" 1>&2
+if [[ $# -ne 2 ]]; then
+    echo "backup.sh: usage: backup.sh <components_dir> <backup_dir>" 1>&2
     exit 1
 fi
 
 SCAN_DIR="$1"
-BACKUP_DIR="$HOME/ShellRcBackups"
+BACKUP_DIR="$2"
 
 if [[ -e "$BACKUP_DIR" ]]; then
     echo "backup: backup directory already exists - '$BACKUP_DIR'" 1>&2
