@@ -7,7 +7,6 @@ TabColor=27,30,32,0
 UseFontLineChararacters=true
 
 [General]
-Command=/usr/bin/zsh
 LocalTabTitleFormat=%w
 Name=Gnome Like
 Parent=FALLBACK/
