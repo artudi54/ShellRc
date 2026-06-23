@@ -52,6 +52,9 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 # KDE4
 export KDEHOME="$XDG_CONFIG_HOME"/kde
 
+# krew
+export KREW_ROOT="$XDG_DATA_HOME"/krew
+
 # Leiningen
 export LEIN_HOME="$XDG_DATA_HOME"/lein
 
@@ -85,6 +88,9 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 
 # Parallel
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel 
+
+# pass
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
 # P4
 export P4ENVIRO="$XDG_CONFIG_HOME"/p4enviro
