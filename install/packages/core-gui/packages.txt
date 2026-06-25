@@ -1,0 +1,6 @@
+ark
+dolphin
+konsole
+yakuake
+mediainfo-gui
+wine

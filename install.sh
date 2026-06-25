@@ -2,11 +2,12 @@
 set -e
 export SHELLRC_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-while getopts "n:e:" opt; do
+while getopts "n:e:c" opt; do
     case "$opt" in
         n) export GIT_NAME="$OPTARG" ;;
         e) export GIT_EMAIL="$OPTARG" ;;
-        *) echo "Usage: $0 [-n name] [-e email]" >&2; exit 1 ;;
+        c) export CORE_ONLY=1 ;;
+        *) echo "Usage: $0 [-n name] [-e email] [-c]" >&2; exit 1 ;;
     esac
 done
 shift $((OPTIND - 1))
@@ -16,7 +17,7 @@ source "$SHELLRC_DIR/components/directory-setup/directory-setup.sh"
 
 # TODO: make it work with export (-e option for script-sourcing) and just running scripts directly
 # TODO: add --skip-backup option for debugging
-# TODO: add --core-install and --no-install options
+# TODO: add --no-install option
 
 echo "[ShellRc] Preparing system repositories"
 include install/prepare.sh

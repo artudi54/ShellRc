@@ -41,3 +41,5 @@ npm
 sudo
 systemd
 emacs
+fastfetch
+xdg-user-dirs

@@ -27,13 +27,20 @@ There is no test suite or linter. Install with `./install.sh`.
 
 ### Package lists
 
-Packages live under `install/packages/<group>/` (currently only `core`). Each group has up to three files:
+Packages live under `install/packages/<group>/`. Current groups:
+
+- `core` — required CLI packages used by ShellRc components.
+- `core-gui` — packages for components that require a desktop/GUI (Konsole, Yakuake, Dolphin, Ark, Wine, MediaInfo GUI). Skipped when `install.sh` is invoked with `-c` / `CORE_ONLY=1`.
+
+Each group has up to three files:
 
 - `packages.txt` — names that are identical on Arch and Debian → goes here, no need to duplicate.
 - `arch.txt` — Arch-only names or Arch-specific aliases.
 - `debian.txt` — Debian/Ubuntu-only names or Debian-specific aliases.
 
 One package per line, blank lines ignored. `install/packages.sh` unions the shared list with the distro-specific list and dedupes via `sort -u`. **When adding a package, default to `packages.txt` and only split into per-distro files if the package name actually differs between distros.**
+
+Pass `-c` to `install.sh` (or export `CORE_ONLY=1` beforehand) to install only the `core` group and skip any other groups (e.g., `core-gui`).
 
 ### Docker testing
 

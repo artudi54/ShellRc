@@ -27,5 +27,6 @@ elif [[ "$ID" == "ubuntu" ]]; then
     sudo apt-get install -y software-properties-common
     echo "Adding PPA repositories..."
     sudo add-apt-repository -y ppa:longsleep/golang-backports
+    sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
 fi
 

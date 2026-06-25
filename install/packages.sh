@@ -30,6 +30,10 @@ collect_packages() {
     for dir in "$PACKAGES_DIR"/*/; do
         [[ -d "$dir" ]] || continue
 
+        if [[ "${CORE_ONLY:-0}" == "1" && "$(basename "$dir")" != "core" ]]; then
+            continue
+        fi
+
         if [[ -f "$dir/packages.txt" ]]; then
             mapfile -t lines < <(grep -v '^\s*$' "$dir/packages.txt")
             packages+=("${lines[@]}")
