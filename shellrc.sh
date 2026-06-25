@@ -66,6 +66,7 @@ load-component python
 load-component screen
 load-component sudo
 load-component tmux
+load-component vcpkg
 load-component vim
 load-component wget
 load-component wine
