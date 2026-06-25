@@ -78,10 +78,11 @@ To run interactively (install + drop into shell): `docker run -it --rm artudi54/
 
 ### Component convention
 
-Each component lives in `components/<name>/` with a required entry point `<name>.sh`. Optional files:
+Each component lives in `components/<name>/`. All files are optional, and `load-component` only sources what's present:
 
-- `install.sh` — run during installation to deploy configs (symlinks, config file generation)
-- `backuplist.txt` — lists system paths this component manages (used by the backup step in install)
+- `<name>.sh` — runtime entry point; sourced on every shell start when present. Pure-install components (e.g. `ark`, `emacs`, `fastfetch`, `konsole`, `mediainfo`, `sudo`, `yakuake`) omit it.
+- `install.sh` — run during installation to deploy configs (symlinks, config file generation).
+- `backuplist.txt` — lists system paths this component manages (used by the backup step in install).
 - Subdirectories for completions, plugins, binaries, man pages, etc.
 
 ### Core utilities (from `script-sourcing` component)

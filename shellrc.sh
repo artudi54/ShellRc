@@ -42,9 +42,7 @@ load-component shellenv
 load-component shell
 load-component shellprompt
 load-component command-completions
-load-component command-not-found
 load-component syntax-highlighting
-load-component cdpath
 load-component common-aliases
 load-component common-util
 load-component shellrc

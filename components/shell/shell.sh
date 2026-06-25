@@ -23,4 +23,6 @@ fi
 
 include "history.sh"
 include "terminal-inputs.sh"
+include "cdpath.sh"
+include "command-not-found.sh"
 
