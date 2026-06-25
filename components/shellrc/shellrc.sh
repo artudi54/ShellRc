@@ -8,9 +8,11 @@ alias shellrc="cd $SHELLRC_DIR"
 bind-var SHELLRC_HOSTS shellrc_hosts
 shellenv sync SHELLRC_HOSTS
 
-# Run `shellgit pull` over SSH on every host in shellrc_hosts.
-# `bash -ic` is used so each remote loads its interactive rc files (where
-# the `shellgit` alias is defined by ShellRc) before running the command.
+# Run `git -C "$SHELLRC_DIR" pull` (i.e. the `shellgit pull` alias) over
+# SSH on every host in shellrc_hosts. We avoid `bash -l` (it tries to
+# grab job control over the missing tty and prints
+# "no job control in this shell" warnings) and instead source ~/.profile
+# manually inside a non-interactive shell to pick up SHELLRC_DIR.
 shellhosts-update() {
     if [[ "$#" -gt 0 ]]; then
         echo "shellhosts-update: this command takes no arguments, $# provided" 1>&2
@@ -26,8 +28,8 @@ shellhosts-update() {
     local host rc failures=0
     for host in "${shellrc_hosts[@]}"; do
         [[ -z "$host" ]] && continue
-        echo "==> $host: shellgit pull"
-        ssh -T -o BatchMode=no "$host" "bash -ic 'shellgit pull'"
+        echo "==> $host: git -C \$SHELLRC_DIR pull"
+        ssh -T "$host" 'bash -c ". ~/.profile; git -C \"\$SHELLRC_DIR\" pull"'
         rc=$?
         if [[ "$rc" -ne 0 ]]; then
             echo "shellhosts-update: '$host' failed (exit $rc)" 1>&2
