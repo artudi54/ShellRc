@@ -36,7 +36,7 @@ key Backtab   +Control-Ansi : "\t"
 key Return-Shift-NewLine : "\r"
 key Return-Shift+NewLine : "\r\n"
 
-key Return+Shift         : "\\r"
+key Return+Shift         : "\E\r"
 
 # Backspace and Delete codes are preserving CTRL-H.
 #

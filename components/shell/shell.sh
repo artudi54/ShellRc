@@ -22,4 +22,5 @@ elif [ -n "$ZSH_VERSION" ]; then
 fi
 
 include "history.sh"
+include "terminal-inputs.sh"
 
