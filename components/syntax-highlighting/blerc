@@ -1,0 +1,251 @@
+# ble.sh configuration: behave like vanilla zsh-syntax-highlighting.
+#
+# ble.sh is a full line-editor replacement for bash that ships many features
+# beyond syntax highlighting (fish-like autosuggestions, menu completion,
+# transient prompts, exit/elapsed markers, visual bells, ...). zsh's
+# zsh-syntax-highlighting only colors the command buffer and leaves the rest
+# of the shell untouched. The settings below disable every non-highlighting
+# embellishment ble.sh adds so it behaves the same way.
+
+##-----------------------------------------------------------------------------
+## Keep syntax highlighting (the only feature we want)
+
+bleopt highlight_syntax=1
+bleopt highlight_filename=1
+bleopt highlight_variable=1
+
+##-----------------------------------------------------------------------------
+## Disable completion enhancements (autosuggestions, menus)
+
+# Fish-like inline autosuggestion ghost text.
+bleopt complete_auto_complete=
+# Menu filtering as you type.
+bleopt complete_menu_filter=
+# Auto-opening the completion menu after a delay.
+bleopt complete_auto_menu=
+
+##-----------------------------------------------------------------------------
+## Tab completion behavior (match zsh defaults)
+
+# Disable menu-complete cycling. With this off, TAB just shows the list of
+# matches without inserting any candidate into the command line, and
+# pressing Enter simply submits whatever is in the buffer — matching the
+# zsh default (AUTO_LIST without MENU_COMPLETE).
+bleopt complete_menu_complete=
+
+# zsh hides dotfiles from completion unless the user types a leading ".".
+# Bash readline's default is the opposite (match-hidden-files=on); turn it
+# off so ble.sh's completion mirrors zsh.
+bind 'set match-hidden-files off'
+
+# Workaround for an upstream ble.sh bug: ble/complete/cand/yield-filenames
+# builds the dotfile filter regex as `.{LEN}(^|/)\.[^/]*$` with
+# LEN=${#COMPV}. When COMPV ends with "/" (as it does for `cd ~/<TAB>` after
+# tilde expansion), the `.{LEN}` quantifier eats the trailing "/", leaving
+# nothing for `(^|/)` to match, so dotfiles slip past the filter and appear
+# in the menu even with `match-hidden-files off`. Override the function so
+# the prefix length excludes the trailing slash.
+blehook/eval-after-load complete '
+function ble/complete/cand/yield-filenames {
+  local action=$1; shift
+
+  local rex_hidden=
+  if [[ :$comp_type: != *:match-hidden:* ]]; then
+    local _ble_local_compv_prefix=${COMPV%/}
+    rex_hidden=${_ble_local_compv_prefix:+.{${#_ble_local_compv_prefix}\}}"(^|/)\\.[^/]*\$"
+  fi
+
+  local -a cands=()
+  local cand icand=0
+  for cand; do
+    ((cand_iloop++%bleopt_complete_polling_cycle==0)) && ble/complete/check-cancel && return 148
+    [[ $rex_hidden && $cand =~ $rex_hidden ]] && continue
+    cands[icand++]=$cand
+  done
+
+  [[ $FIGNORE ]] && local flag_force_fignore=1
+  local "${_ble_complete_yield_varnames[@]/%/=}"
+  ble/complete/cand/yield.initialize "$action"
+  ble/complete/cand/yield.batch "$action"
+}
+'
+
+##-----------------------------------------------------------------------------
+## Disable prompt modifications
+
+# Do not collapse/modify previous prompts after accept-line.
+bleopt prompt_ps1_transient=
+bleopt prompt_ps1_final=
+# Do not draw a right-side prompt.
+bleopt prompt_rps1=
+bleopt prompt_rps1_final=
+bleopt prompt_rps1_transient=
+# Do not change terminal title / status line on our own.
+bleopt prompt_xterm_title=
+bleopt prompt_screen_title=
+bleopt prompt_term_status=
+bleopt prompt_status_line=
+# No "[ble: EOF]" marker after commands without trailing newline.
+bleopt prompt_eol_mark=
+# No ruler between commands.
+bleopt prompt_ruler=
+
+##-----------------------------------------------------------------------------
+## Disable execution/edit markers ble.sh prints around commands
+
+# "[ble: ...]" markers shown when a partial line is left in the buffer.
+bleopt edit_marker=
+bleopt edit_marker_error=
+# "[ble: exit N]" after failing commands.
+bleopt exec_errexit_mark=
+# "[ble: elapsed ...]" after long-running commands.
+bleopt exec_elapsed_mark=
+bleopt exec_elapsed_enabled=
+# "[ble: exit]" on shell exit.
+bleopt exec_exit_mark=
+
+##-----------------------------------------------------------------------------
+## Disable bells (zsh-syntax-highlighting never rings anything)
+
+bleopt edit_bell=
+bleopt decode_error_char_abell=
+bleopt decode_error_char_vbell=
+bleopt decode_error_cseq_abell=
+bleopt decode_error_cseq_vbell=
+bleopt decode_error_kseq_abell=
+bleopt decode_error_kseq_vbell=
+
+##-----------------------------------------------------------------------------
+## Colors: mimic zsh-syntax-highlighting's "main" highlighter
+##
+## In zsh-syntax-highlighting every recognised command (builtin, function,
+## alias, hashed external, ...) is painted "fg=green", reserved words are
+## "fg=yellow", and every kind of path/filename is just "underline" with no
+## extra color. Map ble.sh's much finer-grained faces onto that palette.
+
+# All command types get the same green coloring.
+ble-face command_builtin_dot='fg=green'
+ble-face command_builtin='fg=green'
+ble-face command_alias='fg=green'
+ble-face command_function='fg=green'
+ble-face command_file='fg=green'
+ble-face command_jobs='fg=green'
+# Reserved words (if/then/for/...) match zsh's reserved-word style.
+ble-face command_keyword='fg=yellow'
+# Bare directories used as commands (zsh's autodirectory) stay green +
+# underline so they read as "a command that is also a path".
+ble-face command_directory='fg=green,underline'
+
+# All filename highlights collapse to plain underline, matching zsh's
+# "path" style which never adds a foreground color.
+ble-face filename_directory='underline'
+ble-face filename_directory_sticky='underline'
+ble-face filename_link='underline'
+ble-face filename_orphan='underline'
+ble-face filename_setuid='underline'
+ble-face filename_setgid='underline'
+ble-face filename_executable='underline'
+ble-face filename_other='underline'
+ble-face filename_socket='underline'
+ble-face filename_pipe='underline'
+ble-face filename_character='underline'
+ble-face filename_block='underline'
+ble-face filename_warning='underline'
+ble-face filename_url='underline'
+ble-face filename_ls_colors='underline'
+
+# Invalid commands and other syntax errors: plain bold red, like zsh's
+# unknown-token. Default is a noisy red background; override it.
+ble-face syntax_error='fg=red,bold'
+
+# When ble.sh leaves the prompt (e.g. accept-line), it dims the just-run
+# command using the "disabled" face (default fg=242 gray), which discards
+# all our syntax colors. Set it to "none" so executed commands stay coloured
+# the way they were while being typed.
+ble-face disabled='none'
+
+# Menu/cycling highlighting: ble.sh marks the currently selected candidate
+# with reverse video. Disable that — the highlighted candidate is already
+# inserted into the command line, the extra reverse video on the menu adds
+# nothing.
+ble-face menu_complete_selected='none'
+ble-face menu_complete_match='none'
+
+# While cycling through completions, ble.sh inserts the candidate into the
+# command line with a "region_insert" colored background (default
+# fg=27,bg=254 — blue text on light gray). zsh inserts the candidate using
+# its normal syntax highlighting; mimic that by disabling the special
+# region background.
+ble-face region_insert='none'
+ble-face region_match='none'
+ble-face region_target='none'
+
+# zsh's main highlighter has no style for `-x` / `--long` options or for
+# the LHS of `VAR=value` assignments. Disable them to match.
+ble-face argument_option='none'
+ble-face syntax_varname='none'
+# `$` in `$VAR` / `$(...)` and `=` and other delimiters are uncoloured —
+# zsh's main highlighter leaves these as plain text.
+ble-face syntax_param_expansion='none'
+ble-face syntax_delimiter='none'
+ble-face varname_array='none'
+ble-face varname_empty='none'
+ble-face varname_export='none'
+ble-face varname_expr='none'
+ble-face varname_hash='none'
+ble-face varname_new='none'
+ble-face varname_number='none'
+ble-face varname_readonly='none'
+ble-face varname_transform='none'
+ble-face varname_unset='none'
+
+##-----------------------------------------------------------------------------
+## Menu-only coloring: directories shown in the completion menu are blue.
+##
+## We deliberately keep `filename_directory` set to plain underline above so
+## directories *in the command line buffer* stay uncoloured. The completion
+## menu uses the same face, so override the per-action `init-menu-item`
+## functions to pick a dedicated menu face for directories.
+
+blehook/eval-after-load complete '
+    ble-color-defface menu_filename_directory fg=blue
+
+    function ble/complete/action:file/init-menu-item {
+        local ret
+        ble/complete/action:file/.get-filename; local file=$ret
+        if [[ -d $file && ! -h $file ]]; then
+            ble/color/face2g menu_filename_directory; g=$ret
+        else
+            ble/syntax/highlight/getg-from-filename "$file"
+            [[ $g ]] || { ble/color/face2g filename_warning; g=$ret; }
+        fi
+
+        if [[ :$comp_type: == *:vstat:* ]]; then
+            if [[ -h $file ]]; then
+                suffix=@
+            elif [[ -d $file ]]; then
+                suffix=/
+            elif [[ -x $file ]]; then
+                suffix=*
+            fi
+        fi
+    }
+
+    function ble/complete/action:command/init-menu-item {
+        if [[ -d $CAND ]]; then
+            local ret; ble/color/face2g menu_filename_directory; g=$ret
+        else
+            local type
+            if [[ $CAND != "$INSERT" ]]; then
+                ble/syntax/highlight/cmdtype "$CAND" "$INSERT"
+            else
+                local type; ble/util/type type "$CAND"
+                ble/syntax/highlight/cmdtype1 "$type" "$CAND"
+            fi
+            if [[ $CAND == */ ]] && ((type==_ble_attr_ERR)); then
+                type=_ble_attr_CMD_FUNCTION
+            fi
+            ble/syntax/attr2g "$type"
+        fi
+    }
+'

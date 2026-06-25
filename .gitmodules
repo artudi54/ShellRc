@@ -98,3 +98,6 @@
 [submodule "components/bash-zsh-compatibility/bash-hooks/bash-preexec"]
 	path = components/bash-zsh-compatibility/bash-hooks/bash-preexec
 	url = https://github.com/rcaloras/bash-preexec
+[submodule "components/syntax-highlighting/ble.sh"]
+	path = components/syntax-highlighting/ble.sh
+	url = https://github.com/akinomyoga/ble.sh.git

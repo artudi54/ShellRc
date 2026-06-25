@@ -186,7 +186,15 @@ add-zsh-hook preexec __shellprompt-theme-preexec
 # tty information
 _tty() {
     local tty=$(tty)
-    echo ${tty:5}
+    local shell
+    if [[ -v BASH_VERSION ]]; then
+        shell="bash"
+    elif [[ -v ZSH_VERSION ]]; then
+        shell="zsh"
+    else
+        shell="${SHELL##*/}"
+    fi
+    echo "${shell}/${tty:5}"
 }
 
 # ip address
