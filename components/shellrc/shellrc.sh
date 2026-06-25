@@ -23,14 +23,14 @@ shellhosts-update() {
         return 1
     fi
 
-    local host status failures=0
+    local host rc failures=0
     for host in "${shellrc_hosts[@]}"; do
         [[ -z "$host" ]] && continue
         echo "==> $host: shellgit pull"
         ssh -T -o BatchMode=no "$host" "bash -ic 'shellgit pull'"
-        status=$?
-        if [[ "$status" -ne 0 ]]; then
-            echo "shellhosts-update: '$host' failed (exit $status)" 1>&2
+        rc=$?
+        if [[ "$rc" -ne 0 ]]; then
+            echo "shellhosts-update: '$host' failed (exit $rc)" 1>&2
             failures=$((failures + 1))
         fi
     done
