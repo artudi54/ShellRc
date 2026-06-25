@@ -1,0 +1,2 @@
+$HOME/.vcpkg
+$XDG_DATA_DIR/vcpkg
