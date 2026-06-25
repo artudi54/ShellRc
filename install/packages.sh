@@ -26,6 +26,7 @@ detect_distro() {
 collect_packages() {
     local distro="$1"
     local packages=()
+    local line
 
     for dir in "$PACKAGES_DIR"/*/; do
         [[ -d "$dir" ]] || continue
@@ -35,13 +36,15 @@ collect_packages() {
         fi
 
         if [[ -f "$dir/packages.txt" ]]; then
-            mapfile -t lines < <(grep -v '^\s*$' "$dir/packages.txt")
-            packages+=("${lines[@]}")
+            while IFS= read -r line; do
+                packages+=("$line")
+            done < <(grep -v '^\s*$' "$dir/packages.txt")
         fi
 
         if [[ -f "$dir/$distro.txt" ]]; then
-            mapfile -t lines < <(grep -v '^\s*$' "$dir/$distro.txt")
-            packages+=("${lines[@]}")
+            while IFS= read -r line; do
+                packages+=("$line")
+            done < <(grep -v '^\s*$' "$dir/$distro.txt")
         fi
     done
 
@@ -49,16 +52,22 @@ collect_packages() {
 }
 
 install_debian() {
-    local packages
-    mapfile -t packages < <(collect_packages "debian")
+    local packages=()
+    local line
+    while IFS= read -r line; do
+        packages+=("$line")
+    done < <(collect_packages "debian")
     echo "Installing ${#packages[@]} packages with apt..."
     sudo apt update
     sudo apt install -y "${packages[@]}"
 }
 
 install_arch() {
-    local packages
-    mapfile -t packages < <(collect_packages "arch")
+    local packages=()
+    local line
+    while IFS= read -r line; do
+        packages+=("$line")
+    done < <(collect_packages "arch")
     echo "Installing ${#packages[@]} packages with pacman..."
     sudo pacman -Sy --needed --noconfirm "${packages[@]}"
 }
