@@ -210,8 +210,8 @@ make-prompt() {
         exec_time_fmt=$(_exec-time-format "$now" "$start")
     fi
     if [[ -v BASH_VERSION ]]; then
-        PS1="\n\[${fg[cyan]}\]\$(date)\[${reset_color}\]\$(_jobs-arrow) -> \[${fg_bold[yellow]}\]\$(_ip-address)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_tty)\[${reset_color}\]\n\[${fg_bold[green]}\]\$PWD\[${reset_color}\]\$(_git-branch-arrow) -> \[${fg_bold[cyan]}\]\$(_file-info)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_file-size)\[${reset_color}\]\n\[${fg_bold[blue]}\]\u@\h\[${reset_color}\]${exec_time_fmt}\$(_return-code-format '$code') -> "
+        PS1="\n\[${fg[cyan]}\]\$(date)\[${reset_color}\]\$(_jobs-arrow) -> \[${fg_bold[yellow]}\]\$(_ip-address)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_tty)\[${reset_color}\]\n\[${fg_bold[green]}\]\$PWD\[${reset_color}\]\$(_git-branch-arrow) -> \[${fg_bold[cyan]}\]\$(_file-info)\[${reset_color}\] -> \[${fg_bold[magenta]}\]\$(_file-size)\[${reset_color}\]\n\[${fg_bold[blue]}\]\u\[${fg_bold[white]}\]@\[${fg_bold[red]}\]\h\[${reset_color}\]${exec_time_fmt}\$(_return-code-format '$code') -> "
     elif [[ -v ZSH_VERSION ]]; then
-        PS1=$'\n'"%{${fg[cyan]}%}\$(date)%{${reset_color}%}\$(_jobs-arrow) -> %{${fg_bold[yellow]}%}\$(_ip-address)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_tty)%{${reset_color}%}"$'\n'"%{${fg_bold[green]}%}\$PWD%{${reset_color}%}\$(_git-branch-arrow) -> %{${fg_bold[cyan]}%}\$(_file-info)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_file-size)%{${reset_color}%}"$'\n'"%{${fg_bold[blue]}%}%n@%m%{${reset_color}%}${exec_time_fmt}\$(_return-code-format '$code') -> "
+        PS1=$'\n'"%{${fg[cyan]}%}\$(date)%{${reset_color}%}\$(_jobs-arrow) -> %{${fg_bold[yellow]}%}\$(_ip-address)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_tty)%{${reset_color}%}"$'\n'"%{${fg_bold[green]}%}\$PWD%{${reset_color}%}\$(_git-branch-arrow) -> %{${fg_bold[cyan]}%}\$(_file-info)%{${reset_color}%} -> %{${fg_bold[magenta]}%}\$(_file-size)%{${reset_color}%}"$'\n'"%{${fg_bold[blue]}%}%n%{${fg_bold[white]}%}@%{${fg_bold[red]}%}%m%{${reset_color}%}${exec_time_fmt}\$(_return-code-format '$code') -> "
     fi
 }
