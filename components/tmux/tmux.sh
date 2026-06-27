@@ -1,5 +1,5 @@
 # Tmux config location
-export SHELLRC_TMUX_CONFIG_DIR="$(script_directory)"
+export SHELLRC_TMUX_CONFIG_DIR="$(script_directory)/config"
 
 # Tmux socket directory
 export TMUX_TMPDIR="$SHELLRC_STATE_DIR/tmux-sessions"
