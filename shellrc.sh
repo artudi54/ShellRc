@@ -57,6 +57,7 @@ load-component emacs
 load-component fastfetch
 load-component gcc
 load-component git
+load-component go
 load-component konsole
 load-component less
 load-component ls
