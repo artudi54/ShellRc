@@ -12,6 +12,11 @@ if [[ -v ZSH_VERSION ]]; then
     # first tab completion
     setopt nolistambiguous
 
+    # keep trailing / after completing a symlink to a directory when the next
+    # character (e.g. <enter>, space) would otherwise cause zsh to strip it —
+    # matches bash behavior so `ll ~/link<tab><enter>` lists the target dir
+    unsetopt autoremoveslash
+
     zstyle ':completion:*' auto-description 'specify: %d'
     zstyle ':completion:*' completer _expand _complete _correct _approximate
     zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3)) numeric)'
