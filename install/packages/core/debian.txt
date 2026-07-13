@@ -9,6 +9,7 @@ rpm
 poppler-utils
 sqlite3
 python3
+python3-dev
 build-essential
 command-not-found
 vim-gtk3
