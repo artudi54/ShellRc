@@ -28,8 +28,8 @@ shellhosts-update() {
     local host rc failures=0
     for host in "${shellrc_hosts[@]}"; do
         [[ -z "$host" ]] && continue
-        echo "==> $host: git -C \$SHELLRC_DIR pull"
-        ssh -T "$host" 'bash -c ". ~/.profile; git -C \"\$SHELLRC_DIR\" pull"'
+        echo "==> $host: git -C \$SHELLRC_DIR pull && git -C \$SHELLRC_DIR submodule update"
+        ssh -T "$host" 'bash -c ". ~/.profile; git -C \"\$SHELLRC_DIR\" pull && git -C \"\$SHELLRC_DIR\" submodule update"'
         rc=$?
         if [[ "$rc" -ne 0 ]]; then
             echo "shellhosts-update: '$host' failed (exit $rc)" 1>&2
