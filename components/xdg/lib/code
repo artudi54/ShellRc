@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+exec /usr/bin/code --shared-data-dir "$XDG_CONFIG_HOME/Code/shared" --extensions-dir "$XDG_CONFIG_HOME/Code/extensions" "$@"
+
