@@ -73,8 +73,9 @@ export MEDNAFEN_HOME="$XDG_CONFIG_HOME/mednafen"
 # mplayer
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 
-# .NET CLI
+# .NET
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export DOTNET_BUNDLE_EXTRACT_BASE_DIR="$XDG_CACHE_HOME"/net
 
 # nuget
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
