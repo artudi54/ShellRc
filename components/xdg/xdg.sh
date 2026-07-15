@@ -4,6 +4,6 @@
 # environment variable overrides for a clean home directory
 include "environment-overrides.sh"
 
-# lib/ wrapper executables on PATH and lib/desktop/ entries in the
-# applications dir for installed apps, reconciled on every source
+# per-app lib/<app>/ folders: wrapper executables on PATH and desktop entries
+# in the applications dir for installed apps, reconciled on every source
 include "binary-overrides.sh"
