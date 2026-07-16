@@ -1,0 +1,120 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import re
+import sys
+import subprocess
+
+class colors:
+    OFF     = '\033[0;0m'
+    BOLD    = '\033[0;1m'
+    BLACK   = '\033[0;30m'
+    RED     = '\033[0;31m'
+    GREEN   = '\033[0;32m'
+    YELLOW  = '\033[0;33m'
+    BLUE    = '\033[0;34m'
+    MAGENTA = '\033[0;35m'
+    CYAN    = '\033[0;36m'
+    WHITE   = '\033[0;37m'
+    REDBOLD = '\033[1;31m'
+
+def colorsoff():
+    colors.OFF     = ''
+    colors.BOLD    = ''
+    colors.BLACK   = ''
+    colors.RED     = ''
+    colors.GREEN   = ''
+    colors.YELLOW  = ''
+    colors.BLUE    = ''
+    colors.MAGENTA = ''
+    colors.CYAN    = ''
+    colors.WHITE   = ''
+    colors.REDBOLD = ''
+
+class p4file():
+    mvfrom = ''
+    def __init__(self, name, stat):
+        self.name = name
+        self.stat = stat
+
+# Support python 2.7.6
+args = []
+for arg in sys.argv:
+    args += arg.split()
+
+child = subprocess.Popen(args[1:], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+(out, err) = child.communicate()
+if not out:
+    sys.stderr.write(err)
+if child.returncode != 0:
+    if out:
+        sys.stdout.write(out)
+    sys.exit(child.returncode)
+
+# Turn off colors if stdout is being piped or redirected
+if not sys.stdout.isatty():
+    colorsoff()
+
+unopened = []
+opened = {}
+for line in out.split('\n'):
+    m = re.match(r'.+ - (reconcile|submit.+) to (.+) (.+)', line)
+    if m:
+        chnum = m.group(1)
+        stat = m.group(2)
+        name = m.group(3)
+        if 'reconcile' in chnum:
+            if stat == 'move/delete':
+                continue
+            elif stat == 'move/add':
+                stat = 'move'
+            unopened.append(p4file(name, stat))
+        elif 'submit' in chnum:
+            s = re.search(r'change (.+)', chnum)
+            if s:
+                chnum = s.group(1)
+                if chnum not in opened:
+                    opened[chnum] = []
+                opened[chnum].append(p4file(name, stat))
+    elif line:
+        m = re.match(r'\.\.\. moved from (.+)', line)
+        if m:
+            unopened[-1].mvfrom = m.group(1)
+        else:
+            print(line)
+
+def print_files(files):
+    statlen = 0
+    for f in files:
+        statlen = max(statlen, len(f.stat))
+    for f in files:
+        color = colors.OFF
+        if 'edit' in f.stat:
+            color = colors.YELLOW
+        elif 'add' in f.stat:
+            color = colors.GREEN
+        elif 'delete' in f.stat:
+            color = colors.RED
+        elif 'branch' in f.stat:
+            color = colors.MAGENTA
+        elif 'integrate' in f.stat:
+            color = colors.CYAN
+        if f.mvfrom:
+            print('\t{}{: <{statlen}} {}{}{} -> {}{}{}'.format(colors.YELLOW, f.stat,
+                                                               colors.RED, f.mvfrom, colors.OFF,
+                                                               colors.GREEN, f.name, colors.OFF,
+                                                               statlen=statlen))
+        else:
+            print('\t{}{: <{statlen}} {}{}'.format(color, f.stat, f.name, colors.OFF, statlen=statlen))
+
+if opened:
+    for chnum, files in opened.items():
+        print('\n{}[ {} ]{}'.format(colors.BOLD, chnum, colors.OFF))
+        print_files(files)
+if unopened:
+    print('\n{}[ unopened ]{}'.format(colors.REDBOLD, colors.OFF))
+    print_files(unopened)
+if unopened or opened:
+    print('')
+
+sys.exit(child.returncode)

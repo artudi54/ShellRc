@@ -93,9 +93,6 @@ export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 # pass
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
-# P4
-export P4ENVIRO="$XDG_CONFIG_HOME"/p4enviro
-
 # python-pylint
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 

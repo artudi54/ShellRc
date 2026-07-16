@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+p4_dir="$(dirname "$(readlink -f "$0")")"
+source "$p4_dir/../lib/real-p4.sh"
+
+p4bin="$(find-real-p4)" || true
+if [[ -z "$p4bin" ]]; then
+    echo "p4: real p4 binary not found on PATH" >&2
+    exit 127
+fi
+
+cmd="${1-}"
+helper="$p4_dir/../lib/bp4o/p4-$cmd"
+if [[ -n "$cmd" && -x "$helper" ]]; then
+    exec "$helper" "$p4bin" "$@"
+else
+    exec "$p4bin" "$@"
+fi
+

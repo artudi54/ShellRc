@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+export LESS=${LESS-"-FRX"}
+$@ | less
+exit $?

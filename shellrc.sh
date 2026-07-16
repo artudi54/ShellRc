@@ -63,6 +63,7 @@ load-component less
 load-component ls
 load-component mediainfo
 load-component npm
+load-component p4
 load-component python
 load-component screen
 load-component sudo
