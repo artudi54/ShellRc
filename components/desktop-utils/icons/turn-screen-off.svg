@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Turn screen off</title>
+  <desc>A flat KDE Breeze-style icon of a monitor with a power symbol, representing turning the screen off.</desc>
+
+  <!-- monitor body -->
+  <rect x="6" y="8" width="36" height="24" rx="2" fill="#31363b"/>
+  <rect x="6" y="8" width="36" height="24" rx="2" fill="none" stroke="#232629" stroke-width="1"/>
+
+  <!-- screen (off = dark, subtle inset) -->
+  <rect x="9" y="11" width="30" height="18" rx="1" fill="#1b1e20"/>
+
+  <!-- stand neck -->
+  <path d="M20 32 L28 32 L30 38 L18 38 Z" fill="#31363b"/>
+
+  <!-- base -->
+  <rect x="14" y="38" width="20" height="3" rx="1.5" fill="#31363b"/>
+
+  <!-- power glyph on screen, breeze red/orange accent for "off" state -->
+  <g transform="translate(24,20)">
+    <path d="M 4.015 -5.734 A 7 7 0 1 1 -4.015 -5.734" fill="none"
+          stroke="#da4453" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="0" y1="-9" x2="0" y2="-1" stroke="#da4453" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+</svg>
