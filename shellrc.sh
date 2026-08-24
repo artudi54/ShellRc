@@ -56,6 +56,7 @@ load-component ark
 load-component dolphin
 load-component emacs
 load-component fastfetch
+load-component fonts
 load-component gcc
 load-component git
 load-component go
