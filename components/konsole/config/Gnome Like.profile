@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=Tango Modified
-Font=Monospace,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+Font=0xProto,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 TabColor=27,30,32,0
 UseFontLineChararacters=true
 
