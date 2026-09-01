@@ -7,14 +7,16 @@ sudo pacman-key --init
 echo "Installing build utils"
 sudo pacman -S --needed --noconfirm git base-devel
 
-echo "Installing yay"
-(
-    tmpdir="$(mktemp -d)"
-    trap 'rm -rf "$tmpdir"' EXIT
-    git clone https://aur.archlinux.org/yay.git "$tmpdir/yay"
-    cd "$tmpdir/yay"
-    makepkg -si --noconfirm
-)
+if ! command -v yay >/dev/null 2>&1; then
+    echo "Installing yay"
+    (
+        tmpdir="$(mktemp -d)"
+        trap 'rm -rf "$tmpdir"' EXIT
+        git clone https://aur.archlinux.org/yay.git "$tmpdir/yay"
+        cd "$tmpdir/yay"
+        makepkg -si --noconfirm
+    )
+fi
 
 echo "Installing snap"
 yay -S --noconfirm snapd
